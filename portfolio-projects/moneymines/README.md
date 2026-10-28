@@ -11,8 +11,8 @@
 | 1 | Repository inspection & folder structure | ✅ Done |
 | 2 | Brand identity, design tokens, screen map, reward rules | ✅ Done and approved (Strike mark, field-survey direction) |
 | 3 | Core screens: dashboard, transactions, rewards, redemption | ✅ Done and approved |
-| 4 | Remaining screens, mockups, prototype, Behance case study | ✅ Done: 51 screens and states, 24/24 automated checks passing, awaiting review |
-| 5 | Quality checks & final report | Not started |
+| 4 | Remaining screens, mockups, prototype, Behance case study | ✅ Done and approved |
+| 5 | Final audit & handoff | ✅ Done: see [`documentation/final-audit.md`](documentation/final-audit.md), awaiting approval |
 
 ## Product brief
 

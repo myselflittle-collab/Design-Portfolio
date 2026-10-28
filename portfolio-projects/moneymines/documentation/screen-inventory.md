@@ -1,6 +1,6 @@
 # MoneyMines: Screen Map & Information Architecture
 
-Frame: 390 × 844 (mobile). Each screen has an ID that is reused in file names (`design/screens/S07-merchant-payment.svg`), exports and the prototype.
+Frame: 390 × 844 (mobile). Each screen has an ID that is reused in file names (`design/screens/S07-merchant-payment.html`), exports and the prototype.
 
 ## Navigation model
 

@@ -2,7 +2,7 @@
 
 > Self-initiated concept. MoneyMines is a fictional product and not a financial service.
 
-**Status:** Strike is the recommended mark. It is **pending approval** before the app screens are built (Stage 3).
+**Status:** Strike was approved as the MoneyMines mark on 28 Oct 2026 and is used across all screens and presentation material.
 
 ## 1. Idea
 
