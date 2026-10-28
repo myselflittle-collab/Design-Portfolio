@@ -71,8 +71,20 @@ Stage key: **3** means built in Stage 3 (core), **4** means built in Stage 4 (re
 4. **Reversal:** S21 notification → S11 (reversed, ₹17.00) → S17
 5. **Referral:** S13 → S16 → share sheet (demo)
 
-## Build status (after Stage 3)
+## Build status (after Stage 4): complete
 
-**Built (21 frames):** S03 Home and Home loading · S05 · S06 · S07 · S08 · S10 · S11 in five states (`-09` successful with pending reward, `-06` successful under the cap, `-13` pending, `-07` failed, `-12` cancelled, `-05` reversed) · S12 Activity and empty filter · S13 · S15 · S17 · S18 · S19 review · S19 simulated confirmation.
+**51 frames** in `design/screens/`, all generated from `sample-data.json`:
 
-**Remaining for Stage 4:** S01 Onboarding · S02 Sign-up/login (with OTP error) · S04 Wallet · S09 Partner shopping · S14 Offer details · S16 Referrals · S20 Redemption history · S21 Notifications · S22 Profile, security & help · error states for input validation · empty states for S13, S16, S20, S21.
+| Group | Files |
+|---|---|
+| First run | S01-onboarding-1/2/3 · S02-signup · S02-otp · **S02-otp-error** |
+| Home | S03-home · **S03-home-loading** · S04-wallet · S21-notifications · **S21-notifications-empty** |
+| Paying | S05-pay · S06-bill-payment · **S06-bill-error** · S07-merchant-payment · S08-transfer · S09-partners (incl. a paused offer) · S14-offer-details |
+| Review (one per flow) | S10-review (partner) · S10-review-bill · S10-review-merchant · S10-review-transfer |
+| Receipts (all 13 transactions) | S11-receipt-01 … -13: successful (01, 02, 03, 04, 06, 08, 09, 10, 11) · **pending (13) · failed (07) · cancelled (12) · reversed (05)** |
+| Activity | S12-activity · **S12-activity-empty** |
+| Rewards | S13-rewards · **S13-rewards-empty** · S15-points · S15-points-convert-hypothetical (HYP-02) · S17-pending · S16-referrals · **S16-referrals-empty** |
+| Redemption | S18-redeem · S18-in-app-preview · S19-redeem-review (HYP-01) · S19-redeem-confirmation (HYP-01) · S20-redemption-history · **S20-redemption-history-empty** |
+| Profile | S22-profile (preferences, security, help) |
+
+Bold entries are loading, empty, error or non-success states.

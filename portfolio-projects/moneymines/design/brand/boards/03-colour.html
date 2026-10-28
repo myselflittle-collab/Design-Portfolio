@@ -11,22 +11,22 @@ html,body{width:1600px;height:1000px;overflow:hidden}
 body{background:var(--mm-paper-50);color:var(--mm-charcoal-900);font-family:var(--mm-font-text);-webkit-font-smoothing:antialiased}
 .board{position:relative;width:1600px;height:1000px;padding:64px 80px}
 .board.dark{background:var(--mm-forest-950);color:var(--mm-paper-50)}
-.hdr{display:flex;justify-content:space-between;align-items:baseline;font:500 12px/16px var(--mm-font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--mm-charcoal-500)}
+.hdr{display:flex;justify-content:space-between;align-items:baseline;font:500 16px/21px var(--mm-font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--mm-charcoal-500)}
 .dark .hdr,.dark .ftr{color:var(--mm-forest-200)}
-.ftr{position:absolute;left:80px;right:80px;bottom:40px;display:flex;justify-content:space-between;font:400 12px/16px var(--mm-font-text);color:var(--mm-charcoal-500)}
+.ftr{position:absolute;left:80px;right:80px;bottom:40px;display:flex;justify-content:space-between;font:400 16px/21px var(--mm-font-text);color:var(--mm-charcoal-500)}
 h1{font:500 56px/60px var(--mm-font-display);letter-spacing:-.025em;margin-top:28px}
-.lede{font:400 18px/28px var(--mm-font-text);color:var(--mm-charcoal-600);max-width:720px;margin-top:14px}
+.lede{font:400 21px/33px var(--mm-font-text);color:var(--mm-charcoal-600);max-width:720px;margin-top:14px}
 .dark .lede{color:var(--mm-forest-200)}
-.ov{font:500 11px/16px var(--mm-font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--mm-charcoal-500)}
+.ov{font:500 15px/22px var(--mm-font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--mm-charcoal-500)}
 .num{font-family:var(--mm-font-display);font-variant-numeric:tabular-nums;font-weight:500;letter-spacing:-.01em}
 .card{background:var(--mm-paper-0);border:1px solid var(--mm-paper-200);border-radius:20px}
-.chip{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px 0 8px;border-radius:999px;font:500 13px/16px var(--mm-font-text)}
+.chip{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px 0 8px;border-radius:999px;font:500 17px/21px var(--mm-font-text)}
 .c-success{background:var(--mm-status-success-bg);color:var(--mm-status-success-fg)}
 .c-pending{background:var(--mm-status-pending-bg);color:var(--mm-status-pending-fg)}
 .c-failed{background:var(--mm-status-failed-bg);color:var(--mm-status-failed-fg)}
 .c-reversed{background:var(--mm-status-reversed-bg);color:var(--mm-status-reversed-fg)}
 .c-cancelled{background:var(--mm-status-cancelled-bg);color:var(--mm-status-cancelled-fg)}
-.tag{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;background:var(--mm-lime-400);color:var(--mm-charcoal-900);font:500 12px/16px var(--mm-font-display);letter-spacing:.06em;text-transform:uppercase}
+.tag{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px;border-radius:999px;background:var(--mm-lime-400);color:var(--mm-charcoal-900);font:500 16px/21px var(--mm-font-display);letter-spacing:.06em;text-transform:uppercase}
 </style></head>
 <body><div class="board">
 <div class="hdr"><span>MoneyMines · Colour</span><span>03 / 05</span></div>
@@ -36,49 +36,49 @@ h1{font:500 56px/60px var(--mm-font-display);letter-spacing:-.025em;margin-top:2
 <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:40px;margin-top:40px">
   <div>
     <div style="display:flex;gap:12px"><div style="flex:1;height:132px;border-radius:14px;background:#0B2219;color:#F7F4EC;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
-      <span style="font:500 13px/16px var(--mm-font-text)">Forest 950</span>
-      <span><span class="num" style="font-size:16px;display:block">#0B2219</span><span style="font:400 12px/16px var(--mm-font-text);opacity:.82">Dark surfaces, icon</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#164029;color:#F7F4EC;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
-      <span style="font:500 13px/16px var(--mm-font-text)">Forest 800</span>
-      <span><span class="num" style="font-size:16px;display:block">#164029</span><span style="font:400 12px/16px var(--mm-font-text);opacity:.82">Primary action</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#1D5235;color:#F7F4EC;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
-      <span style="font:500 13px/16px var(--mm-font-text)">Forest 700</span>
-      <span><span class="num" style="font-size:16px;display:block">#1D5235</span><span style="font:400 12px/16px var(--mm-font-text);opacity:.82">Rewards, links</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#1A1D1F;color:#F7F4EC;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
-      <span style="font:500 13px/16px var(--mm-font-text)">Charcoal 900</span>
-      <span><span class="num" style="font-size:16px;display:block">#1A1D1F</span><span style="font:400 12px/16px var(--mm-font-text);opacity:.82">Text, wallet funds</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#4A5055;color:#F7F4EC;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
-      <span style="font:500 13px/16px var(--mm-font-text)">Charcoal 600</span>
-      <span><span class="num" style="font-size:16px;display:block">#4A5055</span><span style="font:400 12px/16px var(--mm-font-text);opacity:.82">Secondary text</span></span></div></div>
+      <span style="font:500 17px/21px var(--mm-font-text)">Forest 950</span>
+      <span><span class="num" style="font-size:19px;display:block">#0B2219</span><span style="font:400 16px/21px var(--mm-font-text);opacity:.82">Dark surfaces, icon</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#164029;color:#F7F4EC;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
+      <span style="font:500 17px/21px var(--mm-font-text)">Forest 800</span>
+      <span><span class="num" style="font-size:19px;display:block">#164029</span><span style="font:400 16px/21px var(--mm-font-text);opacity:.82">Primary action</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#1D5235;color:#F7F4EC;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
+      <span style="font:500 17px/21px var(--mm-font-text)">Forest 700</span>
+      <span><span class="num" style="font-size:19px;display:block">#1D5235</span><span style="font:400 16px/21px var(--mm-font-text);opacity:.82">Rewards, links</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#1A1D1F;color:#F7F4EC;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
+      <span style="font:500 17px/21px var(--mm-font-text)">Charcoal 900</span>
+      <span><span class="num" style="font-size:19px;display:block">#1A1D1F</span><span style="font:400 16px/21px var(--mm-font-text);opacity:.82">Text, wallet funds</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#4A5055;color:#F7F4EC;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
+      <span style="font:500 17px/21px var(--mm-font-text)">Charcoal 600</span>
+      <span><span class="num" style="font-size:19px;display:block">#4A5055</span><span style="font:400 16px/21px var(--mm-font-text);opacity:.82">Secondary text</span></span></div></div>
     <div style="display:flex;gap:12px;margin-top:12px"><div style="flex:1;height:132px;border-radius:14px;background:#F7F4EC;color:#1A1D1F;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid #E2DDCF">
-      <span style="font:500 13px/16px var(--mm-font-text)">Paper 50</span>
-      <span><span class="num" style="font-size:16px;display:block">#F7F4EC</span><span style="font:400 12px/16px var(--mm-font-text);opacity:.82">Canvas</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#FFFDF8;color:#1A1D1F;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid #E2DDCF">
-      <span style="font:500 13px/16px var(--mm-font-text)">Paper 0</span>
-      <span><span class="num" style="font-size:16px;display:block">#FFFDF8</span><span style="font:400 12px/16px var(--mm-font-text);opacity:.82">Cards</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#EFEBE0;color:#1A1D1F;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid #E2DDCF">
-      <span style="font:500 13px/16px var(--mm-font-text)">Paper 100</span>
-      <span><span class="num" style="font-size:16px;display:block">#EFEBE0</span><span style="font:400 12px/16px var(--mm-font-text);opacity:.82">Sunken, input</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#E2DDCF;color:#1A1D1F;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
-      <span style="font:500 13px/16px var(--mm-font-text)">Paper 200</span>
-      <span><span class="num" style="font-size:16px;display:block">#E2DDCF</span><span style="font:400 12px/16px var(--mm-font-text);opacity:.82">Hairlines</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#C5EE4A;color:#1A1D1F;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
-      <span style="font:500 13px/16px var(--mm-font-text)">Lime 400</span>
-      <span><span class="num" style="font-size:16px;display:block">#C5EE4A</span><span style="font:400 12px/16px var(--mm-font-text);opacity:.82">Reward accent only</span></span></div></div>
+      <span style="font:500 17px/21px var(--mm-font-text)">Paper 50</span>
+      <span><span class="num" style="font-size:19px;display:block">#F7F4EC</span><span style="font:400 16px/21px var(--mm-font-text);opacity:.82">Canvas</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#FFFDF8;color:#1A1D1F;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid #E2DDCF">
+      <span style="font:500 17px/21px var(--mm-font-text)">Paper 0</span>
+      <span><span class="num" style="font-size:19px;display:block">#FFFDF8</span><span style="font:400 16px/21px var(--mm-font-text);opacity:.82">Cards</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#EFEBE0;color:#1A1D1F;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid #E2DDCF">
+      <span style="font:500 17px/21px var(--mm-font-text)">Paper 100</span>
+      <span><span class="num" style="font-size:19px;display:block">#EFEBE0</span><span style="font:400 16px/21px var(--mm-font-text);opacity:.82">Sunken, input</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#E2DDCF;color:#1A1D1F;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
+      <span style="font:500 17px/21px var(--mm-font-text)">Paper 200</span>
+      <span><span class="num" style="font-size:19px;display:block">#E2DDCF</span><span style="font:400 16px/21px var(--mm-font-text);opacity:.82">Hairlines</span></span></div><div style="flex:1;height:132px;border-radius:14px;background:#C5EE4A;color:#1A1D1F;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
+      <span style="font:500 17px/21px var(--mm-font-text)">Lime 400</span>
+      <span><span class="num" style="font-size:19px;display:block">#C5EE4A</span><span style="font:400 16px/21px var(--mm-font-text);opacity:.82">Reward accent only</span></span></div></div>
     <div style="display:flex;gap:12px;margin-top:28px">
-      <div class="card" style="flex:1;padding:18px 20px;font:400 14px/20px var(--mm-font-text);color:var(--mm-charcoal-700)"><span class="num" style="font-size:22px;color:var(--mm-charcoal-900)">15.42:1</span><br>Body text on canvas</div>
-      <div class="card" style="flex:1;padding:18px 20px;font:400 14px/20px var(--mm-font-text);color:var(--mm-charcoal-700)"><span class="num" style="font-size:22px;color:var(--mm-charcoal-900)">10.62:1</span><br>Primary button label</div>
-      <div style="flex:1;padding:18px 20px;border-radius:20px;background:var(--mm-forest-950);font:400 14px/20px var(--mm-font-text);color:var(--mm-forest-200)"><span class="num" style="font-size:22px;color:var(--mm-lime-400)">12.49:1</span><br>Lime figure on dark</div>
-      <div class="card" style="flex:1;padding:18px 20px;font:400 14px/20px var(--mm-font-text);color:var(--mm-charcoal-700)"><span class="num" style="font-size:22px;color:var(--mm-charcoal-900)">4.9:1</span><br>Lowest text pair used</div>
+      <div class="card" style="flex:1;padding:18px 20px;font:400 18px/26px var(--mm-font-text);color:var(--mm-charcoal-700)"><span class="num" style="font-size:22px;color:var(--mm-charcoal-900)">15.42:1</span><br>Body text on canvas</div>
+      <div class="card" style="flex:1;padding:18px 20px;font:400 18px/26px var(--mm-font-text);color:var(--mm-charcoal-700)"><span class="num" style="font-size:22px;color:var(--mm-charcoal-900)">10.62:1</span><br>Primary button label</div>
+      <div style="flex:1;padding:18px 20px;border-radius:20px;background:var(--mm-forest-950);font:400 18px/26px var(--mm-font-text);color:var(--mm-forest-200)"><span class="num" style="font-size:22px;color:var(--mm-lime-400)">12.49:1</span><br>Lime figure on dark</div>
+      <div class="card" style="flex:1;padding:18px 20px;font:400 18px/26px var(--mm-font-text);color:var(--mm-charcoal-700)"><span class="num" style="font-size:22px;color:var(--mm-charcoal-900)">4.9:1</span><br>Lowest text pair used</div>
     </div>
   </div>
   <div class="card" style="padding:24px 28px">
     <div class="ov">Status: label + icon + colour</div>
-    <p style="font:400 14px/20px var(--mm-font-text);color:var(--mm-charcoal-600);margin:8px 0 6px">Every status survives greyscale and colour-blind viewing because the word and the icon carry the meaning. All pairs pass WCAG AA.</p>
+    <p style="font:400 18px/26px var(--mm-font-text);color:var(--mm-charcoal-600);margin:8px 0 6px">Every status survives greyscale and colour-blind viewing because the word and the icon carry the meaning. All pairs pass WCAG AA.</p>
     <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
       <span class="chip c-success"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Successful</span>
-      <span class="num" style="font-size:13px;color:var(--mm-charcoal-600)">#1D5235 on #DDEBE0 · 7.4:1</span></div><div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
+      <span class="num" style="font-size:17px;color:var(--mm-charcoal-600)">#1D5235 on #DDEBE0 · 7.4:1</span></div><div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
       <span class="chip c-pending"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path d="M12 7.5V12l3 2"/></svg>Pending</span>
-      <span class="num" style="font-size:13px;color:var(--mm-charcoal-600)">#7A4F00 on #FAEBC6 · 6.0:1</span></div><div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
+      <span class="num" style="font-size:17px;color:var(--mm-charcoal-600)">#7A4F00 on #FAEBC6 · 6.0:1</span></div><div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
       <span class="chip c-failed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path d="M9 9l6 6M15 9l-6 6"/></svg>Failed</span>
-      <span class="num" style="font-size:13px;color:var(--mm-charcoal-600)">#A3261C on #FBE3DF · 6.0:1</span></div><div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
+      <span class="num" style="font-size:17px;color:var(--mm-charcoal-600)">#A3261C on #FBE3DF · 6.0:1</span></div><div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
       <span class="chip c-reversed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5.5L4.5 10 9 14.5"/><path d="M4.5 10H14a5.5 5.5 0 010 11h-3"/></svg>Reversed</span>
-      <span class="num" style="font-size:13px;color:var(--mm-charcoal-600)">#2B5170 on #DCE7EF · 6.7:1</span></div><div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
+      <span class="num" style="font-size:17px;color:var(--mm-charcoal-600)">#2B5170 on #DCE7EF · 6.7:1</span></div><div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
       <span class="chip c-cancelled"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path d="M6.2 17.8L17.8 6.2"/></svg>Cancelled</span>
-      <span class="num" style="font-size:13px;color:var(--mm-charcoal-600)">#4A5055 on #E9E7E0 · 6.6:1</span></div>
+      <span class="num" style="font-size:17px;color:var(--mm-charcoal-600)">#4A5055 on #E9E7E0 · 6.6:1</span></div>
   </div>
 </div>
-<div class="ftr"><span>Self-initiated concept · fictional product · not a financial service</span><span>Brand &amp; product design: Purnananda Mishra</span></div>
+<div class="ftr"><span>Self-initiated concept · fictional product · not a financial service</span><span>Concept &amp; art direction: Purnananda Mishra · AI-assisted design and production</span></div>
 </div></body></html>

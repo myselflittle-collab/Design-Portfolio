@@ -118,3 +118,16 @@ Each of these appears identically on the receipt, the rewards dashboard and rewa
 **Expiry notice (calm, not urgent):** ₹40.00 of the brought-forward balance expires on 12 Nov 2026. It's shown as a dated fact with no timer.
 
 Wallet: opening balance on 1 Oct was ₹27,742.50. Successful and pending debits came to ₹15,262.00, giving a closing balance of **₹12,480.50**. Failed, cancelled and reversed transactions are not debited.
+
+---
+
+## 7. Hypothetical scenarios (not part of the snapshot)
+
+| ID | Scenario | Effect shown on screen | Screens |
+|----|----------|------------------------|---------|
+| HYP-01 | Redeem a ₹100 Loomhouse voucher | Confirmed ₹222.00 → ₹122.00 | S19-redeem-review, S19-redeem-confirmation |
+| HYP-02 | Convert 500 pts | Points 1,240 → 740 · confirmed ₹222.00 → ₹272.00 | S15-points-convert-hypothetical |
+
+Both are stored under `hypothetical_scenarios` in `sample-data.json` with `in_snapshot: false`. They are previews of what *would* happen. Redemption history and every other screen still show the 28 Oct snapshot.
+
+**S18 bill preview:** the in-app benefit preview uses an illustrative next bill of ₹1,840.00 (the same amount as October's Metro Power bill) with ₹100.00 of rewards applied, giving ₹1,740.00. It is labelled "Preview only".

@@ -1,10 +1,5 @@
 /* MoneyMines screen kit: frame and component styles. Uses tokens from ../../components/tokens.css */
-@font-face{font-family:'Space Grotesk';font-weight:400;src:url('../../brand/fonts/SpaceGrotesk-Regular.otf')}
-@font-face{font-family:'Space Grotesk';font-weight:500;src:url('../../brand/fonts/SpaceGrotesk-Medium.otf')}
-@font-face{font-family:'Space Grotesk';font-weight:700;src:url('../../brand/fonts/SpaceGrotesk-Bold.otf')}
-@font-face{font-family:'Inter';font-weight:400;src:url('../../brand/fonts/Inter-Regular.otf')}
-@font-face{font-family:'Inter';font-weight:500;src:url('../../brand/fonts/Inter-Medium.otf')}
-@font-face{font-family:'Inter';font-weight:600;src:url('../../brand/fonts/Inter-SemiBold.otf')}
+@import url('fonts-embedded.css'); /* fonts embedded as data URIs so screens render when opened from disk */
 
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:#d9d6cc}
@@ -135,3 +130,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ---------- caption shown under exported frames (hidden in-app) ---------- */
 .frame-label{display:none}
+
+/* ---------- demo toast (actions outside the concept's scope) ---------- */
+.toast{position:absolute;left:20px;right:20px;bottom:104px;z-index:50;background:var(--mm-charcoal-900);color:var(--mm-paper-50);border-radius:14px;padding:12px 14px;font:500 13px/18px var(--mm-font-text);box-shadow:var(--mm-elevation-e2)}
+/* ---------- toggles ---------- */
+.toggle{width:44px;height:26px;border-radius:13px;background:var(--mm-charcoal-400);position:relative;flex:none}
+.toggle::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--mm-paper-0)}
+.toggle.on{background:var(--mm-forest-700)}.toggle.on::after{left:21px}
+.row-link{display:grid;grid-template-columns:24px 1fr auto;gap:12px;align-items:center;padding:14px 0}
+.row-link+.row-link{border-top:1px solid var(--mm-border-default)}
+.otp{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.otp span{height:56px;border-radius:12px;background:var(--mm-bg-sunken);border:1.5px solid var(--mm-charcoal-400);display:grid;place-items:center;font:500 24px/1 var(--mm-font-display)}
+.pager{display:flex;gap:6px;justify-content:center}.pager i{width:8px;height:8px;border-radius:4px;background:var(--mm-charcoal-300)}.pager i.on{width:24px;background:var(--mm-forest-800)}

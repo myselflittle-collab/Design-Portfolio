@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>MoneyMines · Journey mockup</title>
+<link rel="stylesheet" href="../../design/components/tokens.css"><style>
+@import url('../../design/screens/assets/fonts-embedded.css');
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1600px;font-family:var(--mm-font-text);color:var(--mm-charcoal-900);background:var(--mm-paper-50);-webkit-font-smoothing:antialiased}
+.slide{position:relative;width:1600px;padding:96px 104px 120px;overflow:hidden}
+.dark{background:var(--mm-forest-950);color:var(--mm-paper-50)}
+.pattern{background:var(--mm-forest-950) url('../../design/brand/pattern-survey-lines-dark.svg') right top/1400px auto no-repeat}
+.ov{font:500 18px/24px var(--mm-font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--mm-forest-700)}
+.dark .ov{color:var(--mm-lime-400)}
+h1{font:500 72px/78px var(--mm-font-display);letter-spacing:-.03em}
+h2{font:500 56px/62px var(--mm-font-display);letter-spacing:-.025em;margin-top:18px}
+h3{font:500 30px/36px var(--mm-font-display);letter-spacing:-.01em}
+p,li{font:400 24px/36px var(--mm-font-text);color:var(--mm-charcoal-700)}
+.dark p,.dark li{color:var(--mm-forest-200)}
+.lede{font-size:28px;line-height:42px;max-width:1100px;margin-top:22px}
+.small{font-size:22px;line-height:32px}
+.num{font-family:var(--mm-font-display);font-weight:500;font-variant-numeric:tabular-nums}
+.card{background:var(--mm-paper-0);border:1px solid var(--mm-paper-200);border-radius:28px;padding:36px}
+.dcard{background:var(--mm-forest-900);border-radius:28px;padding:36px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.tag{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:999px;background:var(--mm-lime-400);color:var(--mm-charcoal-900);font:500 18px/1 var(--mm-font-display);letter-spacing:.06em;text-transform:uppercase}
+.ftr{position:absolute;left:104px;right:104px;bottom:44px;display:flex;justify-content:space-between;font:400 18px/24px var(--mm-font-text);color:var(--mm-charcoal-500)}
+.dark .ftr{color:var(--mm-forest-200)}
+.phone{flex:none;border-radius:var(--r);background:var(--mm-charcoal-950);padding:var(--b);box-shadow:0 40px 80px rgba(11,34,25,.22),0 2px 0 rgba(255,255,255,.06) inset;position:relative}
+.phone img{display:block;width:100%;border-radius:calc(var(--r) - var(--b))}
+.phone::before{content:"";position:absolute;right:calc(var(--b) * -0.45);top:22%;width:calc(var(--b) * .45);height:9%;border-radius:0 4px 4px 0;background:var(--mm-charcoal-800)}
+.cap{font:500 22px/30px var(--mm-font-text);color:var(--mm-charcoal-800);margin-top:22px}
+.cap span{display:block;font-weight:400;color:var(--mm-charcoal-600);font-size:20px;line-height:28px;margin-top:4px}
+.dark .cap{color:var(--mm-paper-50)}.dark .cap span{color:var(--mm-forest-200)}
+.arrow{flex:none;color:var(--mm-forest-600);align-self:center}
+.hyp{display:inline-flex;gap:10px;align-items:center;border:2px dashed var(--mm-status-pending-fg);background:var(--mm-status-pending-bg);color:var(--mm-status-pending-fg);border-radius:16px;padding:12px 18px;font:500 20px/28px var(--mm-font-text)}
+table{border-collapse:collapse;width:100%}
+td,th{text-align:left;padding:14px 0;border-bottom:1px solid var(--mm-paper-200);font:400 22px/30px var(--mm-font-text)}
+th{font:500 16px/22px var(--mm-font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--mm-charcoal-500)}
+td.r{text-align:right}
+</style></head><body><div class="slide" style="height:1100px;background:var(--mm-paper-100)">
+  <div class="ov">Transaction → reward</div>
+  <div style="display:flex;align-items:flex-start;gap:20px;margin-top:48px">
+    <div style="flex:none;width:300px"><div class="phone" style="width:300px;--r:40px;--b:9px"><img src="../../exports/screens/S10-review.png" alt=""></div><div class="cap">Review<span>Expected cashback shown before paying, cap included</span></div></div><div class="arrow" style="margin-top:290px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div style="flex:none;width:300px"><div class="phone" style="width:300px;--r:40px;--b:9px"><img src="../../exports/screens/S11-receipt-09.png" alt=""></div><div class="cap">Receipt<span>₹129.98 capped to ₹100.00, pending until 5 Nov</span></div></div><div class="arrow" style="margin-top:290px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div style="flex:none;width:300px"><div class="phone" style="width:300px;--r:40px;--b:9px"><img src="../../exports/screens/S17-pending.png" alt=""></div><div class="cap">Pending & eligibility<span>Why it waits, and every not-eligible reason</span></div></div><div class="arrow" style="margin-top:290px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div style="flex:none;width:300px"><div class="phone" style="width:300px;--r:40px;--b:9px"><img src="../../exports/screens/S13-rewards.png" alt=""></div><div class="cap">Rewards<span>Confirmed ₹222.00 and pending ₹120.00, never merged</span></div></div>
+  </div></div></body></html>

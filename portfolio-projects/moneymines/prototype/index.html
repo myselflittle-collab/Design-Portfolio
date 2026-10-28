@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MoneyMines · Prototype</title>
+<link rel="stylesheet" href="../design/components/tokens.css">
+<link rel="stylesheet" href="../design/screens/assets/fonts-embedded.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--mm-paper-100);color:var(--mm-charcoal-900);font-family:var(--mm-font-text);display:grid;grid-template-columns:340px 1fr;min-height:100vh}
+aside{background:var(--mm-paper-0);border-right:1px solid var(--mm-paper-200);padding:24px 22px;overflow:auto;max-height:100vh}
+.brand{display:flex;align-items:center;gap:10px;font:500 20px/1 var(--mm-font-display);letter-spacing:-.01em}
+.brand i{width:12px;height:12px;background:var(--mm-lime-400);transform:rotate(45deg);outline:1.5px solid var(--mm-forest-800)}
+.note{margin-top:14px;padding:12px;border-radius:12px;background:var(--mm-paper-100);font:400 13px/18px var(--mm-font-text);color:var(--mm-charcoal-700)}
+h2{font:500 11px/16px var(--mm-font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--mm-charcoal-500);margin:22px 0 8px}
+.flow{display:block;width:100%;text-align:left;border:1px solid var(--mm-paper-200);background:var(--mm-paper-0);border-radius:12px;padding:10px 12px;margin-bottom:8px;cursor:pointer;font:inherit;color:inherit}
+.flow b{display:block;font:600 14px/19px var(--mm-font-text)}
+.flow span{display:block;font:400 12px/16px var(--mm-font-text);color:var(--mm-charcoal-600);margin-top:2px}
+.flow:hover,.flow:focus-visible{border-color:var(--mm-forest-600);outline:none}
+.flow.on{border-color:var(--mm-forest-700);box-shadow:inset 3px 0 0 var(--mm-forest-700)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{border:1px solid var(--mm-paper-200);background:var(--mm-paper-0);border-radius:999px;padding:5px 10px;font:500 12px/16px var(--mm-font-text);cursor:pointer;color:inherit}
+.chips button:hover,.chips button:focus-visible{border-color:var(--mm-forest-600);outline:none}
+select{width:100%;height:40px;border-radius:10px;border:1.5px solid var(--mm-charcoal-400);background:var(--mm-paper-0);padding:0 10px;font:inherit}
+main{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:16px}
+.bar{display:flex;align-items:center;gap:10px;font:400 14px/20px var(--mm-font-text)}
+.bar button{height:38px;padding:0 14px;border-radius:10px;border:1.5px solid var(--mm-charcoal-400);background:var(--mm-paper-0);font:600 14px/1 var(--mm-font-text);cursor:pointer;color:inherit}
+.bar button.primary{background:var(--mm-forest-800);border-color:var(--mm-forest-800);color:var(--mm-paper-50)}
+.bar .cur{min-width:260px;text-align:center}
+.bar .cur b{font-weight:600}
+.phone{width:414px;height:868px;border-radius:56px;background:var(--mm-charcoal-950);padding:12px;box-shadow:0 30px 60px rgba(11,34,25,.25)}
+.phone iframe{width:390px;height:844px;border:0;border-radius:44px;display:block;background:var(--mm-paper-50)}
+.steps{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:640px}
+.steps button{border:0;background:var(--mm-paper-0);border-radius:999px;padding:4px 10px;font:500 12px/16px var(--mm-font-text);cursor:pointer;color:var(--mm-charcoal-700)}
+.steps button.on{background:var(--mm-forest-800);color:var(--mm-paper-50)}
+.foot{font:400 12px/16px var(--mm-font-text);color:var(--mm-charcoal-500);text-align:center}
+@media (max-width:900px){body{grid-template-columns:1fr}aside{max-height:none;border-right:0;border-bottom:1px solid var(--mm-paper-200)}.phone{transform:scale(.8);transform-origin:top center;margin-bottom:-170px}}
+</style></head><body>
+<aside aria-label="Prototype navigation">
+  <div class="brand"><i></i>MoneyMines prototype</div>
+  <div class="note"><b>Self-initiated concept.</b> Every payment, reward and person is fictional and simulated. No money moves and nothing is sent.<br><br>
+  Tap inside the phone to use the app. Actions outside the concept's scope (share, add money, settings) show a short note instead of a dead link.</div>
+  <h2>Guided flows</h2><div id="flows"></div>
+  <h2>States</h2><div id="states"></div>
+  <h2>Jump to any screen</h2><select id="all" aria-label="Jump to any screen"></select>
+</aside>
+<main>
+  <div class="bar">
+    <button id="back" type="button" aria-label="Back">← Back</button>
+    <div class="cur" aria-live="polite"><b id="cur-id">S01</b> · <span id="cur-title">Loading…</span></div>
+    <button id="restart" class="primary" type="button">Restart</button>
+  </div>
+  <div class="phone"><iframe id="app" title="MoneyMines app screen" src="../design/screens/S01-onboarding-1.html"></iframe></div>
+  <div class="steps" id="steps" aria-label="Steps in this flow"></div>
+  <div class="foot">Concept &amp; art direction: Purnananda Mishra · AI-assisted design and production</div>
+</main>
+<script>
+var FLOWS=[["Start here: first run", "Onboarding, sign-in with a demo code, then the home screen loads.", ["S01-onboarding-1", "S01-onboarding-2", "S01-onboarding-3", "S02-signup", "S02-otp", "S03-home-loading", "S03-home"]], ["Partner purchase → capped cashback", "₹6,499 × 2% = ₹129.98, capped at ₹100.00 and pending until 5 Nov.", ["S09-partners", "S10-review", "S11-receipt-09", "S17-pending"]], ["Bill after the monthly limit", "The missing bonus is explained before paying, not after.", ["S05-pay", "S06-bill-payment", "S10-review-bill", "S11-receipt-11"]], ["Scan & pay → points", "₹420 earns 8 pts in whole ₹50 steps.", ["S07-merchant-payment", "S10-review-merchant", "S11-receipt-08"]], ["Transfer to a person", "Transfers never earn rewards, and the app says so up front.", ["S08-transfer", "S10-review-transfer", "S11-receipt-04"]], ["Points → redemption (hypothetical)", "HYP-02 conversion and HYP-01 voucher. The 28 Oct snapshot never changes.", ["S13-rewards", "S15-points", "S15-points-convert-hypothetical", "S18-redeem", "S19-redeem-review", "S19-redeem-confirmation", "S20-redemption-history"]], ["Reversal", "A returned order: refund, reversed cashback and a timeline.", ["S21-notifications", "S11-receipt-05", "S17-pending"]], ["Referrals & profile", "Invite status, terms and help.", ["S22-profile", "S16-referrals", "S14-offer-details"]]], STATES=[["Loading", ["S03-home-loading"]], ["Empty", ["S12-activity-empty", "S13-rewards-empty", "S16-referrals-empty", "S20-redemption-history-empty", "S21-notifications-empty"]], ["Errors", ["S02-otp-error", "S06-bill-error"]], ["Transaction states", ["S11-receipt-09", "S11-receipt-13", "S11-receipt-07", "S11-receipt-12", "S11-receipt-05"]], ["Previews", ["S18-in-app-preview"]]], TITLES={"S01-onboarding-1": "Welcome 1 of 3", "S01-onboarding-2": "Welcome 2 of 3", "S01-onboarding-3": "Welcome 3 of 3", "S02-otp-error": "Verify code · error", "S02-otp": "Verify code", "S02-signup": "Sign up or log in", "S03-home-loading": "Home · loading", "S03-home": "Home", "S04-wallet": "Wallet", "S05-pay": "Pay", "S06-bill-error": "Bill payment · error", "S06-bill-payment": "Bill payment", "S07-merchant-payment": "Merchant payment", "S08-transfer": "Transfer", "S09-partners": "Partner shops", "S10-review-bill": "Review bill payment", "S10-review-merchant": "Review scan & pay", "S10-review-transfer": "Review transfer", "S10-review": "Review payment", "S11-receipt-01": "Receipt · Orbit Mobile", "S11-receipt-02": "Receipt · Kesar Grocers", "S11-receipt-03": "Receipt · Metro Power", "S11-receipt-04": "Receipt · Rohan S.", "S11-receipt-05": "Receipt · reversed", "S11-receipt-06": "Receipt · success", "S11-receipt-07": "Receipt · failed", "S11-receipt-08": "Receipt · Tamarind Café", "S11-receipt-09": "Receipt · success", "S11-receipt-10": "Receipt · City Water Board", "S11-receipt-11": "Receipt · Skyline Fibre", "S11-receipt-12": "Receipt · cancelled", "S11-receipt-13": "Receipt · pending", "S12-activity-empty": "Activity · no results", "S12-activity": "Activity", "S13-rewards-empty": "Rewards · first use", "S13-rewards": "Rewards", "S14-offer-details": "Offer & reward terms", "S15-points-convert-hypothetical": "Points conversion · hypothetical", "S15-points": "Points", "S16-referrals-empty": "Referrals · empty", "S16-referrals": "Referrals", "S17-pending": "Pending & eligibility", "S18-in-app-preview": "Apply rewards to a bill · preview", "S18-redeem": "Use rewards", "S19-redeem-confirmation": "Redemption recorded (simulated)", "S19-redeem-review": "Redemption review", "S20-redemption-history-empty": "Redemption history · empty", "S20-redemption-history": "Redemption history", "S21-notifications-empty": "Notifications · empty", "S21-notifications": "Notifications", "S22-profile": "Profile"};
+var app=document.getElementById('app'), activeFlow=0;
+function go(id){app.src='../design/screens/'+id+'.html';}
+function renderSteps(cur){var f=FLOWS[activeFlow],el=document.getElementById('steps');el.innerHTML='';
+  f[2].forEach(function(id,i){var b=document.createElement('button');b.type='button';b.textContent=(i+1)+'. '+id.replace(/^S(\d+)-/,'S$1 ');
+    if(id===cur)b.className='on';b.onclick=function(){go(id)};el.appendChild(b);});}
+var fl=document.getElementById('flows');
+FLOWS.forEach(function(f,i){var b=document.createElement('button');b.type='button';b.className='flow'+(i===0?' on':'');
+  b.innerHTML='<b>'+f[0]+'</b><span>'+f[1]+'</span>';
+  b.onclick=function(){activeFlow=i;[].forEach.call(fl.children,function(c,j){c.className='flow'+(j===i?' on':'')});go(f[2][0]);};fl.appendChild(b);});
+var st=document.getElementById('states');
+STATES.forEach(function(s){var w=document.createElement('div');w.style.marginBottom='10px';
+  w.innerHTML='<div style="font:600 13px/18px Inter,sans-serif;margin-bottom:6px">'+s[0]+'</div>';var c=document.createElement('div');c.className='chips';
+  s[1].forEach(function(id){var b=document.createElement('button');b.type='button';b.textContent=TITLES[id];b.onclick=function(){go(id)};c.appendChild(b);});
+  w.appendChild(c);st.appendChild(w);});
+var sel=document.getElementById('all');
+Object.keys(TITLES).forEach(function(id){var o=document.createElement('option');o.value=id;o.textContent=id+' · '+TITLES[id];sel.appendChild(o);});
+sel.onchange=function(){go(sel.value)};
+document.getElementById('restart').onclick=function(){activeFlow=0;[].forEach.call(fl.children,function(c,j){c.className='flow'+(j===0?' on':'')});go('S01-onboarding-1');};
+document.getElementById('back').onclick=function(){try{app.contentWindow.postMessage({mm:'back'},'*');}catch(e){}};
+window.addEventListener('message',function(e){if(!e.data||e.data.mm!=='screen')return;
+  document.getElementById('cur-id').textContent=e.data.id.split('-')[0];
+  document.getElementById('cur-title').textContent=e.data.title;sel.value=e.data.id;
+  var inFlow=FLOWS[activeFlow][2].indexOf(e.data.id)>-1;
+  if(!inFlow){for(var i=0;i<FLOWS.length;i++){if(FLOWS[i][2].indexOf(e.data.id)>-1){activeFlow=i;[].forEach.call(fl.children,function(c,j){c.className='flow'+(j===i?' on':'')});break;}}}
+  renderSteps(e.data.id);});
+renderSteps('S01-onboarding-1');
+function fit(){var ph=document.querySelector('.phone'),avail=window.innerHeight-150,sc=Math.min(1,Math.max(.55,avail/868));
+  if(window.innerWidth>900){ph.style.transform='scale('+sc+')';ph.style.transformOrigin='top center';ph.style.marginBottom=(-(1-sc)*868)+'px';}}
+window.addEventListener('resize',fit);fit();
+</script></body></html>

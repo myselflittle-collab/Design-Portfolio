@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>MoneyMines · 14-transparency</title>
+<link rel="stylesheet" href="../../design/components/tokens.css"><style>
+@import url('../../design/screens/assets/fonts-embedded.css');
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1600px;font-family:var(--mm-font-text);color:var(--mm-charcoal-900);background:var(--mm-paper-50);-webkit-font-smoothing:antialiased}
+.slide{position:relative;width:1600px;padding:96px 104px 120px;overflow:hidden}
+.dark{background:var(--mm-forest-950);color:var(--mm-paper-50)}
+.pattern{background:var(--mm-forest-950) url('../../design/brand/pattern-survey-lines-dark.svg') right top/1400px auto no-repeat}
+.ov{font:500 18px/24px var(--mm-font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--mm-forest-700)}
+.dark .ov{color:var(--mm-lime-400)}
+h1{font:500 72px/78px var(--mm-font-display);letter-spacing:-.03em}
+h2{font:500 56px/62px var(--mm-font-display);letter-spacing:-.025em;margin-top:18px}
+h3{font:500 30px/36px var(--mm-font-display);letter-spacing:-.01em}
+p,li{font:400 24px/36px var(--mm-font-text);color:var(--mm-charcoal-700)}
+.dark p,.dark li{color:var(--mm-forest-200)}
+.lede{font-size:28px;line-height:42px;max-width:1100px;margin-top:22px}
+.small{font-size:22px;line-height:32px}
+.num{font-family:var(--mm-font-display);font-weight:500;font-variant-numeric:tabular-nums}
+.card{background:var(--mm-paper-0);border:1px solid var(--mm-paper-200);border-radius:28px;padding:36px}
+.dcard{background:var(--mm-forest-900);border-radius:28px;padding:36px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.tag{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:999px;background:var(--mm-lime-400);color:var(--mm-charcoal-900);font:500 18px/1 var(--mm-font-display);letter-spacing:.06em;text-transform:uppercase}
+.ftr{position:absolute;left:104px;right:104px;bottom:44px;display:flex;justify-content:space-between;font:400 18px/24px var(--mm-font-text);color:var(--mm-charcoal-500)}
+.dark .ftr{color:var(--mm-forest-200)}
+.phone{flex:none;border-radius:var(--r);background:var(--mm-charcoal-950);padding:var(--b);box-shadow:0 40px 80px rgba(11,34,25,.22),0 2px 0 rgba(255,255,255,.06) inset;position:relative}
+.phone img{display:block;width:100%;border-radius:calc(var(--r) - var(--b))}
+.phone::before{content:"";position:absolute;right:calc(var(--b) * -0.45);top:22%;width:calc(var(--b) * .45);height:9%;border-radius:0 4px 4px 0;background:var(--mm-charcoal-800)}
+.cap{font:500 22px/30px var(--mm-font-text);color:var(--mm-charcoal-800);margin-top:22px}
+.cap span{display:block;font-weight:400;color:var(--mm-charcoal-600);font-size:20px;line-height:28px;margin-top:4px}
+.dark .cap{color:var(--mm-paper-50)}.dark .cap span{color:var(--mm-forest-200)}
+.arrow{flex:none;color:var(--mm-forest-600);align-self:center}
+.hyp{display:inline-flex;gap:10px;align-items:center;border:2px dashed var(--mm-status-pending-fg);background:var(--mm-status-pending-bg);color:var(--mm-status-pending-fg);border-radius:16px;padding:12px 18px;font:500 20px/28px var(--mm-font-text)}
+table{border-collapse:collapse;width:100%}
+td,th{text-align:left;padding:14px 0;border-bottom:1px solid var(--mm-paper-200);font:400 22px/30px var(--mm-font-text)}
+th{font:500 16px/22px var(--mm-font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--mm-charcoal-500)}
+td.r{text-align:right}
+</style></head><body><div class="slide " style="height:1560px">
+  <div class="ov">Reward transparency</div><h2>Dashed means not yet yours</h2>
+  <div class="grid2" style="margin-top:44px;grid-template-columns:1fr 1fr">
+    <div class="card"><table><tr><th>State</th><th>Visual cue (never colour alone)</th></tr>
+      <tr><td>Pending</td><td>Dashed outline · clock · expected date</td></tr><tr><td>Confirmed</td><td>Solid · lime facet · check</td></tr>
+      <tr><td>Reversed</td><td>Struck amount · return arrow · reason</td></tr><tr><td>Not eligible</td><td>Sunken row · info icon · named rule</td></tr>
+      <tr><td>Expiring</td><td>A dated fact, never a timer</td></tr></table></div>
+    <div class="card"><h3>Balances on 28 Oct (snapshot)</h3><table style="margin-top:10px">
+      <tr><td>Wallet · account funds</td><td class="r num">₹12,480.50</td></tr><tr><td>Confirmed rewards</td><td class="r num">₹222.00</td></tr>
+      <tr><td>Pending rewards</td><td class="r num">₹120.00</td></tr><tr><td>Points</td><td class="r num">1,240 pts</td></tr>
+      <tr><td>Bank-transfer gap</td><td class="r num">₹28.00</td></tr></table>
+      <p class="small" style="margin-top:16px">The four balances are never added together. Points never use the ₹ sign.</p></div>
+  </div>
+  <div style="display:flex;gap:28px;margin-top:40px;align-items:center">
+    <div style="flex:none;width:300px"><div class="phone" style="width:300px;--r:40px;--b:9px"><img src="../../exports/screens/S01-onboarding-2.png" alt=""></div></div>
+    <p class="lede" style="margin-top:0;max-width:820px">The rule is taught on the second onboarding card, before the user ever sees a balance. From then on the same visual grammar applies everywhere: home, activity, receipts, rewards and notifications.</p>
+  </div><div class="ftr"><span>MoneyMines · self-initiated concept · fictional data, simulated transactions</span><span>Concept &amp; art direction: Purnananda Mishra · AI-assisted design and production</span></div></div></body></html>

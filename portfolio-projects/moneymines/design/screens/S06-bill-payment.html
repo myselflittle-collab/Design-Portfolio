@@ -27,6 +27,17 @@
       <span class="k b" style="color:var(--mm-text-primary)">Total</span><span class="v num b" style="font-size:16px">₹799.00</span>
     </div>
   </div>
-  <a href="#" class="sm" style="display:flex;gap:6px;align-items:center;color:var(--mm-forest-700);font-weight:600;margin-top:14px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path d="M9.6 9.6a2.5 2.5 0 114 2c-.9.5-1.6 1-1.6 2.1"/><path d="M12 16.9v.2"/></svg>How bill bonuses work</a>
+  <a href="S14-offer-details.html" class="sm" style="display:flex;gap:6px;align-items:center;color:var(--mm-forest-700);font-weight:600;margin-top:14px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path d="M9.6 9.6a2.5 2.5 0 114 2c-.9.5-1.6 1-1.6 2.1"/><path d="M12 16.9v.2"/></svg>How bill bonuses work</a>
 </div>
-<div class="cta"><div class="demo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5h12V20H6z"/><path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5"/></svg><span>Simulated: no money will move.</span></div><a class="btn primary" href="S10-review.html">Review payment</a></div><div class="home-ind"></div></main></body></html>
+<div class="cta"><div class="demo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10.5h12V20H6z"/><path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5"/></svg><span>Simulated: no money will move.</span></div><a class="btn primary" href="S10-review-bill.html">Review payment</a></div><div class="home-ind"></div></main><script>
+(function(){
+  function toast(msg){var t=document.createElement('div');t.className='toast';t.setAttribute('role','status');t.textContent=msg;
+    document.querySelector('.screen').appendChild(t);setTimeout(function(){t.remove()},2600);}
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#demo:"]');if(!a)return;e.preventDefault();
+    toast(decodeURIComponent(a.getAttribute('href').slice(6)));});
+  var s=document.querySelector('.screen'),n=s&&s.getAttribute('data-next');
+  if(window.parent!==window){try{window.parent.postMessage({mm:'screen',id:s.getAttribute('data-screen'),title:s.getAttribute('aria-label')},'*');}catch(e){}
+    window.addEventListener('message',function(e){if(e.data&&e.data.mm==='back'){history.back();}});}
+  if(n&&(window.parent!==window||location.search.indexOf('proto')>-1)){setTimeout(function(){location.href=n},1600);}
+})();
+</script></body></html>

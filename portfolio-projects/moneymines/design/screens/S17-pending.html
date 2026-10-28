@@ -26,13 +26,24 @@
 <span class="b" style="font-size:15px">Pagewise Books</span><span class="num" style="font-size:16px;text-decoration:line-through;color:var(--mm-text-tertiary)">₹17.00</span><span class="sm muted">Order returned 19 Oct · refunded</span><span class="chip c-reversed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5.5L4.5 10 9 14.5"/><path d="M4.5 10H14a5.5 5.5 0 010 11h-3"/></svg>Reversed</span></a>
   <div class="section-h"><h2>Not eligible</h2><span class="sm muted">and why</span></div>
   <div style="display:flex;flex-direction:column;gap:8px">
-    <a class="sunken" href="S06-bill-payment.html" style="display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:12px 14px;align-items:center">
+    <a class="sunken" href="S11-receipt-11.html" style="display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:12px 14px;align-items:center">
 <span class="b" style="font-size:15px">Skyline Fibre · 27 Oct</span><span class="num" style="font-size:16px;">—</span><span class="sm muted">Monthly limit of 3 bill bonuses reached</span><span class="chip c-cancelled"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path d="M12 11v5.5"/><path d="M12 7.6v.4"/></svg>Not eligible</span></a>
-    <a class="sunken" href="#" style="display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:12px 14px;align-items:center">
+    <a class="sunken" href="S11-receipt-04.html" style="display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:12px 14px;align-items:center">
 <span class="b" style="font-size:15px">Rohan S. · 12 Oct</span><span class="num" style="font-size:16px;">—</span><span class="sm muted">Transfers between people don't earn rewards</span><span class="chip c-cancelled"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path d="M12 11v5.5"/><path d="M12 7.6v.4"/></svg>Not eligible</span></a>
     <a class="sunken" href="S11-receipt-07.html" style="display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:12px 14px;align-items:center">
 <span class="b" style="font-size:15px">Orbit Mobile · 18 Oct</span><span class="num" style="font-size:16px;">—</span><span class="sm muted">Recharge failed, no money deducted</span><span class="chip c-cancelled"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path d="M12 11v5.5"/><path d="M12 7.6v.4"/></svg>Not eligible</span></a>
     <a class="sunken" href="S11-receipt-12.html" style="display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:12px 14px;align-items:center">
 <span class="b" style="font-size:15px">Nisha P. · 27 Oct</span><span class="num" style="font-size:16px;">—</span><span class="sm muted">Transfer cancelled by you</span><span class="chip c-cancelled"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path d="M12 11v5.5"/><path d="M12 7.6v.4"/></svg>Not eligible</span></a>
   </div>
-</div><div class="home-ind"></div></main></body></html>
+</div><div class="home-ind"></div></main><script>
+(function(){
+  function toast(msg){var t=document.createElement('div');t.className='toast';t.setAttribute('role','status');t.textContent=msg;
+    document.querySelector('.screen').appendChild(t);setTimeout(function(){t.remove()},2600);}
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#demo:"]');if(!a)return;e.preventDefault();
+    toast(decodeURIComponent(a.getAttribute('href').slice(6)));});
+  var s=document.querySelector('.screen'),n=s&&s.getAttribute('data-next');
+  if(window.parent!==window){try{window.parent.postMessage({mm:'screen',id:s.getAttribute('data-screen'),title:s.getAttribute('aria-label')},'*');}catch(e){}
+    window.addEventListener('message',function(e){if(e.data&&e.data.mm==='back'){history.back();}});}
+  if(n&&(window.parent!==window||location.search.indexOf('proto')>-1)){setTimeout(function(){location.href=n},1600);}
+})();
+</script></body></html>

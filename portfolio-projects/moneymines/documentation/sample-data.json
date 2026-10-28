@@ -3,6 +3,8 @@
   "user": {
     "name": "Ananya Rao",
     "handle": "@ananya.demo",
+    "phone": "+91 90000 00000 (demo)",
+    "member_since": "2025-06-12",
     "note": "Fictional persona"
   },
   "rules": {
@@ -461,6 +463,110 @@
       "detail": "Applied to electricity bill",
       "amount": "₹50.00",
       "status": "Applied (simulated)"
+    }
+  ],
+  "partners": [
+    {
+      "name": "Loomhouse",
+      "category": "Clothing & home textiles",
+      "offer": "R1",
+      "status": "active",
+      "note": "2% cashback, up to ₹100 per order"
+    },
+    {
+      "name": "Ampere Electronics",
+      "category": "Electronics",
+      "offer": "R1",
+      "status": "active",
+      "note": "2% cashback, up to ₹100 per order"
+    },
+    {
+      "name": "Pagewise Books",
+      "category": "Books",
+      "offer": "R1",
+      "status": "paused",
+      "note": "Offer paused by the partner until 15 Nov (demo). Purchases still work, without cashback."
+    }
+  ],
+  "notifications": [
+    {
+      "date": "2026-10-28",
+      "kind": "pending",
+      "title": "Points waiting for Kettle & Co.",
+      "body": "3 pts will be added once the merchant confirms your ₹180.00 payment.",
+      "link": "S11-receipt-13"
+    },
+    {
+      "date": "2026-10-27",
+      "kind": "confirmed",
+      "title": "₹10.00 bonus confirmed",
+      "body": "City Water Board confirmed your ₹410.00 water bill.",
+      "link": "S13-rewards"
+    },
+    {
+      "date": "2026-10-27",
+      "kind": "ineligible",
+      "title": "No bonus on your broadband bill",
+      "body": "You'd already used 3 of 3 bill bonuses this month. The next is from 1 Nov.",
+      "link": "S17-pending"
+    },
+    {
+      "date": "2026-10-22",
+      "kind": "pending",
+      "title": "₹100.00 cashback pending",
+      "body": "Ampere Electronics order. It confirms on 5 Nov if the order isn't returned.",
+      "link": "S11-receipt-09"
+    },
+    {
+      "date": "2026-10-19",
+      "kind": "reversed",
+      "title": "₹17.00 cashback reversed",
+      "body": "Your Pagewise Books order was returned and ₹850.00 refunded.",
+      "link": "S11-receipt-05"
+    },
+    {
+      "date": "2026-10-15",
+      "kind": "confirmed",
+      "title": "Referral reward confirmed",
+      "body": "Meera K. made her first eligible payment. ₹50.00 added to confirmed rewards.",
+      "link": "S16-referrals"
+    },
+    {
+      "date": "2026-10-14",
+      "kind": "info",
+      "title": "₹40.00 of rewards expires on 12 Nov",
+      "body": "You can use it as a voucher or on a bill before then.",
+      "link": "S13-rewards"
+    }
+  ],
+  "hypothetical_scenarios": [
+    {
+      "id": "HYP-01",
+      "label": "Hypothetical ₹100 voucher redemption",
+      "screens": [
+        "S19-redeem-review",
+        "S19-redeem-confirmation"
+      ],
+      "method": "voucher",
+      "partner": "Loomhouse",
+      "amount": "₹100.00",
+      "confirmed_before": "₹222.00",
+      "confirmed_after": "₹122.00",
+      "record_id": "MM-RDM-HYP-01",
+      "in_snapshot": false
+    },
+    {
+      "id": "HYP-02",
+      "label": "Hypothetical conversion of 500 pts",
+      "screens": [
+        "S15-points-convert-hypothetical"
+      ],
+      "points": 500,
+      "value": "₹50.00",
+      "points_after": 740,
+      "confirmed_before": "₹222.00",
+      "confirmed_after": "₹272.00",
+      "in_snapshot": false
     }
   ]
 }

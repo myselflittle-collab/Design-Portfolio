@@ -21,7 +21,17 @@
     <div class="xs muted" style="margin-top:2px">₹420 ÷ ₹50 = 8.4 · whole ₹50 steps only</div></span>
     <span class="chip c-pending"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><path d="M12 7.5V12l3 2"/></svg>After payment</span>
   </div>
-  <p class="xs muted" style="margin-top:8px">We don't suggest spending more to reach the next point.</p>
   <div class="keypad" style="margin-top:12px"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span style="font-size:20px">.</span><span>0</span><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 5.5H20v13H8.5L3.5 12z"/><path d="M11.5 9.5l5 5M16.5 9.5l-5 5"/></svg></span></div>
 </div>
-<div class="cta" style="padding-top:8px;background:var(--mm-bg-canvas)"><a class="btn primary" href="S10-review.html">Review ₹420.00</a></div><div class="home-ind"></div></main></body></html>
+<div class="cta" style="padding-top:8px;background:var(--mm-bg-canvas)"><a class="btn primary" href="S10-review-merchant.html">Review ₹420.00</a></div><div class="home-ind"></div></main><script>
+(function(){
+  function toast(msg){var t=document.createElement('div');t.className='toast';t.setAttribute('role','status');t.textContent=msg;
+    document.querySelector('.screen').appendChild(t);setTimeout(function(){t.remove()},2600);}
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#demo:"]');if(!a)return;e.preventDefault();
+    toast(decodeURIComponent(a.getAttribute('href').slice(6)));});
+  var s=document.querySelector('.screen'),n=s&&s.getAttribute('data-next');
+  if(window.parent!==window){try{window.parent.postMessage({mm:'screen',id:s.getAttribute('data-screen'),title:s.getAttribute('aria-label')},'*');}catch(e){}
+    window.addEventListener('message',function(e){if(e.data&&e.data.mm==='back'){history.back();}});}
+  if(n&&(window.parent!==window||location.search.indexOf('proto')>-1)){setTimeout(function(){location.href=n},1600);}
+})();
+</script></body></html>
