@@ -14,7 +14,12 @@ This file is kept up to date at every stage.
 - The app icon master is a full-bleed square, and the rounded previews are for presentation only.
 - Only Latin script is covered. Hindi and other Indian-language typography is not designed.
 
-## Decisions awaiting approval
-1. Logo: **Strike** (recommended) vs Seam vs Bench.
-2. Overall direction: field survey (strata, survey lines, depth gauge, core sample).
-3. The credit line on boards ("Brand & product design: Purnananda Mishra") and the README note on AI-assisted production.
+## Stage 3 notes
+- Screens are authored as HTML/CSS, which is editable and exact, rather than native Figma files. PNG exports at 3× are the presentation assets.
+- S19 shows a hypothetical voucher redemption. The base dataset is as of 28 Oct, before it (see user-flows.md).
+- The Profile tab and some secondary links ("Terms", "Get help", "Share") point to screens built in Stage 4, or are placeholders.
+- The status bar time (9:41) and device chrome are illustrative.
+- No dark-mode screens.
+
+## Decisions
+- Approved on 28 Oct 2026: Strike mark, field-survey direction, credit line as written.

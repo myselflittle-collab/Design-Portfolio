@@ -9,8 +9,8 @@
 | Stage | Scope | Status |
 |-------|-------|--------|
 | 1 | Repository inspection & folder structure | ✅ Done |
-| 2 | Brand identity, design tokens, screen map, reward rules | ✅ Done, **awaiting approval of the Strike mark and the direction** |
-| 3 | Core screens: dashboard, transactions, rewards, redemption | Not started |
+| 2 | Brand identity, design tokens, screen map, reward rules | ✅ Done and approved (Strike mark, field-survey direction) |
+| 3 | Core screens: dashboard, transactions, rewards, redemption | ✅ Done: 21 frames, awaiting review |
 | 4 | Remaining screens, mockups, exports, Behance case study | Not started |
 | 5 | Quality checks & final report | Not started |
 
@@ -42,15 +42,17 @@ portfolio-projects/moneymines/
 │   │   ├── pattern-survey-lines-*.svg
 │   │   └── brand-guidelines.md
 │   ├── components/               tokens.json, tokens.css, component-specs.md, icons/
-│   ├── screens/                  Stage 3–4: editable screen sources
-│   └── mockups/                  Stage 4: device mockups
+│   ├── screens/                  editable HTML screen sources (390 × 844) + assets/screens.css
+│   └── mockups/                  core-screens-overview.html (device mockups in Stage 4)
 ├── behance/                      Stage 4: case-study text, captions, ordered slides
 ├── exports/
-│   └── brand/                    01–05 brand boards, PNG at 3200 × 2000
+│   ├── brand/                    01–05 brand boards, PNG at 3200 × 2000
+│   └── screens/                  screens at 1170 × 2532 (3×), full-length/ variants, 00 overview
 ├── prototype/                    Stage 4: local interactive demo (simulated data only)
 └── documentation/
     ├── reward-rules.md           fictional rules, worked examples, reconciliation
     ├── sample-data.json          the single dataset used by every screen
+    ├── user-flows.md             primary journeys mapped to screens
     └── screen-inventory.md       screen map, IA, journeys
 ```
 
@@ -62,6 +64,7 @@ Empty folders appear in GitHub once they contain files in later stages.
 
 - **SVG logos:** open in any browser, Figma (drag in) or Illustrator. Text is outlined, so no fonts are needed.
 - **Brand boards:** open `design/brand/boards/*.html` in Chrome or Edge from a downloaded copy of the repository. Fonts load from `design/brand/fonts/`. Exported PNGs are in `exports/brand/`.
+- **Screens:** open `design/screens/S03-home.html` in Chrome or Edge from a downloaded copy of the repository. Links between screens work. To bring them into Figma, use an HTML-to-Figma import plugin, or place the PNG exports.
 - **Tokens:** `design/components/tokens.css` can be linked by any HTML page. `tokens.json` can be imported into Figma Tokens or Style Dictionary.
 - **Fonts:** install the `.otf` files from `design/brand/fonts/` to use them in design tools.
 

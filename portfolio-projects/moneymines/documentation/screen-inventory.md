@@ -63,10 +63,16 @@ Stage key: **3** means built in Stage 3 (core), **4** means built in Stage 4 (re
 - **Error:** what happened, whether money moved ("No money was deducted"), and what to do next.
 - **Ineligible and pending explanations:** inline info rows that link to S17.
 
-## Key journeys (detailed flows come in Stage 3)
+## Key journeys (see [user-flows.md](user-flows.md))
 
 1. **Partner purchase to cashback:** S05 → S09 → S10 → S11 (pending ₹100.00, capped) → S13 → S17
 2. **Bill payment at the monthly limit:** S05 → S06 (limit explained *before* paying) → S10 → S11 (not eligible)
 3. **Points to redemption:** S13 → S15 (convert 500 pts → ₹50) → S18 (bank now available: ₹272.00) → S19 → S20
 4. **Reversal:** S21 notification → S11 (reversed, ₹17.00) → S17
 5. **Referral:** S13 → S16 → share sheet (demo)
+
+## Build status (after Stage 3)
+
+**Built (21 frames):** S03 Home and Home loading · S05 · S06 · S07 · S08 · S10 · S11 in five states (`-09` successful with pending reward, `-06` successful under the cap, `-13` pending, `-07` failed, `-12` cancelled, `-05` reversed) · S12 Activity and empty filter · S13 · S15 · S17 · S18 · S19 review · S19 simulated confirmation.
+
+**Remaining for Stage 4:** S01 Onboarding · S02 Sign-up/login (with OTP error) · S04 Wallet · S09 Partner shopping · S14 Offer details · S16 Referrals · S20 Redemption history · S21 Notifications · S22 Profile, security & help · error states for input validation · empty states for S13, S16, S20, S21.
