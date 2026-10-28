@@ -41,7 +41,7 @@ A lightweight skin profile and journal let people explore skin type, concerns, a
 - **Typography:** expressive editorial serif headlines paired with a clean sans-serif for controls and supporting information.
 - **Shape language:** rounded cards, soft circles, gentle contrast, and generous spacing.
 - **Voice:** warm, grounded, supportive, and never perfectionist.
-- **Signature detail:** the lowercase ButterSkin wordmark and leaf-like mark create a friendly, tactile feel.
+- **Signature detail:** the lowercase ButterSkin wordmark and a soft olive "pat" mark (three rounded corners and one tucked corner, holding a lowercase b) create a friendly, tactile feel.
 
 ## Prototype highlights
 
@@ -66,4 +66,4 @@ ButterSkin is a fictional concept made for portfolio presentation. Product names
 
 ---
 
-*Concept & design: Purnananda Mishra · AI-assisted design and production*
+*Concept & art direction: Purnananda Mishra · AI-assisted design and production*

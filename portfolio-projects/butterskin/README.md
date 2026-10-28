@@ -3,7 +3,7 @@
 ButterSkin is a standalone skincare and beauty app concept created as a Behance portfolio case study. It explores how product discovery, simple routines, and skin journaling can feel calm, clear, and personal.
 
 ## Open the prototype
-Open `prototype/index.html` in a browser. It is a self-contained responsive HTML/CSS/JavaScript prototype with no build step.
+Open `prototype/index.html` in a browser. It is a responsive HTML/CSS/JavaScript prototype with no build step. Fonts (DM Sans and Playfair Display, SIL OFL 1.1) are stored in `prototype/assets/fonts/`, so it works offline, with no external images, fonts or scripts.
 
 ## Included in this concept
 - Responsive desktop and mobile layouts
@@ -21,3 +21,6 @@ ButterSkin is a fictional portfolio concept. Product names, prices, routine step
 
 ## Project independence
 This concept lives in its own folder and its own branch, `butterskin-concept`. It does not modify the MoneyMines project.
+
+## Credit
+Concept & art direction: Purnananda Mishra · AI-assisted design and production
