@@ -8,6 +8,9 @@ Audit date: 28 Oct 2026 · Branch: `moneymines-concept` · Scope: verification o
 |---|---|
 | Stage 4 validation suite, re-run ([validation-report.md](validation-report.md)) | **24 / 24 pass** |
 | Independent Stage 5 audit (below) | **35 / 35 pass** after fixes |
+| Corrective-pass checks for the four minor defects (section 1a) | **16 / 16 pass** |
+
+All three suites were re-run after the corrective pass and the results above are from that run. The Stage 4 suite also re-checks readability (smallest slide text is still 13.1 px at Behance width).
 
 The independent audit doesn't reuse the screen generators. It recomputes the snapshot from the raw transactions, reads the finished screen files, and drives the real prototype in Chromium: it taps through every guided flow, opens every States-panel entry, and opens each receipt from its Activity row.
 
@@ -19,6 +22,36 @@ The independent audit doesn't reuse the screen generators. It recomputes the sna
 | README showed Stage 4 as "awaiting review" and Stage 5 as "Not started" | Updated |
 
 Two first-run failures were **false positives**: the credit-consistency regex captured caption text that follows the credit in caption 19. The wording itself was correct, and the regex was tightened. Separately, the stale-wording check flagged the Stage 5 status row, which correctly says it's awaiting approval; that row is excluded from the check.
+
+## 1a. Corrective pass: the four minor defects
+
+| Defect | Fix |
+|---|---|
+| Home bell said "2 new", but no notifications were marked | The two most recent notifications (28 Oct, 27 Oct) now show a red dot and the word **New** beside the date. The bell's count and the marked items come from one shared value, so they can't drift apart. |
+| Transfer review button said "Confirm demo payment" | Now reads **Confirm demo transfer**. The other three reviews are unchanged. |
+| Wallet counted the pending ₹180.00 Kettle & Co. payment as "Paid out" | Wallet now shows **Paid out (9 completed payments) − ₹15,082.00** and **On hold: Kettle & Co. (pending) − ₹180.00**, with a note that held money returns if the merchant doesn't confirm. The Activity summary had the same issue and now reads ₹15,082.00 "+ ₹180.00 on hold". The balance is unchanged: ₹27,742.50 − ₹15,082.00 − ₹180.00 = ₹12,480.50. |
+| Prototype Back did nothing on the first screen | Back is now **disabled** at the start of a session, with the tooltip "You are at the start of this session". It enables once you move, retraces step by step (including after guided-flow jumps), and **Restart** resets it to disabled. |
+
+**Unchanged:** `sample-data.json` is byte-for-byte identical, with no data, design or new features. Files changed: 4 screen sources (S04-wallet, S10-review-transfer, S12-activity, S21-notifications), their exports (8 PNGs). S03-home now reads its count from the shared value but renders identically. Also changed: the all-screens overview, Behance images 13 and 18 (which show S21 and S04), and the prototype viewer. Both suites' figure checks now derive the ₹15,082.00 / ₹180.00 split from the transactions; neither value is hard-coded.
+
+| Check | Result | Detail |
+|---|---|---|
+| 1. Home bell count equals notifications marked New | ✅ Pass | home says 2, S21 marks 2 |
+| 1. Empty notifications screen marks none as New | ✅ Pass |  |
+| 2. Transfer review action reads 'Confirm demo transfer' | ✅ Pass |  |
+| 2. Other reviews unchanged ('Confirm demo payment') | ✅ Pass |  |
+| 3. Wallet 'Paid out' counts completed payments only | ✅ Pass | ₹15,082.00 |
+| 3. Pending ₹180.00 shown as on hold, not paid | ✅ Pass |  |
+| 3. Balance arithmetic unchanged: ₹27,742.50 − ₹15,082.00 − ₹180.00 = ₹12,480.50 | ✅ Pass |  |
+| 3. Activity summary uses the same split | ✅ Pass |  |
+| 4. Back is disabled on the first screen of a session | ✅ Pass | ('S01-onboarding-1', True) |
+| 4. Pressing it there does nothing (stays on S01) | ✅ Pass | S01-onboarding-1 |
+| 4. Back enables after moving on, and returns to the previous screen | ✅ Pass | ('S01-onboarding-2', True) → ('S01-onboarding-1', True) |
+| 4. Multi-step Back retraces correctly | ✅ Pass | S01-onboarding-2 |
+| 4. Back works after a guided-flow jump | ✅ Pass | ('S10-review', True) |
+| 4. Restart returns to S01 and resets Back to disabled | ✅ Pass | ('S01-onboarding-1', True), after Back: S01-onboarding-1 |
+| 4. Disabled state is explained (tooltip / aria-disabled) | ✅ Pass | You are at the start of this session |
+| No JavaScript errors | ✅ Pass | none |
 
 ## 2. Independent audit detail
 
@@ -64,11 +97,8 @@ Two first-run failures were **false positives**: the credit-consistency regex ca
 
 These need human judgement or tools that weren't available here. None blocks a Behance upload. They're listed so nothing is overstated.
 
-**Remaining minor defects (not fixed, because the brief said no redesign):**
-1. **Notification count:** the Home bell is labelled "2 new", but the Notifications screen doesn't mark which two are new.
-2. **Transfer review wording:** the transfer review button says "Confirm demo payment". "Confirm demo transfer" would be more precise.
-3. **Wallet wording:** the wallet summary counts the pending Kettle & Co. payment (₹180.00) under "Paid out (10 payments)". The receipt says it's reversed automatically if not confirmed. The arithmetic is right, but "paid out" slightly overstates a pending payment.
-4. **Back button:** the prototype's Back button does nothing on the first screen of a session. Settings toggles don't change state; they show an explanatory note.
+**Minor defects 1–4: fixed in the corrective pass (section 1a).**
+Still true by design: settings toggles don't change state; they show an explanatory note.
 
 **Limits of verification:**
 5. **Browsers:** the prototype was tested in Chromium only. Firefox and Safari weren't available in this environment.
@@ -85,7 +115,7 @@ These need human judgement or tools that weren't available here. None blocks a B
 - [ ] Review the 19 images in `exports/behance/` and the captions in `behance/captions.md`
 - [ ] Review the case study (`behance/case-study.md`) and the Behance fields (`behance/project-description.md`)
 - [ ] Download the branch ZIP and open `prototype/index.html` (see `prototype/README.md`)
-- [ ] Decide whether the minor defects in section 3 (items 1–4) should be fixed before publishing
+- [x] Minor defects 1–4 fixed (section 1a)
 - [ ] Decide whether to add the build scripts (`tools/`) for future edits
 - [ ] Approve or decline merging `moneymines-concept` into `main` (not done)
 - [ ] Decide repository visibility (currently **private**; unchanged)

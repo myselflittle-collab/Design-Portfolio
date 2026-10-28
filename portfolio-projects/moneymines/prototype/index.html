@@ -24,6 +24,7 @@ select{width:100%;height:40px;border-radius:10px;border:1.5px solid var(--mm-cha
 main{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:16px}
 .bar{display:flex;align-items:center;gap:10px;font:400 14px/20px var(--mm-font-text)}
 .bar button{height:38px;padding:0 14px;border-radius:10px;border:1.5px solid var(--mm-charcoal-400);background:var(--mm-paper-0);font:600 14px/1 var(--mm-font-text);cursor:pointer;color:inherit}
+.bar button:disabled{opacity:.45;cursor:default}
 .bar button.primary{background:var(--mm-forest-800);border-color:var(--mm-forest-800);color:var(--mm-paper-50)}
 .bar .cur{min-width:260px;text-align:center}
 .bar .cur b{font-weight:600}
@@ -45,7 +46,7 @@ main{display:flex;flex-direction:column;align-items:center;justify-content:cente
 </aside>
 <main>
   <div class="bar">
-    <button id="back" type="button" aria-label="Back">← Back</button>
+    <button id="back" type="button" aria-label="Back" disabled aria-disabled="true" title="You are at the start of this session">← Back</button>
     <div class="cur" aria-live="polite"><b id="cur-id">S01</b> · <span id="cur-title">Loading…</span></div>
     <button id="restart" class="primary" type="button">Restart</button>
   </div>
@@ -56,6 +57,9 @@ main{display:flex;flex-direction:column;align-items:center;justify-content:cente
 <script>
 var FLOWS=[["Start here: first run", "Onboarding, sign-in with a demo code, then the home screen loads.", ["S01-onboarding-1", "S01-onboarding-2", "S01-onboarding-3", "S02-signup", "S02-otp", "S03-home-loading", "S03-home"]], ["Partner purchase → capped cashback", "₹6,499 × 2% = ₹129.98, capped at ₹100.00 and pending until 5 Nov.", ["S09-partners", "S10-review", "S11-receipt-09", "S17-pending"]], ["Bill after the monthly limit", "The missing bonus is explained before paying, not after.", ["S05-pay", "S06-bill-payment", "S10-review-bill", "S11-receipt-11"]], ["Scan & pay → points", "₹420 earns 8 pts in whole ₹50 steps.", ["S07-merchant-payment", "S10-review-merchant", "S11-receipt-08"]], ["Transfer to a person", "Transfers never earn rewards, and the app says so up front.", ["S08-transfer", "S10-review-transfer", "S11-receipt-04"]], ["Points → redemption (hypothetical)", "HYP-02 conversion and HYP-01 voucher. The 28 Oct snapshot never changes.", ["S13-rewards", "S15-points", "S15-points-convert-hypothetical", "S18-redeem", "S19-redeem-review", "S19-redeem-confirmation", "S20-redemption-history"]], ["Reversal", "A returned order: refund, reversed cashback and a timeline.", ["S21-notifications", "S11-receipt-05", "S17-pending"]], ["Referrals & profile", "Invite status, terms and help.", ["S22-profile", "S16-referrals", "S14-offer-details"]]], STATES=[["Loading", ["S03-home-loading"]], ["Empty", ["S12-activity-empty", "S13-rewards-empty", "S16-referrals-empty", "S20-redemption-history-empty", "S21-notifications-empty"]], ["Errors", ["S02-otp-error", "S06-bill-error"]], ["Transaction states", ["S11-receipt-09", "S11-receipt-13", "S11-receipt-07", "S11-receipt-12", "S11-receipt-05"]], ["Previews", ["S18-in-app-preview"]]], TITLES={"S01-onboarding-1": "Welcome 1 of 3", "S01-onboarding-2": "Welcome 2 of 3", "S01-onboarding-3": "Welcome 3 of 3", "S02-otp-error": "Verify code · error", "S02-otp": "Verify code", "S02-signup": "Sign up or log in", "S03-home-loading": "Home · loading", "S03-home": "Home", "S04-wallet": "Wallet", "S05-pay": "Pay", "S06-bill-error": "Bill payment · error", "S06-bill-payment": "Bill payment", "S07-merchant-payment": "Merchant payment", "S08-transfer": "Transfer", "S09-partners": "Partner shops", "S10-review-bill": "Review bill payment", "S10-review-merchant": "Review scan & pay", "S10-review-transfer": "Review transfer", "S10-review": "Review payment", "S11-receipt-01": "Receipt · Orbit Mobile", "S11-receipt-02": "Receipt · Kesar Grocers", "S11-receipt-03": "Receipt · Metro Power", "S11-receipt-04": "Receipt · Rohan S.", "S11-receipt-05": "Receipt · reversed", "S11-receipt-06": "Receipt · success", "S11-receipt-07": "Receipt · failed", "S11-receipt-08": "Receipt · Tamarind Café", "S11-receipt-09": "Receipt · success", "S11-receipt-10": "Receipt · City Water Board", "S11-receipt-11": "Receipt · Skyline Fibre", "S11-receipt-12": "Receipt · cancelled", "S11-receipt-13": "Receipt · pending", "S12-activity-empty": "Activity · no results", "S12-activity": "Activity", "S13-rewards-empty": "Rewards · first use", "S13-rewards": "Rewards", "S14-offer-details": "Offer & reward terms", "S15-points-convert-hypothetical": "Points conversion · hypothetical", "S15-points": "Points", "S16-referrals-empty": "Referrals · empty", "S16-referrals": "Referrals", "S17-pending": "Pending & eligibility", "S18-in-app-preview": "Apply rewards to a bill · preview", "S18-redeem": "Use rewards", "S19-redeem-confirmation": "Redemption recorded (simulated)", "S19-redeem-review": "Redemption review", "S20-redemption-history-empty": "Redemption history · empty", "S20-redemption-history": "Redemption history", "S21-notifications-empty": "Notifications · empty", "S21-notifications": "Notifications", "S22-profile": "Profile"};
 var app=document.getElementById('app'), activeFlow=0;
+var trail=[],goingBack=false,resetting=false,backBtn=null;
+function setBack(){if(!backBtn)backBtn=document.getElementById('back');var can=trail.length>1;backBtn.disabled=!can;
+  backBtn.title=can?'Back to the previous screen':'You are at the start of this session';backBtn.setAttribute('aria-disabled',String(!can));}
 function go(id){app.src='../design/screens/'+id+'.html';}
 function renderSteps(cur){var f=FLOWS[activeFlow],el=document.getElementById('steps');el.innerHTML='';
   f[2].forEach(function(id,i){var b=document.createElement('button');b.type='button';b.textContent=(i+1)+'. '+id.replace(/^S(\d+)-/,'S$1 ');
@@ -72,9 +76,11 @@ STATES.forEach(function(s){var w=document.createElement('div');w.style.marginBot
 var sel=document.getElementById('all');
 Object.keys(TITLES).forEach(function(id){var o=document.createElement('option');o.value=id;o.textContent=id+' · '+TITLES[id];sel.appendChild(o);});
 sel.onchange=function(){go(sel.value)};
-document.getElementById('restart').onclick=function(){activeFlow=0;[].forEach.call(fl.children,function(c,j){c.className='flow'+(j===0?' on':'')});go('S01-onboarding-1');};
-document.getElementById('back').onclick=function(){try{app.contentWindow.postMessage({mm:'back'},'*');}catch(e){}};
+document.getElementById('restart').onclick=function(){trail=[];resetting=true;setBack();activeFlow=0;[].forEach.call(fl.children,function(c,j){c.className='flow'+(j===0?' on':'')});try{app.contentWindow.location.replace('../design/screens/S01-onboarding-1.html');}catch(e){go('S01-onboarding-1');}};
+document.getElementById('back').onclick=function(){if(trail.length<2)return;goingBack=true;try{app.contentWindow.postMessage({mm:'back'},'*');}catch(e){goingBack=false;}};
 window.addEventListener('message',function(e){if(!e.data||e.data.mm!=='screen')return;
+  if(goingBack){trail.pop();goingBack=false;}else if(resetting){trail=[e.data.id];resetting=false;}else if(trail[trail.length-1]!==e.data.id){trail.push(e.data.id);}
+  setBack();
   document.getElementById('cur-id').textContent=e.data.id.split('-')[0];
   document.getElementById('cur-title').textContent=e.data.title;sel.value=e.data.id;
   var inFlow=FLOWS[activeFlow][2].indexOf(e.data.id)>-1;
