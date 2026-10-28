@@ -1,0 +1,111 @@
+/* MoneyMines design tokens. Generated from tokens.json; edit tokens there. */
+:root {
+  --mm-forest-950: #0B2219;
+  --mm-forest-900: #0F2E20;
+  --mm-forest-800: #164029;
+  --mm-forest-700: #1D5235;
+  --mm-forest-600: #2A6B47;
+  --mm-forest-500: #3F8560;
+  --mm-forest-200: #BFD9C7;
+  --mm-forest-100: #DDEBE0;
+  --mm-forest-50: #EEF5EF;
+  --mm-charcoal-950: #121416;
+  --mm-charcoal-900: #1A1D1F;
+  --mm-charcoal-800: #24282B;
+  --mm-charcoal-700: #33383C;
+  --mm-charcoal-600: #4A5055;
+  --mm-charcoal-500: #5F666B;
+  --mm-charcoal-400: #858B8F;
+  --mm-charcoal-300: #ABB0B1;
+  --mm-charcoal-200: #D2D4D1;
+  --mm-paper-0: #FFFDF8;
+  --mm-paper-50: #F7F4EC;
+  --mm-paper-100: #EFEBE0;
+  --mm-paper-200: #E2DDCF;
+  --mm-lime-100: #F1FBCF;
+  --mm-lime-300: #D9F77E;
+  --mm-lime-400: #C5EE4A;
+  --mm-lime-500: #A8D42A;
+  --mm-lime-700: #4E6A00;
+  --mm-status-success-fg: #1D5235;
+  --mm-status-success-bg: #DDEBE0;
+  --mm-status-pending-fg: #7A4F00;
+  --mm-status-pending-bg: #FAEBC6;
+  --mm-status-failed-fg: #A3261C;
+  --mm-status-failed-bg: #FBE3DF;
+  --mm-status-reversed-fg: #2B5170;
+  --mm-status-reversed-bg: #DCE7EF;
+  --mm-status-cancelled-fg: #4A5055;
+  --mm-status-cancelled-bg: #E9E7E0;
+
+  --mm-bg-canvas: var(--mm-paper-50);
+  --mm-bg-surface: var(--mm-paper-0);
+  --mm-bg-sunken: var(--mm-paper-100);
+  --mm-bg-inverse: var(--mm-forest-950);
+  --mm-bg-inverse-raised: var(--mm-forest-900);
+  --mm-border-default: var(--mm-paper-200);
+  --mm-border-strong: var(--mm-charcoal-400);
+  --mm-border-inverse: var(--mm-forest-800);
+  --mm-text-primary: var(--mm-charcoal-900);
+  --mm-text-secondary: var(--mm-charcoal-600);
+  --mm-text-tertiary: var(--mm-charcoal-500);
+  --mm-text-on-inverse: var(--mm-paper-50);
+  --mm-text-on-inverse-muted: var(--mm-forest-200);
+  --mm-action-primary: var(--mm-forest-800);
+  --mm-action-primary-pressed: var(--mm-forest-900);
+  --mm-action-on-primary: var(--mm-paper-50);
+  --mm-action-secondary-border: var(--mm-charcoal-300);
+  --mm-focus-ring: var(--mm-forest-600);
+  --mm-focus-ring-on-inverse: var(--mm-lime-400);
+  --mm-reward-accent: var(--mm-lime-400);
+  --mm-reward-accent-ink: var(--mm-lime-700);
+  --mm-fund-wallet: var(--mm-charcoal-900);
+  --mm-fund-reward: var(--mm-forest-700);
+  --mm-fund-pending: var(--mm-charcoal-600);
+  --mm-fund-points: var(--mm-charcoal-900);
+
+  --mm-font-display: 'Space Grotesk', system-ui, sans-serif;
+  --mm-font-text: 'Inter', system-ui, sans-serif;
+  --mm-space-0: 0px;
+  --mm-space-0_5: 2px;
+  --mm-space-1: 4px;
+  --mm-space-2: 8px;
+  --mm-space-3: 12px;
+  --mm-space-4: 16px;
+  --mm-space-5: 20px;
+  --mm-space-6: 24px;
+  --mm-space-8: 32px;
+  --mm-space-10: 40px;
+  --mm-space-12: 48px;
+  --mm-space-16: 64px;
+  --mm-space-20: 80px;
+  --mm-radius-xs: 4px;
+  --mm-radius-sm: 8px;
+  --mm-radius-md: 12px;
+  --mm-radius-lg: 20px;
+  --mm-radius-xl: 28px;
+  --mm-radius-pill: 999px;
+  --mm-elevation-e0: none;
+  --mm-elevation-e1: 0 1px 0 rgba(18,20,22,0.04), 0 1px 3px rgba(18,20,22,0.06);
+  --mm-elevation-e2: 0 12px 32px rgba(11,34,25,0.14);
+  --mm-motion-fast: 120ms;
+  --mm-motion-standard: 180ms;
+  --mm-motion-sheet: 260ms;
+  --mm-motion-easing: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.mm-display { font-family: var(--mm-font-display); font-weight: 500; font-size: 40px; line-height: 44px; letter-spacing: -0.02em; }
+.mm-h1 { font-family: var(--mm-font-display); font-weight: 500; font-size: 28px; line-height: 34px; letter-spacing: -0.015em; }
+.mm-h2 { font-family: var(--mm-font-display); font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -0.01em; }
+.mm-h3 { font-family: var(--mm-font-display); font-weight: 500; font-size: 18px; line-height: 24px; letter-spacing: -0.005em; }
+.mm-title { font-family: var(--mm-font-text); font-weight: 600; font-size: 16px; line-height: 22px; letter-spacing: -0.006em; }
+.mm-body { font-family: var(--mm-font-text); font-weight: 400; font-size: 16px; line-height: 24px; letter-spacing: -0.006em; }
+.mm-body-sm { font-family: var(--mm-font-text); font-weight: 400; font-size: 14px; line-height: 20px; letter-spacing: -0.004em; }
+.mm-label { font-family: var(--mm-font-text); font-weight: 500; font-size: 13px; line-height: 16px; letter-spacing: 0em; }
+.mm-caption { font-family: var(--mm-font-text); font-weight: 400; font-size: 12px; line-height: 16px; letter-spacing: 0em; }
+.mm-overline { font-family: var(--mm-font-display); font-weight: 500; font-size: 11px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; }
+.mm-amount-hero { font-family: var(--mm-font-display); font-weight: 500; font-size: 44px; line-height: 48px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.mm-amount-lg { font-family: var(--mm-font-display); font-weight: 500; font-size: 24px; line-height: 28px; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.mm-amount-md { font-family: var(--mm-font-display); font-weight: 500; font-size: 16px; line-height: 20px; letter-spacing: 0em; font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) { :root { --mm-motion-fast: 0ms; --mm-motion-standard: 0ms; --mm-motion-sheet: 0ms; } }

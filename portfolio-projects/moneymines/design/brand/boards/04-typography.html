@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Typography</title>
+<link rel="stylesheet" href="../../components/tokens.css"><style>
+@font-face{font-family:'Space Grotesk';font-weight:400;src:url('../fonts/SpaceGrotesk-Regular.otf')}
+@font-face{font-family:'Space Grotesk';font-weight:500;src:url('../fonts/SpaceGrotesk-Medium.otf')}
+@font-face{font-family:'Space Grotesk';font-weight:700;src:url('../fonts/SpaceGrotesk-Bold.otf')}
+@font-face{font-family:'Inter';font-weight:400;src:url('../fonts/Inter-Regular.otf')}
+@font-face{font-family:'Inter';font-weight:500;src:url('../fonts/Inter-Medium.otf')}
+@font-face{font-family:'Inter';font-weight:600;src:url('../fonts/Inter-SemiBold.otf')}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1600px;height:1000px;overflow:hidden}
+body{background:var(--mm-paper-50);color:var(--mm-charcoal-900);font-family:var(--mm-font-text);-webkit-font-smoothing:antialiased}
+.board{position:relative;width:1600px;height:1000px;padding:64px 80px}
+.board.dark{background:var(--mm-forest-950);color:var(--mm-paper-50)}
+.hdr{display:flex;justify-content:space-between;align-items:baseline;font:500 12px/16px var(--mm-font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--mm-charcoal-500)}
+.dark .hdr,.dark .ftr{color:var(--mm-forest-200)}
+.ftr{position:absolute;left:80px;right:80px;bottom:40px;display:flex;justify-content:space-between;font:400 12px/16px var(--mm-font-text);color:var(--mm-charcoal-500)}
+h1{font:500 56px/60px var(--mm-font-display);letter-spacing:-.025em;margin-top:28px}
+.lede{font:400 18px/28px var(--mm-font-text);color:var(--mm-charcoal-600);max-width:720px;margin-top:14px}
+.dark .lede{color:var(--mm-forest-200)}
+.ov{font:500 11px/16px var(--mm-font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--mm-charcoal-500)}
+.num{font-family:var(--mm-font-display);font-variant-numeric:tabular-nums;font-weight:500;letter-spacing:-.01em}
+.card{background:var(--mm-paper-0);border:1px solid var(--mm-paper-200);border-radius:20px}
+.chip{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px 0 8px;border-radius:999px;font:500 13px/16px var(--mm-font-text)}
+.c-success{background:var(--mm-status-success-bg);color:var(--mm-status-success-fg)}
+.c-pending{background:var(--mm-status-pending-bg);color:var(--mm-status-pending-fg)}
+.c-failed{background:var(--mm-status-failed-bg);color:var(--mm-status-failed-fg)}
+.c-reversed{background:var(--mm-status-reversed-bg);color:var(--mm-status-reversed-fg)}
+.c-cancelled{background:var(--mm-status-cancelled-bg);color:var(--mm-status-cancelled-fg)}
+.tag{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;background:var(--mm-lime-400);color:var(--mm-charcoal-900);font:500 12px/16px var(--mm-font-display);letter-spacing:.06em;text-transform:uppercase}
+</style></head>
+<body><div class="board">
+<div class="hdr"><span>MoneyMines · Typography</span><span>04 / 05</span></div>
+
+<div style="display:grid;grid-template-columns:420px 1fr;gap:64px;margin-top:28px">
+  <div>
+    <h1 style="margin-top:0">Two open-licence families</h1>
+    <p class="lede">Space Grotesk carries headlines and every amount. Its tabular figures keep ₹ columns aligned. Inter handles reading, at 16 px minimum for body text.</p>
+    <div style="margin-top:40px;font:500 120px/1 'Space Grotesk';letter-spacing:-.04em;color:var(--mm-forest-800)">Aa</div>
+    <div style="font:400 14px/20px var(--mm-font-text);color:var(--mm-charcoal-600);margin-top:8px">Space Grotesk · Florian Karsten · SIL OFL 1.1</div>
+    <div style="margin-top:26px;font:500 120px/1 'Inter';letter-spacing:-.04em;color:var(--mm-charcoal-900)">Aa</div>
+    <div style="font:400 14px/20px var(--mm-font-text);color:var(--mm-charcoal-600);margin-top:8px">Inter · Rasmus Andersson · SIL OFL 1.1</div>
+  </div>
+  <div style="margin-top:6px"><div style="display:grid;grid-template-columns:150px 1fr 220px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
+      <span class="ov">display</span><span style="font-family:'Space Grotesk';font-weight:500;font-size:40px;line-height:44px;letter-spacing:-0.02em;white-space:nowrap;overflow:hidden">Discover rewards</span>
+      <span style="font:400 12px/16px var(--mm-font-text);color:var(--mm-charcoal-500);text-align:right">Space Grotesk 500 · 40/44</span></div><div style="display:grid;grid-template-columns:150px 1fr 220px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
+      <span class="ov">h1</span><span style="font-family:'Space Grotesk';font-weight:500;font-size:28px;line-height:34px;letter-spacing:-0.015em;white-space:nowrap;overflow:hidden">Rewards</span>
+      <span style="font:400 12px/16px var(--mm-font-text);color:var(--mm-charcoal-500);text-align:right">Space Grotesk 500 · 28/34</span></div><div style="display:grid;grid-template-columns:150px 1fr 220px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
+      <span class="ov">h2</span><span style="font-family:'Space Grotesk';font-weight:500;font-size:22px;line-height:28px;letter-spacing:-0.01em;white-space:nowrap;overflow:hidden">Pending until 5 Nov</span>
+      <span style="font:400 12px/16px var(--mm-font-text);color:var(--mm-charcoal-500);text-align:right">Space Grotesk 500 · 22/28</span></div><div style="display:grid;grid-template-columns:150px 1fr 220px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
+      <span class="ov">title</span><span style="font-family:'Inter';font-weight:600;font-size:16px;line-height:22px;letter-spacing:-0.006em;white-space:nowrap;overflow:hidden">Ampere Electronics order</span>
+      <span style="font:400 12px/16px var(--mm-font-text);color:var(--mm-charcoal-500);text-align:right">Inter 600 · 16/22</span></div><div style="display:grid;grid-template-columns:150px 1fr 220px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
+      <span class="ov">body</span><span style="font-family:'Inter';font-weight:400;font-size:16px;line-height:24px;letter-spacing:-0.006em;white-space:nowrap;overflow:hidden">Cashback becomes yours after the 14-day return window.</span>
+      <span style="font:400 12px/16px var(--mm-font-text);color:var(--mm-charcoal-500);text-align:right">Inter 400 · 16/24</span></div><div style="display:grid;grid-template-columns:150px 1fr 220px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
+      <span class="ov">body-sm</span><span style="font-family:'Inter';font-weight:400;font-size:14px;line-height:20px;letter-spacing:-0.004em;white-space:nowrap;overflow:hidden">Transfers between people don't earn rewards.</span>
+      <span style="font:400 12px/16px var(--mm-font-text);color:var(--mm-charcoal-500);text-align:right">Inter 400 · 14/20</span></div><div style="display:grid;grid-template-columns:150px 1fr 220px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
+      <span class="ov">caption</span><span style="font-family:'Inter';font-weight:400;font-size:12px;line-height:16px;letter-spacing:0em;white-space:nowrap;overflow:hidden">Demo values: not a commercial offer</span>
+      <span style="font:400 12px/16px var(--mm-font-text);color:var(--mm-charcoal-500);text-align:right">Inter 400 · 12/16</span></div><div style="display:grid;grid-template-columns:150px 1fr 220px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
+      <span class="ov">overline</span><span style="font-family:'Space Grotesk';font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;overflow:hidden">Confirmed rewards</span>
+      <span style="font:400 12px/16px var(--mm-font-text);color:var(--mm-charcoal-500);text-align:right">Space Grotesk 500 · 11/16</span></div><div style="display:grid;grid-template-columns:150px 1fr 220px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
+      <span class="ov">amount-hero</span><span style="font-family:'Space Grotesk';font-weight:500;font-size:44px;line-height:48px;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden">₹12,480.50</span>
+      <span style="font:400 12px/16px var(--mm-font-text);color:var(--mm-charcoal-500);text-align:right">Space Grotesk 500 · 44/48 · tabular</span></div><div style="display:grid;grid-template-columns:150px 1fr 220px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--mm-paper-200)">
+      <span class="ov">amount-md</span><span style="font-family:'Space Grotesk';font-weight:500;font-size:16px;line-height:20px;letter-spacing:0em;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden">₹129.98 → ₹100.00</span>
+      <span style="font:400 12px/16px var(--mm-font-text);color:var(--mm-charcoal-500);text-align:right">Space Grotesk 500 · 16/20 · tabular</span></div>
+    <div style="display:flex;gap:36px;margin-top:22px;align-items:baseline">
+      <span class="num" style="font-size:28px;text-align:right;display:block;min-width:200px">₹1,000.00<br>₹6,499.00<br>₹27,742.50</span>
+      <span style="font:400 14px/20px var(--mm-font-text);color:var(--mm-charcoal-600);max-width:380px">Tabular figures and Indian digit grouping. Amounts align by the decimal point in history lists, so you can scan a column quickly.</span>
+    </div>
+  </div>
+</div>
+<div class="ftr"><span>Self-initiated concept · fictional product · not a financial service</span><span>Brand &amp; product design: Purnananda Mishra</span></div>
+</div></body></html>

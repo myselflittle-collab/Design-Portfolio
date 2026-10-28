@@ -1,0 +1,4 @@
+# Operating-system clutter only. Design files, PNG exports and fonts are tracked.
+.DS_Store
+Thumbs.db
+desktop.ini
