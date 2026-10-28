@@ -1,0 +1,85 @@
+{
+  "$note": "FICTIONAL CONCEPT CONTENT. ButterSkin is not a real brand. Products, formulations, prices, people and journal entries are illustrative and make no cosmetic or medical claims.",
+  "demo_date": "2026-10-28",
+  "demo_weekday": "Wednesday",
+  "currency": "INR",
+  "user": {
+    "name": "Ananya",
+    "note": "Fictional persona",
+    "skin_type": "Combination",
+    "focus": "Hydration",
+    "skin_types": ["Combination", "Dry", "Oily", "Normal", "Not sure"],
+    "focus_options": ["Hydration", "Calm & comfort", "Uneven tone", "Texture", "Breakouts"]
+  },
+  "categories": [
+    {"id": "cleanse", "name": "Cleanse", "summary": "First step, morning and evening"},
+    {"id": "treat", "name": "Treat", "summary": "Optional, light layers"},
+    {"id": "moisturise", "name": "Moisturise", "summary": "Comfort and softness"},
+    {"id": "protect", "name": "Protect", "summary": "Daytime sun care"}
+  ],
+  "products": [
+    {"id": "cloud-milk-cleanser", "name": "Cloud Milk Cleanser", "category": "cleanse", "format": "tube", "size": "120 ml", "price": 499,
+     "texture": "Soft milky lotion", "focus": ["Hydration", "Calm & comfort"], "routine": "AM",
+     "about": "A creamy, low-fuss cleanser concept for a comfortable first step.",
+     "how": "Massage onto damp skin for 30 seconds, then rinse with lukewarm water. No scrubbing.",
+     "ingredients": [["Glycerin", "a common humectant that helps skin hold water"], ["Oat extract", "often used in comfort-focused formulas"], ["Coconut-derived cleansers", "mild cleansing agents"]]},
+    {"id": "soft-gel-cleanser", "name": "Soft Gel Cleanser", "category": "cleanse", "format": "pump", "size": "150 ml", "price": 449,
+     "texture": "Clear, light gel", "focus": ["Texture", "Breakouts"], "routine": "PM",
+     "about": "A light gel cleanser concept for washing away the day.",
+     "how": "Work a pump into a light lather with water and rinse well.",
+     "ingredients": [["Glycerin", "a common humectant"], ["Green tea extract", "a plant extract used in many cleansers"], ["Mild surfactants", "gentle cleansing agents"]]},
+    {"id": "dewdrop-hydration-serum", "name": "Dewdrop Hydration Serum", "category": "treat", "format": "dropper", "size": "30 ml", "price": 699,
+     "texture": "Watery serum", "focus": ["Hydration"], "routine": "AM",
+     "about": "A lightweight serum concept designed to layer under moisturiser.",
+     "how": "Press 3–4 drops into skin after cleansing.",
+     "ingredients": [["Hyaluronic acid", "a humectant often used for hydration"], ["Panthenol", "provitamin B5, common in comfort formulas"], ["Aloe leaf juice", "a soothing-feeling base"]]},
+    {"id": "still-water-essence", "name": "Still Water Essence", "category": "treat", "format": "bottle", "size": "100 ml", "price": 579,
+     "texture": "Light, watery essence", "focus": ["Uneven tone", "Texture"], "routine": "PM",
+     "about": "A pat-in essence concept for a slower evening routine.",
+     "how": "Pour a little into your palms and pat onto skin.",
+     "ingredients": [["Niacinamide", "vitamin B3, widely used in daily routines"], ["Rice ferment filtrate", "a traditional skincare ingredient"], ["Glycerin", "a common humectant"]]},
+    {"id": "quiet-night-oil", "name": "Quiet Night Oil", "category": "treat", "format": "dropper", "size": "30 ml", "price": 649,
+     "texture": "Silky facial oil", "focus": ["Calm & comfort"], "routine": "PM",
+     "about": "A nourishing facial oil concept for an unhurried evening step.",
+     "how": "Warm 2–3 drops between fingertips and press in as a last step, if it suits your skin.",
+     "ingredients": [["Squalane", "a lightweight emollient"], ["Jojoba oil", "a common plant oil"], ["Vitamin E", "an antioxidant often added to oils"]]},
+    {"id": "butter-balm-cream", "name": "Butter Balm Cream", "category": "moisturise", "format": "jar", "size": "50 ml", "price": 599,
+     "texture": "Cushiony cream", "focus": ["Hydration", "Calm & comfort"], "routine": "PM",
+     "about": "A rich cream concept for a soft, comfortable finish.",
+     "how": "Smooth a pea-sized amount over skin as the last step at night.",
+     "ingredients": [["Shea butter", "a rich plant butter"], ["Ceramides", "lipids commonly used in barrier-care formulas"], ["Glycerin", "a common humectant"]]},
+    {"id": "soft-cloud-moisturiser", "name": "Soft Cloud Moisturiser", "category": "moisturise", "format": "pump", "size": "50 ml", "price": 549,
+     "texture": "Light lotion", "focus": ["Hydration", "Texture"], "routine": "AM",
+     "about": "A simple daytime moisturiser concept that sits well under sunscreen.",
+     "how": "Apply after serum, morning or evening.",
+     "ingredients": [["Glycerin", "a common humectant"], ["Squalane", "a lightweight emollient"], ["Allantoin", "a comfort-focused ingredient"]]},
+    {"id": "daylight-spf-50", "name": "Daylight SPF 50", "category": "protect", "format": "tube", "size": "50 ml", "price": 749,
+     "texture": "Fluid sunscreen", "focus": ["Hydration", "Uneven tone", "Calm & comfort", "Texture", "Breakouts"], "routine": "AM",
+     "about": "A daily sunscreen concept for a sun-care step that is easy to remember.",
+     "how": "Use a generous amount as the last morning step. Reapply as a real product's label directs.",
+     "ingredients": [["UV filters", "a real product would list its approved filters"], ["Glycerin", "a common humectant"], ["Niacinamide", "vitamin B3"]]}
+  ],
+  "routines": {
+    "AM": [
+      {"id": "am-cleanse", "name": "Cleanse gently", "product": "cloud-milk-cleanser", "minutes": 1},
+      {"id": "am-hydrate", "name": "Add a little hydration", "product": "dewdrop-hydration-serum", "minutes": 1},
+      {"id": "am-moisturise", "name": "Moisturise", "product": "soft-cloud-moisturiser", "minutes": 1},
+      {"id": "am-protect", "name": "Protect from the sun", "product": "daylight-spf-50", "minutes": 2},
+      {"id": "am-pause", "name": "Pause and breathe", "product": null, "minutes": 1}
+    ],
+    "PM": [
+      {"id": "pm-cleanse", "name": "Wash the day away", "product": "soft-gel-cleanser", "minutes": 1},
+      {"id": "pm-essence", "name": "Pat in an essence", "product": "still-water-essence", "minutes": 1, "optional": true},
+      {"id": "pm-moisturise", "name": "Comfort cream", "product": "butter-balm-cream", "minutes": 1},
+      {"id": "pm-oil", "name": "A drop of oil", "product": "quiet-night-oil", "minutes": 1, "optional": true}
+    ],
+    "demo_done_AM": ["am-cleanse", "am-hydrate"]
+  },
+  "journal": [
+    {"date": "2026-10-27", "mood": "Calm", "note": "Felt comfortable after the evening cream. Slept well."},
+    {"date": "2026-10-26", "mood": "A little dry", "note": "Windy day. Skipped the essence and that was fine."},
+    {"date": "2026-10-24", "mood": "Sensitive", "note": "Cheeks a little warm after a long walk in the sun."}
+  ],
+  "moods": ["Calm", "A little dry", "A little oily", "Sensitive", "Not sure"],
+  "demo_saved": ["butter-balm-cream", "daylight-spf-50"]
+}

@@ -1,0 +1,112 @@
+[
+ {
+  "id": "01-welcome-1",
+  "route": "#/welcome/1",
+  "title": "Welcome \u00b7 1 of 3"
+ },
+ {
+  "id": "02-welcome-2",
+  "route": "#/welcome/2",
+  "title": "Welcome \u00b7 2 of 3"
+ },
+ {
+  "id": "03-welcome-3",
+  "route": "#/welcome/3",
+  "title": "Welcome \u00b7 3 of 3"
+ },
+ {
+  "id": "04-setup",
+  "route": "#/setup",
+  "title": "Set up (optional)"
+ },
+ {
+  "id": "05-home",
+  "route": "#/home",
+  "title": "Home"
+ },
+ {
+  "id": "06-routine-am",
+  "route": "#/routine",
+  "title": "Routine \u00b7 morning"
+ },
+ {
+  "id": "07-routine-pm",
+  "route": "#/routine?time=PM",
+  "title": "Routine \u00b7 evening"
+ },
+ {
+  "id": "08-discover",
+  "route": "#/discover",
+  "title": "Discover"
+ },
+ {
+  "id": "09-discover-treat",
+  "route": "#/discover?cat=treat",
+  "title": "Discover \u00b7 Treat filter"
+ },
+ {
+  "id": "10-discover-focus",
+  "route": "#/discover?focus=1",
+  "title": "Discover \u00b7 suits my focus"
+ },
+ {
+  "id": "11-discover-no-results",
+  "route": "#/discover?q=retinol",
+  "title": "Discover \u00b7 no results"
+ },
+ {
+  "id": "12-product",
+  "route": "#/product/butter-balm-cream",
+  "title": "Product detail (dialog)"
+ },
+ {
+  "id": "13-product-spf",
+  "route": "#/product/daylight-spf-50",
+  "title": "Product detail \u00b7 SPF"
+ },
+ {
+  "id": "14-shelf",
+  "route": "#/shelf",
+  "title": "Shelf"
+ },
+ {
+  "id": "15-shelf-empty",
+  "route": "#/shelf?demo=empty",
+  "title": "Shelf \u00b7 empty"
+ },
+ {
+  "id": "16-journal",
+  "route": "#/journal",
+  "title": "Skin journal"
+ },
+ {
+  "id": "17-journal-empty",
+  "route": "#/journal?demo=empty",
+  "title": "Skin journal \u00b7 empty"
+ },
+ {
+  "id": "18-journal-new",
+  "route": "#/journal/new",
+  "title": "New note"
+ },
+ {
+  "id": "19-journal-error",
+  "route": "#/journal/new?demo=error",
+  "title": "New note \u00b7 validation error"
+ },
+ {
+  "id": "20-profile",
+  "route": "#/profile",
+  "title": "Profile & preferences"
+ },
+ {
+  "id": "21-about",
+  "route": "#/about",
+  "title": "About this concept"
+ },
+ {
+  "id": "22-home-checkin",
+  "route": "#/home",
+  "title": "Home \u00b7 check-in confirmation"
+ }
+]
