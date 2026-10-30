@@ -3,7 +3,7 @@
   "group": "Files",
   "check": "All required project files exist",
   "pass": true,
-  "detail": "31 files"
+  "detail": "32 files"
  },
  {
   "group": "Files",
@@ -51,13 +51,13 @@
   "group": "Data",
   "check": "Dataset declares itself fictional",
   "pass": true,
-  "detail": "FICTIONAL CONCEPT CONTENT. ButterSkin is not a real brand. P"
+  "detail": "FICTIONAL CONCEPT CONTENT. ButterSkin is not a real brand or"
  },
  {
   "group": "Accessibility",
   "check": "All 18 token colour pairs meet WCAG AA (4.5:1 text, 3:1 non-text)",
   "pass": true,
-  "detail": "lowest 3.23:1"
+  "detail": "lowest 3.42:1"
  },
  {
   "group": "Content",
@@ -85,9 +85,9 @@
  },
  {
   "group": "Accessibility (mobile)",
-  "check": "axe-core 4.10.2, WCAG 2.2 A/AA rules: 0 violations on 20 screens/states",
+  "check": "axe-core 4.10.2, WCAG 2.2 A/AA rules: 0 violations on 26 screens/states",
   "pass": true,
-  "detail": "20 routes clean"
+  "detail": "26 routes clean"
  },
  {
   "group": "Readability (mobile)",
@@ -109,9 +109,9 @@
  },
  {
   "group": "Accessibility (desktop)",
-  "check": "axe-core 4.10.2, WCAG 2.2 A/AA rules: 0 violations on 20 screens/states",
+  "check": "axe-core 4.10.2, WCAG 2.2 A/AA rules: 0 violations on 26 screens/states",
   "pass": true,
-  "detail": "20 routes clean"
+  "detail": "26 routes clean"
  },
  {
   "group": "Readability (desktop)",
@@ -133,33 +133,39 @@
  },
  {
   "group": "Flows",
-  "check": "Onboarding 1→2→3 → setup → home, and setup choice changes Home picks",
+  "check": "Onboarding 1→2→3 → personalise → home, and the choice changes Home picks",
   "pass": true,
-  "detail": "Welcome 1 of 3 → Welcome 2 of 3 → Welcome 3 of 3 → Set up → Home; picks heading: For a calm & comfort focus"
+  "detail": "Welcome 1 of 3 → Welcome 2 of 3 → Welcome 3 of 3 → Personalise → Home; picks heading: For a calm & comfort focus"
  },
  {
   "group": "Flows",
-  "check": "Routine: ticking updates the count, focus stays on the checkbox, Clear resets",
+  "check": "Shop: category tabs, sort by price, no-results state, Clear filters",
   "pass": true,
-  "detail": "2 of 5 done → 3 of 5 done (focus c-am-moisturise) → 0 of 5 done"
+  "detail": "all 8, treat 3/3, sorted True, no-results True, cleared 8"
  },
  {
   "group": "Flows",
-  "check": "Discover: category filter, no-results state and Clear filters",
+  "check": "Wishlist: heart toggles pressed state and the item appears on the wishlist",
   "pass": true,
-  "detail": "all 8, treat 3/3, no-results shown True, after clear 8"
+  "detail": "pressed=true, wishlist=3"
  },
  {
-  "group": "Flows",
-  "check": "Saving a product updates its pressed state and the shelf",
+  "group": "Product",
+  "check": "Gallery thumbnails switch the main image and show which is selected",
   "pass": true,
-  "detail": "pressed=true, shelf=3"
+  "detail": ""
+ },
+ {
+  "group": "Product",
+  "check": "Quantity stepper: minus disabled at 1, plus increments, price on the button updates",
+  "pass": true,
+  "detail": "dec disabled=True, qty=3, button='ADD TO BAG · ₹1,737'"
  },
  {
   "group": "Dialog",
-  "check": "Opens from the keyboard, moves focus inside, makes the page behind inert",
+  "check": "Add to bag opens a dialog, focus moves to Close, page behind is inert, bag count updates",
   "pass": true,
-  "detail": "open=True, focus='Close', inert=True"
+  "detail": "open=True, focus=Close, inert=True, bag 'Shopping bag, 2 items' → 'Shopping bag, 5 items'"
  },
  {
   "group": "Dialog",
@@ -169,9 +175,9 @@
  },
  {
   "group": "Dialog",
-  "check": "Escape closes it and focus returns to the product that opened it",
+  "check": "Escape closes it and focus returns to the Add to bag button",
   "pass": true,
-  "detail": "closed=True, focus→#/product/still-water-essence"
+  "detail": "closed=True, focus→pdpAdd"
  },
  {
   "group": "Dialog",
@@ -180,26 +186,74 @@
   "detail": ""
  },
  {
-  "group": "Dialog",
-  "check": "Direct link to a product opens its dialog over Discover",
+  "group": "Bag",
+  "check": "Bag lists items; quantity + updates the total by the unit price; focus stays on the control",
   "pass": true,
-  "detail": ""
+  "detail": "lines 3, ₹2,047 → ₹2,646"
+ },
+ {
+  "group": "Bag",
+  "check": "Quantity is capped at 5 (plus disabled) and Remove deletes the line",
+  "pass": true,
+  "detail": "capped 5, plus disabled True, lines after remove 2"
+ },
+ {
+  "group": "Bag",
+  "check": "Delivery is free over ₹999, otherwise ₹79",
+  "pass": true,
+  "detail": "subtotal ₹1448, delivery Free"
+ },
+ {
+  "group": "Checkout",
+  "check": "Empty submit: error summary (5 errors) gets focus; fields marked invalid and described",
+  "pass": true,
+  "detail": "errors 5, focus errSum, pin invalid true, describedby e-pin h-pin"
+ },
+ {
+  "group": "Checkout",
+  "check": "Error summary links move focus to the field",
+  "pass": true,
+  "detail": "f-phone"
+ },
+ {
+  "group": "Checkout",
+  "check": "Wrong PIN alone is flagged; express delivery adds ₹149 to the total",
+  "pass": true,
+  "detail": "pin only=True, button 'PLACE DEMO ORDER · ₹1,597'"
+ },
+ {
+  "group": "Checkout",
+  "check": "Valid demo order shows a confirmation that says nothing was charged, and empties the bag",
+  "pass": true,
+  "detail": "ButterSkin · Demo order placed; bag 'Shopping bag, 0 items'"
+ },
+ {
+  "group": "Flows",
+  "check": "Routine: ticking updates the count, focus stays on the checkbox, Clear resets",
+  "pass": true,
+  "detail": "2 of 5 done → 3 of 5 done (c-am-moisturise) → 0 of 5 done"
+ },
+ {
+  "group": "Flows",
+  "check": "Shop this routine adds the missing products and then disables itself",
+  "pass": true,
+  "detail": "'Shopping bag, 2 items' → 'Shopping bag, 4 items', disabled=True"
  },
  {
   "group": "Forms",
-  "check": "Empty note: error shown, field marked invalid and described, focus moved to it",
+  "check": "Empty journal note: error shown, field invalid and described, focus moved to it",
   "pass": true,
-  "detail": "invalid=true, error visible=True, focus=note, describedby=noteHint noteErr"
+  "detail": "invalid=true, focus=note"
  },
  {
   "group": "Forms",
   "check": "Valid note saves and appears first in the journal",
   "pass": true,
-  "detail": "28\nOct\nCalm\n\nTest note from the automated check."
+  "detail": "28\nOCT\nCALM\n\nTest note from the automated check."
  },
  {
   "group": "Forms",
-  "check": "Every form control has a label (journal, search, preferences)",
+  "check": "Every form control has a label (journal, search, sort, profile, checkout, personalise)",
   "pass": true,
   "detail": "0 unlabeled"
  },
@@ -208,6 +262,12 @@
   "check": "Home check-in confirms with a toast and adds a journal entry (no score)",
   "pass": true,
   "detail": "Noted: Sensitive. Added to your journal."
+ },
+ {
+  "group": "Flows",
+  "check": "Skip link moves focus to the content without changing the screen",
+  "pass": true,
+  "detail": "ButterSkin · Home"
  },
  {
   "group": "Flows",
@@ -223,27 +283,27 @@
  },
  {
   "group": "Flows (desktop)",
-  "check": "Sidebar reaches every tab and marks the current one; mobile tab bar hidden",
+  "check": "Top navigation reaches every section and marks the current one; mobile tab bar hidden",
   "pass": true,
-  "detail": "[True, True, True, True, True], tabbar hidden=True"
+  "detail": "[True, True, True, True, True]"
  },
  {
   "group": "Dialog (desktop)",
-  "check": "Keyboard open → focus on Close → Escape → focus back on the product",
+  "check": "Card Add to bag → dialog → Escape → focus back on that card's button",
   "pass": true,
-  "detail": "open=True, focus=Close, back=#/product/quiet-night-oil"
+  "detail": "add-daylight-spf-50"
  },
  {
   "group": "Flows (desktop)",
-  "check": "Routine checkbox works at desktop width",
+  "check": "Bag shows lines and an order summary side by side",
   "pass": true,
-  "detail": "3 of 5 done"
+  "detail": ""
  },
  {
   "group": "Exports",
   "check": "Every exported PNG decodes fully",
   "pass": true,
-  "detail": "68 files"
+  "detail": "78 files"
  },
  {
   "group": "Exports",
@@ -253,9 +313,15 @@
  },
  {
   "group": "Exports",
+  "check": "No developer-testing or accessibility-statistics board in the Behance set",
+  "pass": true,
+  "detail": "ok"
+ },
+ {
+  "group": "Exports",
   "check": "Behance captions list every board image, in upload order",
   "pass": true,
-  "detail": "17 captioned / 17 files"
+  "detail": "16 captioned / 16 files"
  },
  {
   "group": "Exports",

@@ -1,28 +1,25 @@
 # Behance Project Fields (draft for approval)
 
-**Title:** ButterSkin: Skincare App Concept (Brand, Packaging & UX/UI)
+**Title:** ButterSkin: Botanical Skincare Brand & Shopping App (Concept)
 
-**Cover text:** A skincare app that lets skin be skin.
+**Cover text:** Botanical skincare, beautifully simple.
 
 **Description (paste into Behance):**
 
-ButterSkin is a self-initiated concept for a calm skincare companion app. It helps you keep a simple routine, find everyday essentials and note how your skin feels, with no scores, streaks or promises.
+ButterSkin is a self-initiated concept for a premium botanical skincare label and its own shopping app. The identity pairs an emerald seal and champagne details with porcelain backgrounds, and the packaging family covers eight fictional essentials in five formats.
 
-The design question was pressure. Skincare apps often turn care into performance. ButterSkin does the opposite:
-- routines are checklists, and skipping is fine
-- products show where they fit, never what they "fix"
-- preferences only reorder content and never diagnose.
+The app lets you discover products by routine step or skin focus, read ingredients in plain words, build a morning and evening routine, keep a private skin journal, and move from Add to bag through a bag and a short demo checkout.
 
-The project includes a brand identity and packaging direction for eight fictional products, design tokens, a responsive prototype and automated accessibility checks.
+The guiding idea is to describe where a product fits, never what it "fixes". There are no miracle claims, scores or streaks.
 
-Concept disclaimer: ButterSkin is fictional. Products, formulations, prices and people are illustrative, nothing is sold, and nothing is medical advice. No user research or testing was carried out.
+Concept disclaimer: ButterSkin is fictional. Products, formulations and prices are illustrative, and product images are rendered packaging, not photographs. The checkout is a demo, so nothing is sold or charged. Nothing here is medical advice, and no user research or testing was carried out.
 
 Concept & art direction: Purnananda Mishra · AI-assisted design and production
 
-**Tools used:** HTML, CSS, JavaScript, Python, Playwright, axe-core
+**Tools used:** HTML, CSS, JavaScript, Python, Playwright
 
-**Creative fields:** UI/UX · Branding · Packaging
+**Creative fields:** Branding · Packaging · UI/UX
 
-**Tags:** skincare, beauty app, UX design, UI design, branding, packaging design, mobile app, accessibility, wellness, concept
+**Tags:** skincare, beauty, botanical, branding, packaging design, e-commerce, shopping app, UI design, UX design, concept
 
-**Cover image:** `exports/behance/01-cover.png`. Crop to 808 × 632 around the logo and the two phones.
+**Cover image:** `exports/behance/01-cover.png`. Crop it to 808 × 632 around the headline, the packaging and the two phones.

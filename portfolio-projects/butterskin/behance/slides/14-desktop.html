@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>ButterSkin · Desktop</title><style>
+@import url('../../prototype/assets/tokens.css');
+@font-face{font-family:'Jost';font-weight:400;font-style:normal;src:url('../../prototype/assets/fonts/jost-latin-400-normal.woff2')}
+@font-face{font-family:'Jost';font-weight:500;font-style:normal;src:url('../../prototype/assets/fonts/jost-latin-500-normal.woff2')}
+@font-face{font-family:'Jost';font-weight:600;font-style:normal;src:url('../../prototype/assets/fonts/jost-latin-600-normal.woff2')}
+@font-face{font-family:'Bodoni Moda';font-weight:400;font-style:normal;src:url('../../prototype/assets/fonts/bodoni-moda-latin-400-normal.woff2')}
+@font-face{font-family:'Bodoni Moda';font-weight:500;font-style:normal;src:url('../../prototype/assets/fonts/bodoni-moda-latin-500-normal.woff2')}
+@font-face{font-family:'Bodoni Moda';font-weight:400;font-style:italic;src:url('../../prototype/assets/fonts/bodoni-moda-latin-400-italic.woff2')}
+@font-face{font-family:'Rupee';font-weight:500;font-style:normal;src:url('../../prototype/assets/fonts/dm-sans-latin-ext-500-normal.woff2');unicode-range:U+20B9}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1600px;color:var(--bs-charcoal-900);font-family:'Jost','Rupee',sans-serif;-webkit-font-smoothing:antialiased}
+.b{position:relative;width:1600px;padding:96px 104px 128px;overflow:hidden}
+.ey{font:500 17px/22px 'Jost';letter-spacing:.24em;text-transform:uppercase;color:var(--bs-champagne-700)}
+.ey::before{content:"";display:inline-block;width:40px;height:1px;background:var(--bs-champagne-400);vertical-align:middle;margin-right:16px}
+h1{font:400 82px/88px 'Bodoni Moda';letter-spacing:-.01em;color:var(--bs-emerald-900)}
+h2{font:400 60px/68px 'Bodoni Moda';letter-spacing:-.01em;margin-top:18px;color:var(--bs-emerald-900)}
+h3{font:500 30px/36px 'Bodoni Moda';color:var(--bs-emerald-900)}
+p,li{font:400 23px/35px 'Jost','Rupee';color:var(--bs-charcoal-700)}
+.lede{font-size:27px;line-height:41px;max-width:1120px;margin-top:20px}
+.sm{font-size:20px;line-height:30px}
+em{font-family:'Bodoni Moda';font-style:italic}
+b{font-weight:600;color:var(--bs-charcoal-900)}
+.card{background:var(--bs-porcelain-0);border:1px solid var(--bs-porcelain-200);border-radius:6px;padding:36px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:28px}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.ftr{position:absolute;left:104px;right:104px;bottom:44px;display:flex;justify-content:space-between;font:400 17px/24px 'Jost';color:var(--bs-charcoal-600);border-top:1px solid var(--bs-porcelain-200);padding-top:18px}
+.dark .ftr{color:var(--bs-champagne-200);border-color:rgba(239,228,204,.25)}
+.dark h1,.dark h2,.dark h3{color:var(--bs-porcelain-0)}.dark p,.dark li{color:var(--bs-porcelain-100)}.dark .ey{color:var(--bs-champagne-200)}
+.tag{display:inline-flex;align-items:center;height:42px;padding:0 18px;border-radius:2px;background:var(--bs-emerald-800);color:var(--bs-porcelain-0);font:500 16px/1 'Jost';letter-spacing:.16em;text-transform:uppercase}
+.tag.soft{background:transparent;color:var(--bs-emerald-900);border:1px solid var(--bs-champagne-400)}
+.phone{flex:none;border-radius:calc(var(--w) * .14);background:#262A28;padding:calc(var(--w) * .028);box-shadow:0 40px 80px rgba(15,59,45,.20);width:var(--w)}
+.phone img{display:block;width:100%;border-radius:calc(var(--w) * .115)}
+.browser{border-radius:10px;background:#fff;box-shadow:0 40px 80px rgba(15,59,45,.16);overflow:hidden;border:1px solid var(--bs-porcelain-200)}
+.browser .bar{height:40px;background:var(--bs-porcelain-100);display:flex;align-items:center;gap:8px;padding:0 16px}
+.browser .bar i{width:12px;height:12px;border-radius:50%;background:var(--bs-porcelain-200)}
+.browser img{display:block;width:100%}
+.cap{font:500 21px/28px 'Jost';color:var(--bs-charcoal-900);margin-top:22px}.cap span{display:block;font-weight:400;color:var(--bs-charcoal-700);font-size:19px;line-height:27px;margin-top:4px}
+.dis{border:1px solid var(--bs-champagne-400);background:var(--bs-champagne-200);border-radius:6px;padding:28px 32px}
+.sw{border-radius:4px;height:160px;padding:16px 18px;display:flex;flex-direction:column;justify-content:space-between;font:500 18px/24px 'Jost'}
+.stage{background:linear-gradient(180deg,var(--bs-porcelain-100),var(--bs-porcelain-200));border-radius:6px}
+.num{font:400 19px/1 'Bodoni Moda';color:var(--bs-champagne-700);letter-spacing:.1em}
+.arrow{align-self:center;font:400 40px 'Bodoni Moda';color:var(--bs-champagne-700);margin:0 6px}
+</style></head>
+<body style="background:var(--bs-sage-100)"><div class="b" style="height:1540px;background:var(--bs-sage-100)">
+  <div class="ey">Desktop screens</div><h2>Shop, bag and checkout on a larger screen</h2>
+  <div class="g2" style="margin-top:44px;gap:36px">
+    <div><div class="browser" style="width:680px"><div class="bar"><i></i><i></i><i></i></div><img src="../../exports/screens/desktop/06-shop-desktop.png" alt=""></div><div class="cap">Shop</div></div><div><div class="browser" style="width:680px"><div class="bar"><i></i><i></i><i></i></div><img src="../../exports/screens/desktop/13-bag-desktop.png" alt=""></div><div class="cap">Bag with order summary</div></div>
+    <div><div class="browser" style="width:680px"><div class="bar"><i></i><i></i><i></i></div><img src="../../exports/screens/desktop/05-home-desktop.png" alt=""></div><div class="cap">Home</div></div><div><div class="browser" style="width:680px"><div class="bar"><i></i><i></i><i></i></div><img src="../../exports/screens/desktop/15-checkout-desktop.png" alt=""></div><div class="cap">Demo checkout</div></div></div>
+<div class="ftr"><span>ButterSkin · self-initiated concept · fictional brand and products</span><span>Concept &amp; art direction: Purnananda Mishra · AI-assisted design and production</span></div></div></body></html>

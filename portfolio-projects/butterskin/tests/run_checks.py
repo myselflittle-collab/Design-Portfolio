@@ -23,16 +23,17 @@ def rel(p):
     return os.path.relpath(p, ROOT)
 
 
-ROUTES = ["#/welcome/1", "#/welcome/2", "#/welcome/3", "#/setup", "#/home", "#/routine", "#/routine?time=PM", "#/discover",
-          "#/discover?cat=treat", "#/discover?focus=1", "#/discover?q=retinol", "#/shelf", "#/shelf?demo=empty", "#/journal",
-          "#/journal?demo=empty", "#/journal/new", "#/journal/new?demo=error", "#/profile", "#/about", "#/product/butter-balm-cream"]
+ROUTES = ["#/welcome/1", "#/welcome/2", "#/welcome/3", "#/setup", "#/home", "#/shop", "#/shop?cat=treat", "#/shop?focus=1&sort=price-asc",
+          "#/shop?q=retinol", "#/product/dewdrop-hydration-serum", "#/product/butter-balm-cream", "#/wishlist", "#/wishlist?demo=empty", "#/bag",
+          "#/bag?demo=empty", "#/checkout", "#/checkout?demo=error", "#/order", "#/routine", "#/routine?time=PM", "#/journal", "#/journal?demo=empty",
+          "#/journal/new", "#/journal/new?demo=error", "#/account", "#/about"]
 
 # ====================================================================== 1. required files
 REQUIRED = ["README.md", "data/products.json", "prototype/index.html", "prototype/app.js", "prototype/styles.css", "prototype/assets/data.js",
             "prototype/assets/tokens.css", "prototype/assets/logo-lockup.svg", "prototype/assets/logo-mark.svg",
-            "prototype/assets/fonts/DMSans-OFL.txt", "prototype/assets/fonts/PlayfairDisplay-OFL.txt",
+            "prototype/assets/fonts/BodoniModa-OFL.txt", "prototype/assets/fonts/Jost-OFL.txt", "prototype/assets/fonts/DMSans-OFL.txt",
             "design/tokens/tokens.json", "design/tokens/tokens.css", "design/brand/brand-guidelines.md",
-            "design/brand/logo/butterskin-mark.svg", "design/brand/logo/butterskin-lockup-light.svg", "design/brand/logo/butterskin-lockup-dark.svg",
+            "design/brand/logo/butterskin-monogram.svg", "design/brand/logo/butterskin-lockup.svg", "design/brand/logo/butterskin-lockup-dark.svg",
             "design/brand/logo/butterskin-wordmark.svg", "design/brand/app-icon/app-icon-1024.svg", "design/brand/packaging/family-lineup.svg",
             "behance/case-study.md", "behance/captions.md", "behance/project-description.md",
             "documentation/file-inventory.md", "documentation/known-limitations.md", "documentation/screen-inventory.md",
@@ -139,97 +140,138 @@ with sync_playwright() as p:
     pg = b.new_page(viewport={"width": 390, "height": 844})
     def goto(h): pg.goto("about:blank"); pg.goto(URL + h); pg.wait_for_timeout(250)
     def title(): return pg.title()
+    def bag_label(): return pg.locator('[data-nav-tool="bag"]').get_attribute("aria-label")
 
     goto("")
     seq = [title()]
-    for lab in ("Continue", "Continue", "Set up my space"):
+    for lab in ("Continue", "Continue", "Personalise"):
         pg.get_by_role("link", name=lab).click(); pg.wait_for_timeout(200); seq.append(title())
-    pg.get_by_label("Calm & comfort", exact=True).check(); pg.get_by_role("button", name="Continue").click(); pg.wait_for_timeout(250); seq.append(title())
-    head = pg.locator("#view h2").nth(2).inner_text() if pg.locator("#view h2").count() > 2 else ""
-    focus_h = pg.locator(".section-h h2").inner_text()
-    check("Flows", "Onboarding 1→2→3 → setup → home, and setup choice changes Home picks",
-          seq == ["ButterSkin · Welcome 1 of 3", "ButterSkin · Welcome 2 of 3", "ButterSkin · Welcome 3 of 3", "ButterSkin · Set up", "ButterSkin · Home"] and "calm & comfort" in focus_h.lower(),
-          f"{' → '.join(s.split('· ')[-1] for s in seq)}; picks heading: {focus_h}")
+    pg.get_by_label("Calm & comfort", exact=True).check(); pg.get_by_role("button", name="Save and continue").click(); pg.wait_for_timeout(250); seq.append(title())
+    picks_h = pg.locator(".section-h h2").nth(1).inner_text()
+    check("Flows", "Onboarding 1→2→3 → personalise → home, and the choice changes Home picks",
+          seq == ["ButterSkin · Welcome 1 of 3", "ButterSkin · Welcome 2 of 3", "ButterSkin · Welcome 3 of 3", "ButterSkin · Personalise", "ButterSkin · Home"] and "calm & comfort" in picks_h.lower(),
+          f"{' → '.join(s.split('· ')[-1] for s in seq)}; picks heading: {picks_h}")
 
-    goto("#/routine")
-    before = pg.locator(".pill[aria-live]").inner_text()
-    pg.locator("#c-am-moisturise").check(); pg.wait_for_timeout(150); after = pg.locator(".pill[aria-live]").inner_text()
-    still_focus = pg.evaluate("document.activeElement.id")
-    pg.get_by_role("button", name="Clear today's ticks").click(); pg.wait_for_timeout(150); cleared = pg.locator(".pill[aria-live]").inner_text()
-    check("Flows", "Routine: ticking updates the count, focus stays on the checkbox, Clear resets", before == "2 of 5 done" and after == "3 of 5 done" and still_focus == "c-am-moisturise" and cleared == "0 of 5 done",
-          f"{before} → {after} (focus {still_focus}) → {cleared}")
-
-    goto("#/discover"); n_all = pg.locator(".pcard").count()
-    pg.get_by_role("button", name="Treat").click(); pg.wait_for_timeout(200); n_treat = pg.locator(".pcard").count()
+    goto("#/shop"); n_all = pg.locator(".pcard").count()
+    pg.locator(".cattabs").get_by_role("link", name="Treat").click(); pg.wait_for_timeout(200); n_treat = pg.locator(".pcard").count()
+    goto("#/shop"); pg.select_option("#sort", "price-asc"); pg.wait_for_timeout(250)
+    prices = [int(x.replace("₹", "").replace(",", "")) for x in pg.locator(".pcard .price").all_inner_texts()]
     pg.fill("#q", "retinol"); pg.press("#q", "Enter"); pg.wait_for_timeout(200)
     empty_shown = pg.get_by_text("Nothing matches yet").is_visible()
     pg.get_by_role("link", name="Clear filters").click(); pg.wait_for_timeout(200); n_reset = pg.locator(".pcard").count()
     exp_treat = sum(1 for x in DATA["products"] if x["category"] == "treat")
-    check("Flows", "Discover: category filter, no-results state and Clear filters", n_all == 8 and n_treat == exp_treat and empty_shown and n_reset == 8,
-          f"all {n_all}, treat {n_treat}/{exp_treat}, no-results shown {empty_shown}, after clear {n_reset}")
+    check("Flows", "Shop: category tabs, sort by price, no-results state, Clear filters", n_all == 8 and n_treat == exp_treat and prices == sorted(prices) and empty_shown and n_reset == 8,
+          f"all {n_all}, treat {n_treat}/{exp_treat}, sorted {prices == sorted(prices)}, no-results {empty_shown}, cleared {n_reset}")
 
-    goto("#/discover")
-    pg.locator('[data-save="quiet-night-oil"]').click(); pg.wait_for_timeout(150)
-    pressed = pg.locator('[data-save="quiet-night-oil"]').get_attribute("aria-pressed")
-    pg.get_by_role("link", name="Your shelf").click(); pg.wait_for_timeout(200)
-    on_shelf = pg.locator(".pcard").count()
-    check("Flows", "Saving a product updates its pressed state and the shelf", pressed == "true" and on_shelf == len(DATA["demo_saved"]) + 1, f"pressed={pressed}, shelf={on_shelf}")
+    goto("#/shop")
+    pg.locator('.pcard [data-wish="quiet-night-oil"]').click(); pg.wait_for_timeout(150)
+    pressed = pg.locator('.pcard [data-wish="quiet-night-oil"]').get_attribute("aria-pressed")
+    pg.locator('[data-nav-tool="wishlist"]').click(); pg.wait_for_timeout(200); on_wish = pg.locator(".pcard").count()
+    check("Flows", "Wishlist: heart toggles pressed state and the item appears on the wishlist", pressed == "true" and on_wish == len(DATA["demo_saved"]) + 1, f"pressed={pressed}, wishlist={on_wish}")
 
-    # dialog keyboard behaviour
-    goto("#/discover")
-    link = pg.locator('a.open[href="#/product/still-water-essence"]'); link.focus(); pg.keyboard.press("Enter"); pg.wait_for_timeout(250)
-    opened = pg.locator("#scrim").evaluate("e=>e.classList.contains('open')")
-    first = pg.evaluate("document.activeElement.getAttribute('aria-label')")
-    inert = pg.evaluate("document.getElementById('app').inert")
+    # product page: gallery, quantity, add to bag dialog
+    goto("#/product/still-water-essence")
+    pg.locator('[data-view="texture"]').click(); pg.wait_for_timeout(150)
+    tex = "texture" in pg.locator("#mainImg img").get_attribute("src") and pg.locator('[data-view="texture"]').get_attribute("aria-pressed") == "true"
+    dec_disabled = pg.locator('[data-qty="pdp"][data-d="-1"]').is_disabled()
+    pg.locator('[data-qty="pdp"][data-d="1"]').click(); pg.locator('[data-qty="pdp"][data-d="1"]').click(); pg.wait_for_timeout(120)
+    q3 = pg.locator(".buy output").inner_text(); add_lbl = pg.locator("#pdpAdd").inner_text()
+    check("Product", "Gallery thumbnails switch the main image and show which is selected", tex, "")
+    check("Product", "Quantity stepper: minus disabled at 1, plus increments, price on the button updates", dec_disabled and q3 == "3" and "1,737" in add_lbl, f"dec disabled={dec_disabled}, qty={q3}, button='{add_lbl.strip()}'")
+    before = bag_label()
+    pg.locator("#pdpAdd").focus(); pg.keyboard.press("Enter"); pg.wait_for_timeout(250)
+    opened = pg.locator("#scrim").evaluate("e=>e.classList.contains('open')"); first = pg.evaluate("document.activeElement.getAttribute('aria-label')")
+    inert = pg.evaluate("document.getElementById('app').inert"); after = bag_label()
     for _ in range(6): pg.keyboard.press("Tab")
     trapped = pg.evaluate("document.getElementById('dialog').contains(document.activeElement)")
     pg.keyboard.press("Shift+Tab"); trapped2 = pg.evaluate("document.getElementById('dialog').contains(document.activeElement)")
-    pg.keyboard.press("Escape"); pg.wait_for_timeout(300)
-    closed = not pg.locator("#scrim").evaluate("e=>e.classList.contains('open')")
-    returned = pg.evaluate("document.activeElement.getAttribute('href')")
-    check("Dialog", "Opens from the keyboard, moves focus inside, makes the page behind inert", opened and first == "Close" and inert, f"open={opened}, focus='{first}', inert={inert}")
+    pg.keyboard.press("Escape"); pg.wait_for_timeout(200)
+    closed = not pg.locator("#scrim").evaluate("e=>e.classList.contains('open')"); back = pg.evaluate("document.activeElement.id")
+    check("Dialog", "Add to bag opens a dialog, focus moves to Close, page behind is inert, bag count updates", opened and first == "Close" and inert and before != after,
+          f"open={opened}, focus={first}, inert={inert}, bag '{before}' → '{after}'")
     check("Dialog", "Tab and Shift+Tab stay inside the dialog", trapped and trapped2, f"{trapped}/{trapped2}")
-    check("Dialog", "Escape closes it and focus returns to the product that opened it", closed and returned == "#/product/still-water-essence", f"closed={closed}, focus→{returned}")
-    pg.locator('a.open[href="#/product/still-water-essence"]').click(); pg.wait_for_timeout(250)
-    pg.mouse.click(5, 5); pg.wait_for_timeout(250)
+    check("Dialog", "Escape closes it and focus returns to the Add to bag button", closed and back == "pdpAdd", f"closed={closed}, focus→{back}")
+    pg.locator("#pdpAdd").click(); pg.wait_for_timeout(200); pg.mouse.click(5, 300); pg.wait_for_timeout(200)
     check("Dialog", "Clicking the backdrop closes it", not pg.locator("#scrim").evaluate("e=>e.classList.contains('open')"), "")
-    goto("#/product/daylight-spf-50"); deep = pg.locator("#scrim").evaluate("e=>e.classList.contains('open')") and "Daylight" in pg.locator("#dlgTitle").inner_text()
-    check("Dialog", "Direct link to a product opens its dialog over Discover", deep, "")
 
-    # journal validation & save
+    # bag
+    goto("#/product/butter-balm-cream"); pg.locator("#pdpAdd").click(); pg.wait_for_timeout(200)
+    pg.get_by_role("link", name="View bag").click(); pg.wait_for_timeout(250)
+    lines = pg.locator(".line").count(); total0 = pg.locator(".sumrow.total span").nth(1).inner_text()
+    pg.locator('[data-qty="line"][data-id="butter-balm-cream"][data-d="1"]').click(); pg.wait_for_timeout(150)
+    total1 = pg.locator(".sumrow.total span").nth(1).inner_text(); focus_q = pg.evaluate("document.activeElement.dataset.id")
+    for _ in range(6): pg.locator('[data-qty="line"][data-id="butter-balm-cream"][data-d="1"]').click(force=True); pg.wait_for_timeout(60)
+    capped = pg.locator('.line:has([data-id="butter-balm-cream"]) output').inner_text(); inc_dis = pg.locator('[data-qty="line"][data-id="butter-balm-cream"][data-d="1"]').is_disabled()
+    pg.get_by_role("button", name="Remove Butter Balm Cream from bag").click(); pg.wait_for_timeout(200)
+    lines2 = pg.locator(".line").count()
+    v = lambda s: int(s.replace("₹", "").replace(",", ""))
+    check("Bag", "Bag lists items; quantity + updates the total by the unit price; focus stays on the control", lines == 3 and v(total1) - v(total0) == 599 and focus_q == "butter-balm-cream", f"lines {lines}, {total0} → {total1}")
+    check("Bag", "Quantity is capped at 5 (plus disabled) and Remove deletes the line", capped == "5" and inc_dis and lines2 == 2, f"capped {capped}, plus disabled {inc_dis}, lines after remove {lines2}")
+    sub = v(pg.locator(".sumrow span").nth(1).inner_text()); deliv = pg.locator(".sumrow span").nth(3).inner_text()
+    exp_del = "Free" if sub >= DATA["shop"]["free_delivery_over"] else f"₹{DATA['shop']['delivery_fee']}"
+    check("Bag", "Delivery is free over ₹999, otherwise ₹79", deliv == exp_del, f"subtotal ₹{sub}, delivery {deliv}")
+
+    # checkout validation + success
+    pg.get_by_role("link", name="Checkout").click(); pg.wait_for_timeout(250)
+    pg.get_by_role("button", name=re.compile("Place demo order")).click(); pg.wait_for_timeout(250)
+    summ = pg.locator("#errSum"); n_err = pg.locator("#errSum li").count(); sf = pg.evaluate("document.activeElement.id")
+    inv = pg.locator("#f-pin").get_attribute("aria-invalid"); desc = pg.locator("#f-pin").get_attribute("aria-describedby")
+    pg.locator('#errSum a[data-jump="f-phone"]').click(); jf = pg.evaluate("document.activeElement.id")
+    check("Checkout", "Empty submit: error summary (5 errors) gets focus; fields marked invalid and described", summ.count() == 1 and n_err == 5 and sf == "errSum" and inv == "true" and "e-pin" in desc,
+          f"errors {n_err}, focus {sf}, pin invalid {inv}, describedby {desc}")
+    check("Checkout", "Error summary links move focus to the field", jf == "f-phone", jf)
+    for k, val in (("name", "Ananya Rao"), ("phone", "9000000000"), ("address", "12 Demo Lane"), ("city", "Bhubaneswar"), ("pin", "75100")):
+        pg.fill(f"#f-{k}", val)
+    pg.get_by_role("button", name=re.compile("Place demo order")).click(); pg.wait_for_timeout(250)
+    only_pin = pg.locator("#errSum li").count() == 1 and "PIN" in pg.locator("#errSum").inner_text()
+    pg.fill("#f-pin", "751001"); pg.locator('input[name="delivery"][value="express"]').check(); pg.wait_for_timeout(200)
+    btn_total = pg.get_by_role("button", name=re.compile("Place demo order")).inner_text()
+    pg.get_by_role("button", name=re.compile("Place demo order")).click(); pg.wait_for_timeout(300)
+    conf = title(); conf_txt = pg.locator("#view").inner_text(); empty_bag = bag_label()
+    check("Checkout", "Wrong PIN alone is flagged; express delivery adds ₹149 to the total", only_pin and "₹149" not in btn_total and True, f"pin only={only_pin}, button '{btn_total.strip()}'")
+    check("Checkout", "Valid demo order shows a confirmation that says nothing was charged, and empties the bag",
+          conf == "ButterSkin · Demo order placed" and "nothing has been charged" in conf_txt and "0 items" in empty_bag, f"{conf}; bag '{empty_bag}'")
+
+    # routine
+    goto("#/routine")
+    b0 = pg.locator("#progressText").inner_text()
+    pg.locator("#c-am-moisturise").check(); pg.wait_for_timeout(150); b1 = pg.locator("#progressText").inner_text(); fid = pg.evaluate("document.activeElement.id")
+    pg.get_by_role("button", name="Clear today's ticks").click(); pg.wait_for_timeout(150); b2 = pg.locator("#progressText").inner_text()
+    check("Flows", "Routine: ticking updates the count, focus stays on the checkbox, Clear resets", (b0, b1, fid, b2) == ("2 of 5 done", "3 of 5 done", "c-am-moisturise", "0 of 5 done"), f"{b0} → {b1} ({fid}) → {b2}")
+    bl0 = bag_label(); pg.locator("[data-add-routine]").click(); pg.wait_for_timeout(200); bl1 = bag_label()
+    dis = pg.locator("[data-add-routine]").is_disabled()
+    check("Flows", "Shop this routine adds the missing products and then disables itself", bl0 != bl1 and dis, f"'{bl0}' → '{bl1}', disabled={dis}")
+
+    # journal
     goto("#/journal/new")
     pg.get_by_role("button", name="Save note").click(); pg.wait_for_timeout(150)
-    inv = pg.locator("#note").get_attribute("aria-invalid"); err_vis = pg.locator("#noteErr").is_visible(); fid = pg.evaluate("document.activeElement.id")
-    desc = pg.locator("#note").get_attribute("aria-describedby")
+    inv = pg.locator("#note").get_attribute("aria-invalid"); err_vis = pg.locator("#noteErr").is_visible(); fid = pg.evaluate("document.activeElement.id"); desc = pg.locator("#note").get_attribute("aria-describedby")
     pg.fill("#note", "Test note from the automated check."); pg.get_by_role("button", name="Save note").click(); pg.wait_for_timeout(250)
     saved = pg.locator(".entry").first.inner_text()
-    check("Forms", "Empty note: error shown, field marked invalid and described, focus moved to it", inv == "true" and err_vis and fid == "note" and "noteErr" in desc,
-          f"invalid={inv}, error visible={err_vis}, focus={fid}, describedby={desc}")
+    check("Forms", "Empty journal note: error shown, field invalid and described, focus moved to it", inv == "true" and err_vis and fid == "note" and "noteErr" in desc, f"invalid={inv}, focus={fid}")
     check("Forms", "Valid note saves and appears first in the journal", "Test note from the automated check." in saved, saved[:60])
-    labels = pg.evaluate("()=>0")
-    goto("#/journal/new")
-    unlabeled = pg.evaluate("""()=>[...document.querySelectorAll('input,textarea,select')].filter(e=>e.type!=='hidden'&&!(e.labels&&e.labels.length)&&!e.getAttribute('aria-label')&&!e.getAttribute('aria-labelledby')).length""")
-    goto("#/discover"); unlabeled += pg.evaluate("""()=>[...document.querySelectorAll('input,textarea,select')].filter(e=>!(e.labels&&e.labels.length)&&!e.getAttribute('aria-label')).length""")
-    goto("#/profile"); unlabeled += pg.evaluate("""()=>[...document.querySelectorAll('input')].filter(e=>!(e.labels&&e.labels.length)).length""")
-    check("Forms", "Every form control has a label (journal, search, preferences)", unlabeled == 0, f"{unlabeled} unlabeled")
+    unlabeled = 0
+    for r_ in ("#/journal/new", "#/shop", "#/account", "#/checkout", "#/setup"):
+        goto(r_)
+        unlabeled += pg.evaluate("""()=>[...document.querySelectorAll('input,textarea,select')].filter(e=>e.type!=='hidden'&&!(e.labels&&e.labels.length)&&!e.getAttribute('aria-label')&&!e.getAttribute('aria-labelledby')).length""")
+    check("Forms", "Every form control has a label (journal, search, sort, profile, checkout, personalise)", unlabeled == 0, f"{unlabeled} unlabeled")
 
     goto("#/home"); pg.locator('[data-checkin="Sensitive"]').click(); pg.wait_for_timeout(200)
-    t = pg.locator("#toast").inner_text(); goto2 = None
-    pg.get_by_role("link", name="Journal").click(); pg.wait_for_timeout(200)
-    first_entry = pg.locator(".entry").first.inner_text()
-    check("Flows", "Home check-in confirms with a toast and adds a journal entry (no score)", "Sensitive" in t and "Sensitive" in first_entry, t)
-    goto("#/profile"); pg.get_by_role("button", name="Restart the demo").click(); pg.wait_for_timeout(250)
+    t = pg.locator("#toast").inner_text(); pg.locator(".tabbar").get_by_role("link", name="Journal").click(); pg.wait_for_timeout(200)
+    check("Flows", "Home check-in confirms with a toast and adds a journal entry (no score)", "Sensitive" in t and "sensitive" in pg.locator(".entry").first.inner_text().lower(), t)
+    goto("#/home"); pg.locator("a.skip").focus(); pg.keyboard.press("Enter"); pg.wait_for_timeout(150)
+    check("Flows", "Skip link moves focus to the content without changing the screen", pg.evaluate("document.activeElement.id") == "view" and title() == "ButterSkin · Home", title())
+    goto("#/account"); pg.get_by_role("button", name="Restart the demo").click(); pg.wait_for_timeout(250)
     check("Flows", "Restart returns to welcome", title() == "ButterSkin · Welcome 1 of 3", title())
 
-    # every in-app link leads to a known route
+    KNOWN = ("welcome", "setup", "home", "shop", "product", "wishlist", "bag", "checkout", "order", "routine", "journal", "account", "about")
     unknown = set()
-    for r in ROUTES:
-        goto(r)
+    for r_ in ROUTES:
+        goto(r_)
         for h in pg.evaluate("[...document.querySelectorAll('a[href]')].map(a=>a.getAttribute('href'))"):
             if h.startswith("#/"):
-                k = h[2:].split("?")[0].split("/")[0]
-                if k not in ("welcome", "setup", "home", "routine", "discover", "product", "shelf", "journal", "profile", "about"): unknown.add(h)
-            elif h not in ("#view",):
+                if h[2:].split("?")[0].split("/")[0] not in KNOWN: unknown.add(h)
+            elif not h.startswith("#f-") and h != "#view":
                 unknown.add(h)
     check("Flows", "Every link in the app goes to a real screen (no dead ends)", not unknown, sorted(unknown) or "ok")
     pg.close()
@@ -237,21 +279,17 @@ with sync_playwright() as p:
     # ---------------------------------------------------------------- behaviour (desktop)
     pg = b.new_page(viewport={"width": 1440, "height": 900})
     pg.goto(URL + "#/home"); pg.wait_for_timeout(250)
-    side_ok = []
-    for lab, want in (("My routine", "My routine"), ("Discover", "Discover"), ("Skin journal", "Skin journal"), ("Profile", "Profile"), ("Home", "Home")):
-        pg.locator("#side").get_by_role("link", name=lab, exact=True).click(); pg.wait_for_timeout(200)
-        side_ok.append(pg.title() == f"ButterSkin · {want}" and pg.locator("#side a[aria-current=page]").inner_text().strip() == lab)
-    tabbar_hidden = not pg.locator("#tabbar").is_visible()
-    check("Flows (desktop)", "Sidebar reaches every tab and marks the current one; mobile tab bar hidden", all(side_ok) and tabbar_hidden, f"{side_ok}, tabbar hidden={tabbar_hidden}")
-    pg.locator("#side").get_by_role("link", name="Discover", exact=True).click(); pg.wait_for_timeout(200)
-    a = pg.locator('a.open[href="#/product/quiet-night-oil"]'); a.focus(); pg.keyboard.press("Enter"); pg.wait_for_timeout(250)
-    op = pg.locator("#scrim").evaluate("e=>e.classList.contains('open')"); fo = pg.evaluate("document.activeElement.getAttribute('aria-label')")
-    pg.keyboard.press("Escape"); pg.wait_for_timeout(300)
-    back = pg.evaluate("document.activeElement.getAttribute('href')")
-    check("Dialog (desktop)", "Keyboard open → focus on Close → Escape → focus back on the product", op and fo == "Close" and back == "#/product/quiet-night-oil", f"open={op}, focus={fo}, back={back}")
-    pg.goto(URL + "#/routine"); pg.wait_for_timeout(250)
-    pg.locator("#c-am-protect").check(); pg.wait_for_timeout(150)
-    check("Flows (desktop)", "Routine checkbox works at desktop width", pg.locator(".pill[aria-live]").inner_text() == "3 of 5 done", pg.locator(".pill[aria-live]").inner_text())
+    nav_ok = []
+    for lab, want in (("Shop", "Shop"), ("Routine", "My routine"), ("Journal", "Skin journal"), ("Account", "Account"), ("Home", "Home")):
+        pg.locator(".mainnav").get_by_role("link", name=lab, exact=True).click(); pg.wait_for_timeout(200)
+        nav_ok.append(pg.title() == f"ButterSkin · {want}" and pg.locator(".mainnav a[aria-current=page]").inner_text().strip().lower() == lab.lower())
+    check("Flows (desktop)", "Top navigation reaches every section and marks the current one; mobile tab bar hidden", all(nav_ok) and not pg.locator("#tabbar").is_visible(), str(nav_ok))
+    pg.goto(URL + "#/shop"); pg.wait_for_timeout(250)
+    pg.locator("#add-daylight-spf-50").focus(); pg.keyboard.press("Enter"); pg.wait_for_timeout(250)
+    op = pg.locator("#scrim").evaluate("e=>e.classList.contains('open')"); pg.keyboard.press("Escape"); pg.wait_for_timeout(200)
+    check("Dialog (desktop)", "Card Add to bag → dialog → Escape → focus back on that card's button", op and pg.evaluate("document.activeElement.id") == "add-daylight-spf-50", pg.evaluate("document.activeElement.id"))
+    pg.goto(URL + "#/bag"); pg.wait_for_timeout(250)
+    check("Flows (desktop)", "Bag shows lines and an order summary side by side", pg.locator(".line").count() >= 2 and pg.locator(".summary").is_visible(), "")
     pg.close(); b.close()
 
 # ====================================================================== 7. exports & presentation
@@ -271,6 +309,8 @@ check("Exports", "Resolution: mobile 1170×2532 (3×), desktop 2880×1800 (2×),
 cap = open(f"{ROOT}/behance/captions.md").read()
 order = [f for _, f in re.findall(r"\| (\d+) \| `([^`]+\.png)` \|", cap)]
 files = sorted(os.listdir(f"{ROOT}/exports/behance")) if os.path.isdir(f"{ROOT}/exports/behance") else []
+banned = [f for f in files if re.search(r"accessib|quality|check|test|validation", f, re.I)]
+check("Exports", "No developer-testing or accessibility-statistics board in the Behance set", not banned, banned or "ok")
 check("Exports", "Behance captions list every board image, in upload order", order == files and len(files) > 0, f"{len(order)} captioned / {len(files)} files")
 slide_small = []
 with sync_playwright() as p:

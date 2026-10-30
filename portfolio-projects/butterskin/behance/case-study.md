@@ -1,100 +1,91 @@
-# ButterSkin: A Skincare App That Lets Skin Be Skin
+# ButterSkin: Botanical Skincare, Beautifully Simple
 
-**Self-initiated concept · Brand identity, packaging direction, UX/UI and prototype · 2026**
+**Self-initiated concept · Brand identity, packaging design, e-commerce UX/UI and prototype · 2026**
 **Concept & art direction: Purnananda Mishra · AI-assisted design and production**
 
-> ButterSkin is fictional. It is not a real brand, shop or medical tool. Products, formulations, prices, people and journal entries are illustrative. Nothing is sold, stored or sent, and nothing here is medical advice. No user research or usability testing was carried out. The users and problems below are design assumptions, stated as such.
+> ButterSkin is fictional. It is not a real brand, shop or medical tool. Products, formulations, prices and journal entries are illustrative. Product images are rendered packaging, not photographs. The checkout is a demo: no order is placed and nothing is charged. Nothing here is medical advice. No user research or usability testing was carried out, and the principles below are design assumptions.
 
 ---
 
 ## 1. Overview
 
-ButterSkin is a concept for a skincare companion app. It helps you:
-- keep a simple morning and evening routine
-- find everyday essentials
-- note how your skin feels.
-
-It does this without scores, streaks or promises.
+ButterSkin is a concept for a premium botanical skincare label and its own shopping app. In the app you can:
+- discover eight essentials by routine step or skin focus
+- read what is inside, in plain words
+- build a morning and evening routine
+- keep a private skin journal
+- add to bag and go through a short demo checkout.
 
 **Deliverables:**
-- brand identity and design tokens
-- a packaging direction for eight fictional products
-- a responsive prototype with 22 exported screens and states
-- automated accessibility and behaviour checks
-- this case study.
+- brand identity, guidelines and design tokens
+- a packaging family for eight fictional products
+- a responsive shopping prototype with 27 exported mobile screens and states, plus 8 desktop screens
+- this case study and 16 presentation boards.
 
-## 2. The design problem (assumptions)
+## 2. Design approach (assumptions)
 
-Many skincare and wellness apps lean on patterns that make care feel like performance. This project treats them as **assumptions to design against**, not research findings:
+1. **Commercially credible.** Prices are always visible, every card has Add to bag and a wishlist button, the bag has real quantity controls, and the checkout takes three steps.
+2. **Where it fits, not what it fixes.** Each product sits in a routine step, and ingredients are described by what they are commonly used for. There are no miracle claims, ratings or before-and-after images.
+3. **Personal, not prescriptive.** An optional skin profile reorders picks. It never diagnoses, and there are no scores or streaks.
+4. **Honest content.** "Concept" labels sit where claims usually would, and the demo checkout says plainly that nothing is charged.
 
-- streaks, scores and badges that punish a missed night
-- "before and after" promises and miracle-style claims
-- long ingredient lists with no plain-language context
-- quizzes that feel like a diagnosis.
+## 3. Brand identity
 
-**Principles:**
-1. **Skipping is fine.** Routines are checklists, never scores.
-2. **Where it fits, not what it fixes.** Products are described by their place in a routine.
-3. **Personal, not prescriptive.** Preferences reorder content and never diagnose.
-4. **Calm by default.** Soft colour, plain words, generous space.
-5. **Honest content.** "Fictional" and "concept" labels sit where claims usually would.
+- **The seal:** an emerald disc with a fine champagne ring and a Bodoni Moda *B*, like the stamp on an apothecary jar.
+- **Wordmark:** BUTTERSKIN in widely tracked Jost capitals, with an optional BOTANICAL SKINCARE tagline.
+- **Colour:** porcelain backgrounds, deep emerald for actions, muted sage for secondary surfaces, champagne for fine details, and charcoal text.
+- **Type:** Bodoni Moda for names and headlines, Jost for the interface. Both are SIL OFL 1.1 and served locally.
 
-## 3. Representative needs (assumption-based, not research personas)
+Full rules are in [`../design/brand/brand-guidelines.md`](../design/brand/brand-guidelines.md).
 
-| Profile | Context | Representative question |
-|---|---|---|
-| The routine starter | Wants three or four steps that are easy to remember | "What do I actually need in the morning?" |
-| The ingredient-curious | Reads labels but feels lost in the jargon | "What is niacinamide, in plain words?" |
-| The gentle tracker | Notices flare-ups and wants a light way to keep notes | "Was my skin drier after that windy weekend?" |
+## 4. Packaging design (fictional)
 
-## 4. Key decisions
+Five formats (tube, pump, dropper, jar and bottle) with brushed champagne caps. Body colour follows the routine: frosted glass to cleanse, emerald to treat, porcelain to moisturise and protect. One label system carries the brand, the product name, the routine step and "size · concept".
 
-| Decision | Why |
-|---|---|
-| **Removed the routine streak.** An early draft showed "Routine streak: 4 days". It became a "Saved on your shelf" count, and the final app shows today's progress only. | Streaks reward perfection and punish a missed night, which contradicts the brand idea. |
-| **"Skipping a step is fine."** Optional steps are labelled, the completion message is neutral, and "Clear today's ticks" is always available. | Progress stays informational, not moral. |
-| **Where it fits, not what it fixes.** The product dialog shows the routine step, how to use it, and ingredients described as what they are *commonly used for*. | Avoids implying results a fictional product can't support. |
-| **Concept labels in place.** "Concept product", "concept formulation", and "concept" on every pack label; a patch-test note on every product. | Fiction stays obvious even when one screen is seen alone. |
-| **Preferences, never diagnosis.** Setup is optional, has a "Not sure" option, and only reorders or filters products. | Personal without pretending to be clinical. |
-| **Notice, don't judge.** One-tap check-in on Home and a private journal, never scored; a note points to a doctor or dermatologist if something worries you. | Reflection without self-surveillance. |
-| **Identity: the pat.** A soft square with three rounded corners and one tucked corner, tilted 8°, holding a serif *b*. | Butter, softness and handmade warmth, without a literal butter illustration. |
+There is no product photography. Real-looking photos of products that don't exist would mislead, so products are shown as studio-lit vector renders and illustrated texture swatches.
 
-## 5. Information architecture & flows
+## 5. Home & discovery
 
-Tabs: **Home · Routine · Discover · Journal · Profile**. The shelf sits behind a heart in the header. Onboarding (three cards) and an optional setup come first.
+- **Home:** a featured edit, shop by step, picks for your skin focus, and today's routine.
+- **Shop:** search, underline category tabs, a "Suits my focus" switch and sort by price. Each card shows the image, name, short description, size, price, a wishlist button and Add to bag.
+- **No results:** says what happened and offers Clear filters.
 
-1. **First run:** Welcome 1 → 2 → 3 → optional setup → Home. Every step can be skipped.
-2. **Morning routine:** Home → Routine (tick steps; focus stays on the checkbox) → product dialog → Evening tab.
-3. **Discover:** search, category filters, a "Suits my focus" switch → product dialog → save to shelf.
-4. **Notice, don't judge:** Home check-in → Journal → New note, with gentle validation if the note is empty.
+## 6. Product details & ingredients
 
-## 6. Visual identity & packaging
+A gallery with pack, in-scene and texture views; size and price; a quantity stepper with a full-width Add to bag; accordions for how to use, key ingredients and where it fits; a patch-test note; and "Pairs well with".
 
-- **Mark and wordmark:** the pat with a Playfair Display *b*; the wordmark is DM Sans Bold, lowercase. Light, dark and one-colour versions, plus an app icon.
-- **Colour:** butter paper canvas, botanical olive for actions, and four category colours (sage = Cleanse, clay = Treat, butter = Moisturise, sky = Protect). Colour always comes with a text label.
-- **Type:** Playfair Display for editorial headlines, DM Sans for interface text. Both SIL OFL 1.1, served locally.
-- **Packaging (fictional):** five formats (tube, pump, dropper, jar, bottle) with olive caps, category-coloured bodies and a cream label carrying the pat, the product name and "size · concept".
+## 7. Routines & personalisation
 
-## 7. Accessibility
+- **Skin profile:** two optional questions, and "Not sure" is allowed.
+- **Morning and evening:** real checkboxes, progress for today only, and Clear. **Shop this routine** adds only the missing products to the bag.
+- **Journal:** short private notes with a mood, never scored. Home has a one-tap check-in.
 
-Built and checked against WCAG 2.2 AA. Actual results are in [`../documentation/validation-report.md`](../documentation/validation-report.md).
-- All 18 token colour pairs pass AA (text 4.5:1, borders and focus 3:1).
-- axe-core 4.10.2 with WCAG 2.2 A/AA rules runs on 20 screens and states at mobile and desktop widths.
-- Real checkboxes, radio groups, labels and `aria-describedby` errors; a skip link; visible focus; 44 px touch targets; no text below 12 px; reduced motion respected.
-- The product dialog moves focus inside, traps Tab, closes on Escape or a backdrop click, returns focus to the product, and makes the page behind inert.
+## 8. Shopping experience
+
+1. **Add to bag** opens a confirmation dialog with View bag and Continue shopping.
+2. **Bag:** quantity steppers (1–5), Remove, and an order summary. Delivery is free over ₹999, otherwise ₹79.
+3. **Delivery details:** five fields, standard or express delivery, and a linked error summary with a message on each field.
+4. **Confirmation:** a demo order reference, and a plain statement that no order was sent and nothing was charged.
+
+Empty states for the bag and wishlist each offer one clear way forward.
+
+## 9. Mobile & desktop
+
+Below 900 px, a bottom tab bar is used. Above it, a top navigation with wider grids and a side-by-side bag summary takes over. The same code and data power both.
+
+## 10. Accessibility (documentation only)
+
+The app was built against WCAG 2.2 AA. Actual results are in [`../documentation/validation-report.md`](../documentation/validation-report.md) and are not shown on the presentation boards.
+- Real buttons, checkboxes, radio groups and labels; errors linked to fields; a skip link; visible focus; 44 px targets; no text below 12 px.
+- The Add to bag dialog moves focus inside, traps Tab, closes on Escape or a backdrop click, returns focus to the button you used, and makes the page behind inert.
 - **Not yet done:** testing with screen-reader users or with people in general. Automated tests ran in Chromium only.
 
-## 8. Tools, contribution & limitations
+## 11. Tools, contribution & limitations
 
 **Contribution:**
-- **Purnananda Mishra:** concept, art direction and review at each stage.
-- **AI-assisted:** design production, prototype code, packaging illustration, automated checks and writing, under that direction.
+- **Purnananda Mishra:** concept, art direction, choice of visual direction, and review at each stage.
+- **AI-assisted:** design production, prototype code, packaging illustration, checks and writing, under that direction.
 
 **Tools:** HTML, CSS and JavaScript; Python (tokens, logo and packaging generation); Playwright with Chromium (screen exports and tests); axe-core 4.10.2.
 
-**Limitations:**
-- Fictional brand, products and data.
-- No user research or usability testing.
-- No dermatological, legal or regulatory review.
-- Session-only prototype with no backend.
-- English only; tested in Chromium only.
+**Limitations:** fictional brand, products and prices; rendered packaging with no photography; a demo checkout with no backend; no user research or usability testing; no dermatological or regulatory review; English only; tested in Chromium only. See [`../documentation/known-limitations.md`](../documentation/known-limitations.md).
