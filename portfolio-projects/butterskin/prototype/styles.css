@@ -129,7 +129,8 @@ textarea.input{min-height:140px;resize:vertical}
 .step{display:grid;grid-template-columns:auto 56px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--bs-border)}
 .step:last-child{border-bottom:0}
 .check{position:relative;width:28px;height:28px}
-.check input{position:absolute;inset:-8px;opacity:0;margin:0;cursor:pointer;width:44px;height:44px}
+.check input{position:absolute;inset:-8px;opacity:0;margin:0;cursor:pointer;width:44px;height:44px;z-index:1}
+.check .box{pointer-events:none}
 .check .box{width:28px;height:28px;border-radius:50%;border:2px solid var(--bs-ink-400);display:grid;place-items:center;color:#fff}
 .check input:checked+.box{background:var(--bs-olive-600);border-color:var(--bs-olive-600)}
 .check input:focus-visible+.box{outline:3px solid var(--bs-focus);outline-offset:2px}

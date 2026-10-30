@@ -1,69 +1,100 @@
-# ButterSkin — Behance case study
+# ButterSkin: A Skincare App That Lets Skin Be Skin
 
-**Project type:** Concept app · skincare & beauty · mobile-first product design  
-**Role:** Concept, UX direction, visual design and interactive prototype  
-**Status:** Portfolio concept — not a launched product
+**Self-initiated concept · Brand identity, packaging direction, UX/UI and prototype · 2026**
+**Concept & art direction: Purnananda Mishra · AI-assisted design and production**
 
-## The idea
-
-Skincare can feel like a maze of trends, long ingredient lists, and pressure to achieve “perfect” skin. ButterSkin imagines a gentler alternative: a calm place to discover everyday essentials, follow a manageable routine, and notice how your skin feels over time.
-
-The guiding principle is simple: **your skin, understood.**
-
-## Design challenge
-
-Create a skincare experience that feels warm and editorial without sacrificing clarity. The product should help a person answer three everyday questions:
-- What can I use?
-- What is my next routine step?
-- How is my skin feeling today?
-
-## Design response
-
-### 01 — A calmer home
-
-The overview brings the morning ritual, progress, and a small curated product selection into one glance. It celebrates consistency without making skincare feel like another performance metric.
-
-### 02 — A routine that feels achievable
-
-The routine checklist turns care into small steps. Clear labels and completion states keep the experience easy to scan, while the copy avoids shame when a step is skipped.
-
-### 03 — Product discovery without the noise
-
-A focused catalogue organises fictional essentials into Cleanse, Treat, Moisturise, and Protect. Product details explain where an item could fit in a routine rather than promising dramatic outcomes.
-
-### 04 — Personal, not prescriptive
-
-A lightweight skin profile and journal let people explore skin type, concerns, and daily observations. These are demo interactions only; they do not diagnose conditions or make medical recommendations.
-
-## Visual identity
-
-- **Palette:** butter paper, botanical olive, pale sage, warm clay, and soft cream.
-- **Typography:** expressive editorial serif headlines paired with a clean sans-serif for controls and supporting information.
-- **Shape language:** rounded cards, soft circles, gentle contrast, and generous spacing.
-- **Voice:** warm, grounded, supportive, and never perfectionist.
-- **Signature detail:** the lowercase ButterSkin wordmark and a soft olive "pat" mark (three rounded corners and one tucked corner, holding a lowercase b) create a friendly, tactile feel.
-
-## Prototype highlights
-
-- Responsive overview, routine, discovery, and skin-profile screens
-- Interactive routine checklist with live progress
-- Product category filters and product detail modal
-- Save-to-shelf interaction
-- Selectable demo preferences and a session-only skin journal note
-- Desktop sidebar and mobile bottom navigation
-
-## Scope and honesty
-
-ButterSkin is a fictional concept made for portfolio presentation. Product names, prices, and skincare content are illustrative. There is no backend, authentication, checkout, or persistent data storage. The prototype is not a medical tool and does not replace advice from a qualified dermatologist. No user research or usability testing is claimed.
-
-## Next steps
-
-1. Validate the information hierarchy with skincare users.
-2. Test product discovery and routine completion on real mobile devices.
-3. Refine accessibility, contrast, keyboard support, and screen-reader announcements.
-4. Develop a consistent product photography and packaging system.
-5. Explore onboarding and a more nuanced journal after research.
+> ButterSkin is fictional. It is not a real brand, shop or medical tool. Products, formulations, prices, people and journal entries are illustrative. Nothing is sold, stored or sent, and nothing here is medical advice. No user research or usability testing was carried out. The users and problems below are design assumptions, stated as such.
 
 ---
 
-*Concept & art direction: Purnananda Mishra · AI-assisted design and production*
+## 1. Overview
+
+ButterSkin is a concept for a skincare companion app. It helps you:
+- keep a simple morning and evening routine
+- find everyday essentials
+- note how your skin feels.
+
+It does this without scores, streaks or promises.
+
+**Deliverables:**
+- brand identity and design tokens
+- a packaging direction for eight fictional products
+- a responsive prototype with 22 exported screens and states
+- automated accessibility and behaviour checks
+- this case study.
+
+## 2. The design problem (assumptions)
+
+Many skincare and wellness apps lean on patterns that make care feel like performance. This project treats them as **assumptions to design against**, not research findings:
+
+- streaks, scores and badges that punish a missed night
+- "before and after" promises and miracle-style claims
+- long ingredient lists with no plain-language context
+- quizzes that feel like a diagnosis.
+
+**Principles:**
+1. **Skipping is fine.** Routines are checklists, never scores.
+2. **Where it fits, not what it fixes.** Products are described by their place in a routine.
+3. **Personal, not prescriptive.** Preferences reorder content and never diagnose.
+4. **Calm by default.** Soft colour, plain words, generous space.
+5. **Honest content.** "Fictional" and "concept" labels sit where claims usually would.
+
+## 3. Representative needs (assumption-based, not research personas)
+
+| Profile | Context | Representative question |
+|---|---|---|
+| The routine starter | Wants three or four steps that are easy to remember | "What do I actually need in the morning?" |
+| The ingredient-curious | Reads labels but feels lost in the jargon | "What is niacinamide, in plain words?" |
+| The gentle tracker | Notices flare-ups and wants a light way to keep notes | "Was my skin drier after that windy weekend?" |
+
+## 4. Key decisions
+
+| Decision | Why |
+|---|---|
+| **Removed the routine streak.** An early draft showed "Routine streak: 4 days". It became a "Saved on your shelf" count, and the final app shows today's progress only. | Streaks reward perfection and punish a missed night, which contradicts the brand idea. |
+| **"Skipping a step is fine."** Optional steps are labelled, the completion message is neutral, and "Clear today's ticks" is always available. | Progress stays informational, not moral. |
+| **Where it fits, not what it fixes.** The product dialog shows the routine step, how to use it, and ingredients described as what they are *commonly used for*. | Avoids implying results a fictional product can't support. |
+| **Concept labels in place.** "Concept product", "concept formulation", and "concept" on every pack label; a patch-test note on every product. | Fiction stays obvious even when one screen is seen alone. |
+| **Preferences, never diagnosis.** Setup is optional, has a "Not sure" option, and only reorders or filters products. | Personal without pretending to be clinical. |
+| **Notice, don't judge.** One-tap check-in on Home and a private journal, never scored; a note points to a doctor or dermatologist if something worries you. | Reflection without self-surveillance. |
+| **Identity: the pat.** A soft square with three rounded corners and one tucked corner, tilted 8°, holding a serif *b*. | Butter, softness and handmade warmth, without a literal butter illustration. |
+
+## 5. Information architecture & flows
+
+Tabs: **Home · Routine · Discover · Journal · Profile**. The shelf sits behind a heart in the header. Onboarding (three cards) and an optional setup come first.
+
+1. **First run:** Welcome 1 → 2 → 3 → optional setup → Home. Every step can be skipped.
+2. **Morning routine:** Home → Routine (tick steps; focus stays on the checkbox) → product dialog → Evening tab.
+3. **Discover:** search, category filters, a "Suits my focus" switch → product dialog → save to shelf.
+4. **Notice, don't judge:** Home check-in → Journal → New note, with gentle validation if the note is empty.
+
+## 6. Visual identity & packaging
+
+- **Mark and wordmark:** the pat with a Playfair Display *b*; the wordmark is DM Sans Bold, lowercase. Light, dark and one-colour versions, plus an app icon.
+- **Colour:** butter paper canvas, botanical olive for actions, and four category colours (sage = Cleanse, clay = Treat, butter = Moisturise, sky = Protect). Colour always comes with a text label.
+- **Type:** Playfair Display for editorial headlines, DM Sans for interface text. Both SIL OFL 1.1, served locally.
+- **Packaging (fictional):** five formats (tube, pump, dropper, jar, bottle) with olive caps, category-coloured bodies and a cream label carrying the pat, the product name and "size · concept".
+
+## 7. Accessibility
+
+Built and checked against WCAG 2.2 AA. Actual results are in [`../documentation/validation-report.md`](../documentation/validation-report.md).
+- All 18 token colour pairs pass AA (text 4.5:1, borders and focus 3:1).
+- axe-core 4.10.2 with WCAG 2.2 A/AA rules runs on 20 screens and states at mobile and desktop widths.
+- Real checkboxes, radio groups, labels and `aria-describedby` errors; a skip link; visible focus; 44 px touch targets; no text below 12 px; reduced motion respected.
+- The product dialog moves focus inside, traps Tab, closes on Escape or a backdrop click, returns focus to the product, and makes the page behind inert.
+- **Not yet done:** testing with screen-reader users or with people in general. Automated tests ran in Chromium only.
+
+## 8. Tools, contribution & limitations
+
+**Contribution:**
+- **Purnananda Mishra:** concept, art direction and review at each stage.
+- **AI-assisted:** design production, prototype code, packaging illustration, automated checks and writing, under that direction.
+
+**Tools:** HTML, CSS and JavaScript; Python (tokens, logo and packaging generation); Playwright with Chromium (screen exports and tests); axe-core 4.10.2.
+
+**Limitations:**
+- Fictional brand, products and data.
+- No user research or usability testing.
+- No dermatological, legal or regulatory review.
+- Session-only prototype with no backend.
+- English only; tested in Chromium only.

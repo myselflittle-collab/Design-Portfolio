@@ -76,7 +76,7 @@
       <div class="onb"><div class="visual ${slides.bg}" aria-hidden="true">${slides.art.map(id => `<img src="assets/packaging/${id}-scene.svg" alt="">`).join("")}</div>
       <div class="copy"><img src="assets/logo-lockup.svg" alt="ButterSkin" style="height:34px;width:auto;align-self:flex-start">
         <div class="eyebrow" style="margin-top:12px">${slides.eyebrow}</div><h1 tabindex="-1">${slides.h}</h1><p class="lede">${slides.p}</p>
-        <div class="dots" aria-label="Step ${n} of 3">${[1, 2, 3].map(i => `<i class="${i === n ? "on" : ""}"></i>`).join("")}</div>
+        <div class="dots" role="img" aria-label="Step ${n} of 3">${[1, 2, 3].map(i => `<i class="${i === n ? "on" : ""}"></i>`).join("")}</div>
         <div class="row" style="margin-top:12px;flex-wrap:wrap">
           <a class="btn primary" href="${n < 3 ? "#/welcome/" + (n + 1) : "#/setup"}">${n < 3 ? "Continue" : "Set up my space"}</a>
           <a class="btn text" href="#/home">Skip to the app</a></div>

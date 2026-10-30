@@ -1,0 +1,266 @@
+[
+ {
+  "group": "Files",
+  "check": "All required project files exist",
+  "pass": true,
+  "detail": "31 files"
+ },
+ {
+  "group": "Files",
+  "check": "Every product in data has packaging art (prototype + design)",
+  "pass": true,
+  "detail": "8 products"
+ },
+ {
+  "group": "References",
+  "check": "No external URLs in prototype code or assets (works offline)",
+  "pass": true,
+  "detail": "none"
+ },
+ {
+  "group": "References",
+  "check": "Every local src/href/url() in prototype HTML/CSS resolves",
+  "pass": true,
+  "detail": "ok"
+ },
+ {
+  "group": "References",
+  "check": "Every file path and link cited in the Markdown docs exists",
+  "pass": true,
+  "detail": "9 docs"
+ },
+ {
+  "group": "Data",
+  "check": "Routines and saved items reference real product ids",
+  "pass": true,
+  "detail": "ok"
+ },
+ {
+  "group": "Data",
+  "check": "Every product has all required fields",
+  "pass": true,
+  "detail": "ok"
+ },
+ {
+  "group": "Data",
+  "check": "Demo weekday matches demo date",
+  "pass": true,
+  "detail": "2026-10-28 is Wednesday"
+ },
+ {
+  "group": "Data",
+  "check": "Dataset declares itself fictional",
+  "pass": true,
+  "detail": "FICTIONAL CONCEPT CONTENT. ButterSkin is not a real brand. P"
+ },
+ {
+  "group": "Accessibility",
+  "check": "All 18 token colour pairs meet WCAG AA (4.5:1 text, 3:1 non-text)",
+  "pass": true,
+  "detail": "lowest 3.23:1"
+ },
+ {
+  "group": "Content",
+  "check": "No streaks, badges, levels or other pressure-driven gamification in the app",
+  "pass": true,
+  "detail": "none"
+ },
+ {
+  "group": "Content",
+  "check": "No cure, anti-ageing, whitening or guaranteed-result claims",
+  "pass": true,
+  "detail": "none"
+ },
+ {
+  "group": "Content",
+  "check": "No registered-trademark symbol for the fictional brand",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Content",
+  "check": "Exactly one credit wording used everywhere",
+  "pass": true,
+  "detail": "[\"Concept & art direction: Purnananda Mishra · AI-assisted design and production\"]"
+ },
+ {
+  "group": "Accessibility (mobile)",
+  "check": "axe-core 4.10.2, WCAG 2.2 A/AA rules: 0 violations on 20 screens/states",
+  "pass": true,
+  "detail": "20 routes clean"
+ },
+ {
+  "group": "Readability (mobile)",
+  "check": "No visible text smaller than 12 px",
+  "pass": true,
+  "detail": "ok"
+ },
+ {
+  "group": "Layout (mobile)",
+  "check": "No horizontal scrolling on any screen",
+  "pass": true,
+  "detail": "ok"
+ },
+ {
+  "group": "Runtime (mobile)",
+  "check": "No JavaScript errors and no network requests",
+  "pass": true,
+  "detail": "none"
+ },
+ {
+  "group": "Accessibility (desktop)",
+  "check": "axe-core 4.10.2, WCAG 2.2 A/AA rules: 0 violations on 20 screens/states",
+  "pass": true,
+  "detail": "20 routes clean"
+ },
+ {
+  "group": "Readability (desktop)",
+  "check": "No visible text smaller than 12 px",
+  "pass": true,
+  "detail": "ok"
+ },
+ {
+  "group": "Layout (desktop)",
+  "check": "No horizontal scrolling on any screen",
+  "pass": true,
+  "detail": "ok"
+ },
+ {
+  "group": "Runtime (desktop)",
+  "check": "No JavaScript errors and no network requests",
+  "pass": true,
+  "detail": "none"
+ },
+ {
+  "group": "Flows",
+  "check": "Onboarding 1→2→3 → setup → home, and setup choice changes Home picks",
+  "pass": true,
+  "detail": "Welcome 1 of 3 → Welcome 2 of 3 → Welcome 3 of 3 → Set up → Home; picks heading: For a calm & comfort focus"
+ },
+ {
+  "group": "Flows",
+  "check": "Routine: ticking updates the count, focus stays on the checkbox, Clear resets",
+  "pass": true,
+  "detail": "2 of 5 done → 3 of 5 done (focus c-am-moisturise) → 0 of 5 done"
+ },
+ {
+  "group": "Flows",
+  "check": "Discover: category filter, no-results state and Clear filters",
+  "pass": true,
+  "detail": "all 8, treat 3/3, no-results shown True, after clear 8"
+ },
+ {
+  "group": "Flows",
+  "check": "Saving a product updates its pressed state and the shelf",
+  "pass": true,
+  "detail": "pressed=true, shelf=3"
+ },
+ {
+  "group": "Dialog",
+  "check": "Opens from the keyboard, moves focus inside, makes the page behind inert",
+  "pass": true,
+  "detail": "open=True, focus='Close', inert=True"
+ },
+ {
+  "group": "Dialog",
+  "check": "Tab and Shift+Tab stay inside the dialog",
+  "pass": true,
+  "detail": "True/True"
+ },
+ {
+  "group": "Dialog",
+  "check": "Escape closes it and focus returns to the product that opened it",
+  "pass": true,
+  "detail": "closed=True, focus→#/product/still-water-essence"
+ },
+ {
+  "group": "Dialog",
+  "check": "Clicking the backdrop closes it",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Dialog",
+  "check": "Direct link to a product opens its dialog over Discover",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Forms",
+  "check": "Empty note: error shown, field marked invalid and described, focus moved to it",
+  "pass": true,
+  "detail": "invalid=true, error visible=True, focus=note, describedby=noteHint noteErr"
+ },
+ {
+  "group": "Forms",
+  "check": "Valid note saves and appears first in the journal",
+  "pass": true,
+  "detail": "28\nOct\nCalm\n\nTest note from the automated check."
+ },
+ {
+  "group": "Forms",
+  "check": "Every form control has a label (journal, search, preferences)",
+  "pass": true,
+  "detail": "0 unlabeled"
+ },
+ {
+  "group": "Flows",
+  "check": "Home check-in confirms with a toast and adds a journal entry (no score)",
+  "pass": true,
+  "detail": "Noted: Sensitive. Added to your journal."
+ },
+ {
+  "group": "Flows",
+  "check": "Restart returns to welcome",
+  "pass": true,
+  "detail": "ButterSkin · Welcome 1 of 3"
+ },
+ {
+  "group": "Flows",
+  "check": "Every link in the app goes to a real screen (no dead ends)",
+  "pass": true,
+  "detail": "ok"
+ },
+ {
+  "group": "Flows (desktop)",
+  "check": "Sidebar reaches every tab and marks the current one; mobile tab bar hidden",
+  "pass": true,
+  "detail": "[True, True, True, True, True], tabbar hidden=True"
+ },
+ {
+  "group": "Dialog (desktop)",
+  "check": "Keyboard open → focus on Close → Escape → focus back on the product",
+  "pass": true,
+  "detail": "open=True, focus=Close, back=#/product/quiet-night-oil"
+ },
+ {
+  "group": "Flows (desktop)",
+  "check": "Routine checkbox works at desktop width",
+  "pass": true,
+  "detail": "3 of 5 done"
+ },
+ {
+  "group": "Exports",
+  "check": "Every exported PNG decodes fully",
+  "pass": true,
+  "detail": "68 files"
+ },
+ {
+  "group": "Exports",
+  "check": "Resolution: mobile 1170×2532 (3×), desktop 2880×1800 (2×), presentation ≥ 3200 px wide",
+  "pass": true,
+  "detail": "ok"
+ },
+ {
+  "group": "Exports",
+  "check": "Behance captions list every board image, in upload order",
+  "pass": true,
+  "detail": "17 captioned / 17 files"
+ },
+ {
+  "group": "Exports",
+  "check": "Board text ≥ 13 px at Behance's 1400 px display width (phone/browser screenshots excluded)",
+  "pass": true,
+  "detail": "ok"
+ }
+]
