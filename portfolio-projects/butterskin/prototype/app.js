@@ -1,4 +1,4 @@
-/* ButterSkin prototype · Porcelain Garden. Fictional concept store: nothing is sold, stored or sent.
+/* ButterSkin prototype · Botanical Luxury. Fictional concept store: nothing is sold, stored or sent.
    All content comes from assets/data.js (generated from data/products.json by tools/build_data.py).
    Routes live in the URL hash, so every screen and state can be opened directly (see documentation/screen-inventory.md). */
 (function () {
@@ -29,7 +29,9 @@
   const icon = (n, cls) => `<svg class="ic${cls ? " " + cls : ""}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
   const inr = n => "₹" + n.toLocaleString("en-IN");
   const fmtDate = iso => { const [, m, d] = iso.split("-").map(Number); return `${d} ${MONTHS[m - 1]}`; };
-  const img = (p, kind, alt) => `<img src="assets/packaging/${p.id}${kind ? "-" + kind : ""}.svg" alt="${alt ? esc(alt) : ""}">`;
+  const img = (p, kind, alt) => `<img src="assets/products/${p.id}${kind ? "-" + kind : ""}.jpg" width="720" height="900" decoding="async" alt="${alt ? esc(alt) : ""}">`;
+  const photo = (f, alt) => `<img src="assets/photo/${f}.jpg" decoding="async" alt="${alt ? esc(alt) : ""}">`;
+  const ingLine = p => p.ingredients.slice(0, 2).map(i => i[0]).join(" · ");
   const bagCount = () => [...S.bag.values()].reduce((a, b) => a + b, 0);
   const subtotal = () => [...S.bag].reduce((a, [id, q]) => a + P[id].price * q, 0);
   const deliveryFee = (method) => method === "express" ? 149 : (subtotal() >= SHOP.free_delivery_over ? 0 : SHOP.delivery_fee);
@@ -44,12 +46,12 @@
   };
   function card(p) {
     return `<article class="pcard">
-      <div class="media bg-${p.category}">${img(p, "", p.name + ", fictional concept packaging")}<span class="tag">Concept</span>${wishBtn(p)}</div>
+      <div class="media bg-${p.category}">${img(p, "", p.name + ", 3D render of concept packaging")}<span class="tag">Concept</span>${wishBtn(p)}</div>
       <div class="body"><span class="cat">${esc(CAT[p.category].name)}</span>
         <a class="name" href="#/product/${p.id}">${esc(p.name)}</a>
-        <span class="desc">${esc(p.short)}</span>
+        <span class="desc">${esc(p.short)}</span><span class="ingl">${esc(ingLine(p))}</span>
         <div class="meta"><span class="price">${inr(p.price)}</span><span class="size">${esc(p.size)}</span></div>
-        <button class="btn btn-secondary btn-full add" id="add-${p.id}" data-add="${p.id}">${icon("bag")}Add to bag</button></div>
+        <button class="btn btn-primary btn-full add" id="add-${p.id}" data-add="${p.id}">${icon("bag")}Add to bag</button></div>
     </article>`;
   }
   function empty(title, text, action, href, art) {
@@ -69,13 +71,13 @@
   V.welcome = r => {
     const n = Math.min(3, Math.max(1, Number(r.parts[1] || 1)));
     const s = [
-      { bg: "bg-cleanse", art: ["cloud-milk-cleanser", "dewdrop-hydration-serum", "butter-balm-cream"], e: "Welcome to ButterSkin", h: "Botanical skincare,<br><em class=\"serif-i\">quietly considered.</em>",
+      { pic: "hero", e: "Welcome to ButterSkin", h: "Botanical skincare,<br><em class=\"serif-i\">quietly considered.</em>",
         p: "Shop a small edit of everyday essentials, keep a simple routine and notice how your skin feels. This is a fictional concept store: nothing is sold." },
-      { bg: "bg-treat", art: ["still-water-essence", "quiet-night-oil", "soft-cloud-moisturiser"], e: "Small steps", h: "Skipping a step<br><em class=\"serif-i\">is fine.</em>",
+      { pic: "detail", e: "Small steps", h: "Skipping a step<br><em class=\"serif-i\">is fine.</em>",
         p: "Routines are checklists, not scores. There are no streaks to keep and nothing to lose if you miss a night." },
-      { bg: "bg-protect", art: ["soft-gel-cleanser", "daylight-spf-50", "butter-balm-cream"], e: "Honest by design", h: "Where it fits,<br><em class=\"serif-i\">not what it fixes.</em>",
+      { pic: "texture", e: "Honest by design", h: "Where it fits,<br><em class=\"serif-i\">not what it fixes.</em>",
         p: "Every product shows its place in a routine and plain-language ingredients. ButterSkin never diagnoses skin or promises results." }][n - 1];
-    return { title: `Welcome ${n} of 3`, full: true, html: `<div class="onb"><div class="visual ${s.bg}" aria-hidden="true">${s.art.map(id => `<img src="assets/packaging/${id}-scene.svg" alt="">`).join("")}</div>
+    return { title: `Welcome ${n} of 3`, full: true, html: `<div class="onb"><div class="visual" aria-hidden="true">${s.pic === "texture" ? img(P["butter-balm-cream"], "texture") : photo(s.pic)}</div>
       <div class="copy"><img class="logo" src="assets/logo-lockup.svg" alt="ButterSkin">
         <div class="eyebrow em" style="margin-top:18px">${s.e}</div><h1 tabindex="-1">${s.h}</h1><p class="lede">${s.p}</p>
         <div class="dots" role="img" aria-label="Step ${n} of 3">${[1, 2, 3].map(i => `<i class="${i === n ? "on" : ""}"></i>`).join("")}</div>
@@ -96,11 +98,13 @@
     const am = D.routines.AM, done = am.filter(s => S.done.AM.has(s.id)).length, next = am.find(s => !S.done.AM.has(s.id));
     const picks = D.products.filter(p => p.focus.includes(S.profile.focus)).slice(0, 4);
     return { title: "Home", nav: "home", html: `
-      <section class="hero" aria-labelledby="heroH"><div class="copy"><div class="eyebrow em">The morning edit · concept</div>
-        <h1 id="heroH" tabindex="-1">Calm skin starts<br><em class="serif-i">with less.</em></h1>
-        <p class="lede">Four gentle steps for the morning, from a fictional botanical skincare line.</p>
-        <div class="row" style="flex-wrap:wrap;margin-top:10px"><a class="btn btn-primary" href="#/routine">Shop the routine</a><a class="btn btn-secondary" href="#/shop">Browse all</a></div></div>
-        <div class="art" aria-hidden="true">${["cloud-milk-cleanser", "dewdrop-hydration-serum", "soft-cloud-moisturiser", "daylight-spf-50"].map(id => `<img src="assets/packaging/${id}-scene.svg" alt="">`).join("")}</div></section>
+      <section class="hero" aria-labelledby="heroH"><div class="photo">${photo("hero", "ButterSkin products on stone with moss, white flowers and leaves in warm sunlight (3D render)")}</div>
+        <div class="copy"><img class="logo" src="assets/logo-lockup-reverse.svg" alt=""><div class="eyebrow">The morning edit · concept</div>
+        <h1 id="heroH" tabindex="-1">Real care<br><em class="serif-i">for real skin.</em></h1>
+        <p class="lede">Botanical concept formulas and a simple four-step morning ritual.</p>
+        <div class="row" style="flex-wrap:wrap;margin-top:10px"><a class="btn btn-primary" href="#/routine">Shop the routine</a><a class="btn btn-secondary" href="#/shop">Browse all</a></div></div></section>
+      <div class="values" role="list">${[["leaf", "Concept formulas", "Every product is a design concept, labelled as one."], ["info", "Plain-language ingredients", "What each one is commonly used for, never a promise."],
+        ["routine", "Routine first", "Products show where they fit. No scores, no streaks."]].map(([i, b, t]) => `<div role="listitem">${icon(i)}<div><b>${b}</b><span>${t}</span></div></div>`).join("")}</div>
       <div class="section-h"><h2>Shop by step</h2><a href="#/shop">Shop all</a></div>
       <div class="cats">${D.categories.map(c => { const p = D.products.find(x => x.category === c.id);
         return `<a class="cat-tile" href="#/shop?cat=${c.id}"><div class="media bg-${c.id}">${img(p)}</div><div class="t">${c.name}<span>${D.products.filter(x => x.category === c.id).length} products</span></div></a>`; }).join("")}</div>
@@ -150,16 +154,16 @@
     if (V.product._last !== p.id) { pdpQty = 1; pdpView = ""; V.product._last = p.id; }
     const inAM = D.routines.AM.find(s => s.product === p.id), inPM = D.routines.PM.find(s => s.product === p.id), wished = S.wish.has(p.id);
     const pairs = D.products.filter(x => x.id !== p.id && x.routine === p.routine).slice(0, 4);
-    const views = [["", "Product"], ["scene", "On a shelf"], ["texture", "Texture"]];
+    const views = [["", "Product"], ["scene", "In the garden"], ["texture", "Texture"]];
     return { title: p.name, nav: "shop", html: `
       <nav class="crumbs" aria-label="Breadcrumb"><a href="#/shop">Shop</a> / <a href="#/shop?cat=${p.category}">${CAT[p.category].name}</a> / <span aria-current="page">${esc(p.name)}</span></nav>
       <div class="pdp">
-        <div class="gallery"><div class="media main-img bg-${p.category}" id="mainImg">${img(p, pdpView, p.name + (pdpView === "texture" ? " texture, illustrative" : ", fictional concept packaging"))}<span class="tag">Concept product</span></div>
+        <div class="gallery"><div class="media main-img bg-${p.category}" id="mainImg">${img(p, pdpView, p.name + (pdpView === "texture" ? " texture swatch, 3D render" : pdpView === "scene" ? " on stone with leaves, 3D render" : ", 3D render of concept packaging"))}<span class="tag">Concept product</span></div>
           <div class="thumbs" role="group" aria-label="Product images">${views.map(([k, l]) => `<button class="bg-${p.category}" data-view="${k}" aria-pressed="${pdpView === k}" aria-label="Show ${l.toLowerCase()} image">${img(p, k)}</button>`).join("")}</div></div>
         <div>
           <div class="eyebrow em">${CAT[p.category].name} · concept product</div>
           <h1 tabindex="-1">${esc(p.name)}</h1>
-          <p class="lede">${esc(p.short)}.</p>
+          <p class="lede">${esc(p.short)}.</p><p class="small muted" style="margin:8px 0 0">Key ingredients: ${esc(p.ingredients.map(i => i[0]).join(" · "))}</p>
           <div class="row" style="margin-top:16px;gap:14px"><span class="price" style="font-size:22px">${inr(p.price)}</span><span class="muted">${esc(p.size)}</span></div>
           <div class="facts"><div><b>Texture</b>${esc(p.texture)}</div><div><b>Routine</b>${inAM ? "Morning" : inPM ? "Evening" : "Either"}</div><div><b>Size</b>${esc(p.size)}</div></div>
           <div class="label" id="qtyLabel">Quantity</div>
@@ -307,8 +311,8 @@
   V.about = () => ({ title: "About this concept", nav: "account", html: `<a class="btn btn-text" href="#/account">${icon("back", "sm")}Account</a><h1 tabindex="-1" style="margin-top:14px">About this concept</h1>
     <div class="stack" style="max-width:760px;margin-top:18px">
       <div class="panel"><h2 class="h3">What ButterSkin is</h2><p>A self-initiated design concept for a botanical skincare brand and its shopping and routine app, created for a design portfolio.</p></div>
-      <div class="panel"><h2 class="h3">What it is not</h2><p>Not a real brand, shop or medical tool. Products, formulations, prices, people and journal entries are fictional. Packaging images are rendered illustrations, not photographs. Nothing is sold, charged, stored or sent.</p></div>
-      <div class="panel"><h2 class="h3">Credits</h2><p>Concept &amp; art direction: Purnananda Mishra · AI-assisted design and production</p><p class="small muted">Typefaces: Bodoni Moda, Jost and DM Sans (₹ sign only), SIL Open Font License 1.1.</p></div></div>` });
+      <div class="panel"><h2 class="h3">What it is not</h2><p>Not a real brand, shop or medical tool. Products, formulations, prices, people and journal entries are fictional. Product images are photorealistic 3D renders of modelled packaging, not photographs. Nothing is sold, charged, stored or sent.</p></div>
+      <div class="panel"><h2 class="h3">Credits</h2><p>Concept &amp; art direction: Purnananda Mishra · AI-assisted design and production</p><p class="small muted">Typefaces: Playfair Display and Inter, SIL Open Font License 1.1. Product renders made with Blender (Cycles).</p></div></div>` });
 
   /* ---------- added-to-bag dialog ---------- */
   let returnTo = null;

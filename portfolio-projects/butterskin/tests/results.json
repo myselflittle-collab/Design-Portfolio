@@ -3,13 +3,13 @@
   "group": "Files",
   "check": "All required project files exist",
   "pass": true,
-  "detail": "32 files"
+  "detail": "34 files"
  },
  {
   "group": "Files",
-  "check": "Every product in data has packaging art (prototype + design)",
+  "check": "Every product has a packshot, a garden scene and a texture render, plus label artwork",
   "pass": true,
-  "detail": "8 products"
+  "detail": "8 products × 3 renders + labels"
  },
  {
   "group": "References",
@@ -55,9 +55,9 @@
  },
  {
   "group": "Accessibility",
-  "check": "All 18 token colour pairs meet WCAG AA (4.5:1 text, 3:1 non-text)",
+  "check": "All 20 token colour pairs meet WCAG AA (4.5:1 text, 3:1 non-text)",
   "pass": true,
-  "detail": "lowest 3.42:1"
+  "detail": "lowest 3.19:1"
  },
  {
   "group": "Content",

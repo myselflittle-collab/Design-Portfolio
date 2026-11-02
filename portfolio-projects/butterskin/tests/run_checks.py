@@ -31,17 +31,18 @@ ROUTES = ["#/welcome/1", "#/welcome/2", "#/welcome/3", "#/setup", "#/home", "#/s
 # ====================================================================== 1. required files
 REQUIRED = ["README.md", "data/products.json", "prototype/index.html", "prototype/app.js", "prototype/styles.css", "prototype/assets/data.js",
             "prototype/assets/tokens.css", "prototype/assets/logo-lockup.svg", "prototype/assets/logo-mark.svg",
-            "prototype/assets/fonts/BodoniModa-OFL.txt", "prototype/assets/fonts/Jost-OFL.txt", "prototype/assets/fonts/DMSans-OFL.txt",
+            "prototype/assets/fonts/PlayfairDisplay-OFL.txt", "prototype/assets/fonts/Inter-OFL.txt", "prototype/assets/photo/hero.jpg",
             "design/tokens/tokens.json", "design/tokens/tokens.css", "design/brand/brand-guidelines.md",
-            "design/brand/logo/butterskin-monogram.svg", "design/brand/logo/butterskin-lockup.svg", "design/brand/logo/butterskin-lockup-dark.svg",
-            "design/brand/logo/butterskin-wordmark.svg", "design/brand/app-icon/app-icon-1024.svg", "design/brand/packaging/family-lineup.svg",
+            "design/brand/logo/butterskin-emblem.svg", "design/brand/logo/butterskin-lockup-stacked.svg", "design/brand/logo/butterskin-lockup-stacked-dark.svg",
+            "design/brand/logo/butterskin-wordmark.svg", "design/brand/app-icon/app-icon-1024.svg", "design/brand/packaging/renders/range.jpg",
             "behance/case-study.md", "behance/captions.md", "behance/project-description.md",
             "documentation/file-inventory.md", "documentation/known-limitations.md", "documentation/screen-inventory.md",
-            "tools/brand.py", "tools/build_data.py", "tools/export_screens.py", "tools/boards.py", "tests/vendor/axe-core-LICENSE.txt"]
+            "tools/brand.py", "tools/build_data.py", "tools/export_screens.py", "tools/boards.py", "tools/render/render.py", "tools/render/install.py", "tests/vendor/axe-core-LICENSE.txt"]
 missing = [f for f in REQUIRED if not os.path.exists(f"{ROOT}/{f}")]
 check("Files", "All required project files exist", not missing, missing or f"{len(REQUIRED)} files")
-pk = [p["id"] for p in DATA["products"] if not (os.path.exists(f"{ROOT}/prototype/assets/packaging/{p['id']}.svg") and os.path.exists(f"{ROOT}/design/brand/packaging/{p['id']}.svg"))]
-check("Files", "Every product in data has packaging art (prototype + design)", not pk, pk or f"{len(DATA['products'])} products")
+pk = [f"{p['id']}{v}" for p in DATA["products"] for v in ("", "-scene", "-texture") if not os.path.exists(f"{ROOT}/prototype/assets/products/{p['id']}{v}.jpg")]
+pk += [f"label {p['id']}" for p in DATA["products"] if not os.path.exists(f"{ROOT}/design/brand/packaging/labels/{p['id']}.png")]
+check("Files", "Every product has a packshot, a garden scene and a texture render, plus label artwork", not pk, pk or f"{len(DATA['products'])} products × 3 renders + labels")
 
 # ====================================================================== 2. references
 broken, external = [], []
@@ -58,8 +59,6 @@ for f in proto_files:
                 continue
             if not os.path.exists(os.path.normpath(os.path.join(os.path.dirname(f), r))):
                 broken.append(f"{rel(f)} → {r}")
-for r in re.findall(r"assets/packaging/\$\{[^}]+\}(-scene)?\.svg", open(f"{ROOT}/prototype/app.js").read()):
-    pass
 check("References", "No external URLs in prototype code or assets (works offline)", not external, external or "none")
 check("References", "Every local src/href/url() in prototype HTML/CSS resolves", not broken, broken or "ok")
 docs = glob.glob(f"{ROOT}/**/*.md", recursive=True)

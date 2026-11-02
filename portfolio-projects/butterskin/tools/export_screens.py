@@ -43,11 +43,13 @@ DESKTOP = ["05-home", "06-shop", "10-product", "13-bag", "15-checkout", "20-rout
 def capture(page, sid, route, action=None):
     page.goto("about:blank"); page.goto(URL + route); page.wait_for_timeout(250)
     page.evaluate("document.fonts.ready")
+    page.evaluate("Promise.all([...document.images].map(i => i.decode().catch(() => null)))")
     if action == "checkin":
         page.click('[data-checkin="A little dry"]'); page.wait_for_timeout(300)
         page.evaluate("document.querySelector('.checkin').scrollIntoView({block:'center'})")
     if action == "add":
         page.click("#pdpAdd"); page.wait_for_timeout(300)
+        page.evaluate("Promise.all([...document.images].map(i => i.decode().catch(() => null)))")
     if action == "scroll-ingredients":
         page.evaluate("document.querySelectorAll('details.acc')[2].scrollIntoView({block:'start'});window.scrollBy(0,-120)")
     page.mouse.move(0, 0)

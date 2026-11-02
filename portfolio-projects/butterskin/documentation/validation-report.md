@@ -6,8 +6,8 @@ Environment: Python Playwright with headless Chromium; axe-core 4.10.2 (vendored
 
 | # | Group | Check | Result | Detail |
 |---|---|---|---|---|
-| 1 | Files | All required project files exist | ✅ Pass | 32 files |
-| 2 | Files | Every product in data has packaging art (prototype + design) | ✅ Pass | 8 products |
+| 1 | Files | All required project files exist | ✅ Pass | 34 files |
+| 2 | Files | Every product has a packshot, a garden scene and a texture render, plus label artwork | ✅ Pass | 8 products × 3 renders + labels |
 | 3 | References | No external URLs in prototype code or assets (works offline) | ✅ Pass | none |
 | 4 | References | Every local src/href/url() in prototype HTML/CSS resolves | ✅ Pass | ok |
 | 5 | References | Every file path and link cited in the Markdown docs exists | ✅ Pass | 9 docs |
@@ -15,7 +15,7 @@ Environment: Python Playwright with headless Chromium; axe-core 4.10.2 (vendored
 | 7 | Data | Every product has all required fields | ✅ Pass | ok |
 | 8 | Data | Demo weekday matches demo date | ✅ Pass | 2026-10-28 is Wednesday |
 | 9 | Data | Dataset declares itself fictional | ✅ Pass | FICTIONAL CONCEPT CONTENT. ButterSkin is not a real brand or |
-| 10 | Accessibility | All 18 token colour pairs meet WCAG AA (4.5:1 text, 3:1 non-text) | ✅ Pass | lowest 3.42:1 |
+| 10 | Accessibility | All 20 token colour pairs meet WCAG AA (4.5:1 text, 3:1 non-text) | ✅ Pass | lowest 3.19:1 |
 | 11 | Content | No streaks, badges, levels or other pressure-driven gamification in the app | ✅ Pass | none |
 | 12 | Content | No cure, anti-ageing, whitening or guaranteed-result claims | ✅ Pass | none |
 | 13 | Content | No registered-trademark symbol for the fictional brand | ✅ Pass |  |
