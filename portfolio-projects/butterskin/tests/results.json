@@ -303,7 +303,7 @@
   "group": "Exports",
   "check": "Every exported PNG decodes fully",
   "pass": true,
-  "detail": "78 files"
+  "detail": "79 files"
  },
  {
   "group": "Exports",
@@ -321,7 +321,7 @@
   "group": "Exports",
   "check": "Behance captions list every board image, in upload order",
   "pass": true,
-  "detail": "16 captioned / 16 files"
+  "detail": "17 captioned / 17 files"
  },
  {
   "group": "Exports",

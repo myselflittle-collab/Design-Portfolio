@@ -60,10 +60,10 @@ Test note from the automated check. |
 | 48 | Flows (desktop) | Top navigation reaches every section and marks the current one; mobile tab bar hidden | ✅ Pass | [True, True, True, True, True] |
 | 49 | Dialog (desktop) | Card Add to bag → dialog → Escape → focus back on that card's button | ✅ Pass | add-daylight-spf-50 |
 | 50 | Flows (desktop) | Bag shows lines and an order summary side by side | ✅ Pass |  |
-| 51 | Exports | Every exported PNG decodes fully | ✅ Pass | 78 files |
+| 51 | Exports | Every exported PNG decodes fully | ✅ Pass | 79 files |
 | 52 | Exports | Resolution: mobile 1170×2532 (3×), desktop 2880×1800 (2×), presentation ≥ 3200 px wide | ✅ Pass | ok |
 | 53 | Exports | No developer-testing or accessibility-statistics board in the Behance set | ✅ Pass | ok |
-| 54 | Exports | Behance captions list every board image, in upload order | ✅ Pass | 16 captioned / 16 files |
+| 54 | Exports | Behance captions list every board image, in upload order | ✅ Pass | 17 captioned / 17 files |
 | 55 | Exports | Board text ≥ 13 px at Behance's 1400 px display width (phone/browser screenshots excluded) | ✅ Pass | ok |
 
 ## What these checks do not cover
