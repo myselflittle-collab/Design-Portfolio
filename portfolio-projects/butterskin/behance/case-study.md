@@ -1,7 +1,7 @@
 # ButterSkin: Botanical Skincare, Real Care for Real Skin
 
 **Self-initiated concept · Brand identity, packaging design, 3D product renders, e-commerce UX/UI and prototype · 2026**
-**Concept & art direction: Purnananda Mishra · AI-assisted design and production**
+**Concept & art direction: Purnananda Mishra**
 
 > ButterSkin is fictional. It is not a real brand, shop or medical tool. Products, formulations, prices and journal entries are illustrative. Product images are photorealistic 3D renders, not photographs. The checkout is a demo: no order is placed and nothing is charged. Nothing here is medical advice. No user research or usability testing was carried out, and the principles below are design assumptions.
 
@@ -96,7 +96,6 @@ The app was built against WCAG 2.2 AA. Actual results are in [`../documentation/
 
 **Contribution:**
 - **Purnananda Mishra:** concept, art direction, choice of the Botanical Luxury direction, and review at each stage.
-- **AI-assisted:** design production, prototype code, 3D packaging and renders, checks and writing, under that direction.
 
 **Tools:** HTML, CSS and JavaScript; Python (tokens and logo generation); Blender Cycles (3D product renders); Playwright with Chromium (screen exports and tests); axe-core 4.10.2.
 

@@ -8,7 +8,7 @@ D = json.load(open(f"{ROOT}/data/products.json"))
 TOK = json.load(open(f"{ROOT}/design/tokens/tokens.json"))
 P = {p["id"]: p for p in D["products"]}
 ORDER = ["cloud-milk-cleanser", "soft-gel-cleanser", "still-water-essence", "dewdrop-hydration-serum", "quiet-night-oil", "butter-balm-cream", "soft-cloud-moisturiser", "daylight-spf-50"]
-CREDIT = "Concept &amp; art direction: Purnananda Mishra · AI-assisted design and production"
+CREDIT = "Concept &amp; art direction: Purnananda Mishra"
 UP = "../../"
 R = f"{UP}design/brand/packaging/renders"
 LOGO = f"{UP}design/brand/logo"
@@ -231,8 +231,7 @@ B.append(("16-mockups", 1200, f"""
 B.append(("17-credits", 920, f"""
   <div class="ey">Tools, contribution &amp; limitations</div><h2>How this was made</h2>
   <div class="g3" style="margin-top:40px">
-    <div class="card"><h3>Contribution</h3><p style="margin-top:12px"><b>Purnananda Mishra</b>: concept, art direction, choice of direction and review at each stage.</p>
-      <p style="margin-top:12px"><b>AI-assisted</b>: design production, prototype code, 3D packaging and writing, under that direction.</p></div>
+    <div class="card"><h3>Contribution</h3><p style="margin-top:12px"><b>Purnananda Mishra</b>: concept, art direction, choice of direction and review at each stage.</p></div>
     <div class="card"><h3>Tools</h3><ul style="margin:12px 0 0 28px"><li>HTML, CSS, JavaScript</li><li>Python: tokens and logo generation</li><li>Blender Cycles: 3D product renders</li><li>Playwright: screen exports</li><li>Playfair Display &amp; Inter (SIL OFL)</li></ul></div>
     <div class="card"><h3>Limitations</h3><ul style="margin:12px 0 0 28px"><li>Fictional brand, products and prices</li><li>3D renders, not photography</li><li>Demo checkout: nothing is sold</li><li>No user research or usability testing</li><li>No dermatological or regulatory review</li></ul></div></div>""", CANVAS, "Credits"))
 

@@ -81,7 +81,13 @@
   "group": "Content",
   "check": "Exactly one credit wording used everywhere",
   "pass": true,
-  "detail": "[\"Concept & art direction: Purnananda Mishra · AI-assisted design and production\"]"
+  "detail": "[\"Concept & art direction: Purnananda Mishra\"]"
+ },
+ {
+  "group": "Content",
+  "check": "Only the approved credit line is used; no other contributor credit anywhere",
+  "pass": true,
+  "detail": "none"
  },
  {
   "group": "Accessibility (mobile)",

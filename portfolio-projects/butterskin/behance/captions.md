@@ -20,7 +20,7 @@ Upload the images from `exports/behance/` in this order. Each one is 3200 px wid
 | 14 | `14-responsive.png` | One shop from phone to desktop. |
 | 15 | `15-desktop.png` | Shop, product details, bag and demo checkout on a larger screen. |
 | 16 | `16-mockups.png` | Emerald, ivory, unhurried. |
-| 17 | `17-credits.png` | Concept & art direction: Purnananda Mishra · AI-assisted design and production. Tools, contribution and limitations. |
+| 17 | `17-credits.png` | Concept & art direction: Purnananda Mishra. Tools, contribution and limitations. |
 
 There is no accessibility or testing board. Test results are kept in `documentation/validation-report.md` only.
 

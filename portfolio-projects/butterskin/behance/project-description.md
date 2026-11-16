@@ -12,7 +12,7 @@ The app lets you discover products by routine step or skin focus, read key ingre
 
 Concept disclaimer: ButterSkin is fictional. Products, formulations and prices are illustrative. Product images are photorealistic 3D renders made in Blender, not photographs. The checkout is a demo, so nothing is sold or charged. Nothing here is medical advice, and no user research or testing was carried out.
 
-Concept & art direction: Purnananda Mishra · AI-assisted design and production
+Concept & art direction: Purnananda Mishra
 
 **Tools used:** HTML, CSS, JavaScript, Python, Blender, Playwright
 

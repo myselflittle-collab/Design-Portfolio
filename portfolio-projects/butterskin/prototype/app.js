@@ -312,7 +312,7 @@
     <div class="stack" style="max-width:760px;margin-top:18px">
       <div class="panel"><h2 class="h3">What ButterSkin is</h2><p>A self-initiated design concept for a botanical skincare brand and its shopping and routine app, created for a design portfolio.</p></div>
       <div class="panel"><h2 class="h3">What it is not</h2><p>Not a real brand, shop or medical tool. Products, formulations, prices, people and journal entries are fictional. Product images are photorealistic 3D renders of modelled packaging, not photographs. Nothing is sold, charged, stored or sent.</p></div>
-      <div class="panel"><h2 class="h3">Credits</h2><p>Concept &amp; art direction: Purnananda Mishra · AI-assisted design and production</p><p class="small muted">Typefaces: Playfair Display and Inter, SIL Open Font License 1.1. Product renders made with Blender (Cycles).</p></div></div>` });
+      <div class="panel"><h2 class="h3">Credits</h2><p>Concept &amp; art direction: Purnananda Mishra</p><p class="small muted">Typefaces: Playfair Display and Inter, SIL Open Font License 1.1. Product renders made with Blender (Cycles).</p></div></div>` });
 
   /* ---------- added-to-bag dialog ---------- */
   let returnTo = null;

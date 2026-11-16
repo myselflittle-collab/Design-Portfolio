@@ -10,7 +10,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 URL = f"file://{ROOT}/prototype/index.html"
 AXE = open(f"{ROOT}/tests/vendor/axe.min.js").read()
 DATA = json.load(open(f"{ROOT}/data/products.json"))
-CREDIT = "Concept & art direction: Purnananda Mishra · AI-assisted design and production"
+CREDIT = "Concept & art direction: Purnananda Mishra"
 RESULTS = []
 
 
@@ -101,9 +101,14 @@ check("Content", "No registered-trademark symbol for the fictional brand", "®" 
 txt_files = [f for f in glob.glob(f"{ROOT}/**/*", recursive=True) if f.endswith((".md", ".html", ".js")) and "/vendor/" not in f]
 variants = set()
 for f in txt_files:
-    for m in re.finditer(r"Concept\s*(?:&amp;|&)\s*(?:art direction|design):[^<\n*\"`]*?production", open(f).read()):
+    for m in re.finditer(r"Concept\s*(?:&amp;|&)\s*(?:art direction|design)[^:<\n]{0,20}:\s*[A-Z][A-Za-z]+(?: [A-Z][A-Za-z]+)*", open(f).read()):
         variants.add(html.unescape(m.group(0)))
 check("Content", "Exactly one credit wording used everywhere", variants == {CREDIT}, sorted(variants))
+ai = []
+for f in glob.glob(f"{ROOT}/**/*", recursive=True):
+    if os.path.isfile(f) and f.endswith((".md", ".html", ".js", ".css", ".json", ".py", ".svg")) and "/vendor/" not in f and not f.endswith(("run_checks.py", "results.json", "validation-report.md")):
+        if re.search(r"ai[- ]assisted", open(f, encoding="utf-8", errors="ignore").read(), re.I): ai.append(rel(f))
+check("Content", "Only the approved credit line is used; no other contributor credit anywhere", not ai, ai or "none")
 
 # ====================================================================== 6. live checks in Chromium
 live = {}
