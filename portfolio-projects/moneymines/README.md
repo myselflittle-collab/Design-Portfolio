@@ -75,6 +75,6 @@ portfolio-projects/moneymines/
 
 ## Credits & licences
 
-- **Concept & art direction: Purnananda Mishra · AI-assisted design and production.**
+- **Concept & art direction: Purnananda Mishra.**
 - Typefaces: Space Grotesk by Florian Karsten; Inter by Rasmus Andersson. Both SIL Open Font License 1.1.
 - All other artwork is original to this project.

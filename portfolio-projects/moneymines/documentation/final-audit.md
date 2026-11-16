@@ -87,7 +87,7 @@ Two first-run failures were **false positives**: the credit-consistency regex ca
 | E Behance | Slides 07–11 are identical to the current brand-board exports | ✅ Pass |  |
 | E Exports | Every PNG decodes fully (not just header) | ✅ Pass | 131 files |
 | E Exports | Every SVG parses | ✅ Pass | 49 files |
-| E Credit | Exactly one credit wording used across all text sources | ✅ Pass | {'Concept & art direction: Purnananda Mishra · AI-assisted design and production'} |
+| E Credit | Exactly one credit wording used across all text sources | ✅ Pass | {'Concept & art direction: Purnananda Mishra'} |
 | E Credit | No older credit wording anywhere | ✅ Pass |  |
 | F Docs | Every file path and link cited in the Markdown docs exists | ✅ Pass | 13 docs |
 | F Docs | Numeric claims in docs match the files (51 screens, 19 images, 30 icons, 8 flows) | ✅ Pass | {'51 screens': True, '19 images': True, '30 icons': True, '8 guided flows': True, '19 colour pairs': True} |

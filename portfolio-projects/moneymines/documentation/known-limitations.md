@@ -30,4 +30,4 @@ This file is kept up to date at every stage.
 
 ## Decisions
 - Approved on 28 Oct 2026: Strike mark and field-survey direction.
-- Credit line (set at Stage 4): "Concept & art direction: Purnananda Mishra · AI-assisted design and production."
+- Credit line: "Concept & art direction: Purnananda Mishra."

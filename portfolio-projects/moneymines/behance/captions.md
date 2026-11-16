@@ -22,6 +22,6 @@ Upload the images from `exports/behance/` in this order. Every image is 3200 px 
 | 16 | `16-states.png` | Loading, empty, error, failed and reversed. Each leads with what happened and whether money moved. |
 | 17 | `17-accessibility.png` | WCAG 2.2 AA from the token level. Not yet tested with assistive-technology users. |
 | 18 | `18-mockups.png` | Wallet, referrals, rewards and notifications: calm, legible, accountable. |
-| 19 | `19-credits.png` | Concept & art direction: Purnananda Mishra · AI-assisted design and production. Tools, contribution and limitations. |
+| 19 | `19-credits.png` | Concept & art direction: Purnananda Mishra. Tools, contribution and limitations. |
 
 **Optional extras** (in `exports/mockups/`): `mockup-01-hero.png` for the project thumbnail crop, and `mockup-02` to `mockup-04` as standalone images.

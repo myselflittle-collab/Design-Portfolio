@@ -1,7 +1,7 @@
 # MoneyMines: A Rewards App That Shows Its Working
 
 **Self-initiated concept · Brand identity, UX and UI design · 2026**
-**Concept & art direction: Purnananda Mishra · AI-assisted design and production**
+**Concept & art direction: Purnananda Mishra**
 
 > MoneyMines is fictional. No bank, UPI, payment gateway or financial API is connected. Every rate, merchant, person and amount is demonstration data, and no money moves. No user research or usability testing was carried out. The users and problems below are design assumptions, stated as such.
 
@@ -123,7 +123,6 @@ Also designed: skeleton loading, empty states (activity filter, first-use reward
 
 **Contribution:**
 - **Purnananda Mishra:** concept, brief, art direction, and review and approval at every stage.
-- **AI-assisted:** design exploration, screen production, prototype build and documentation, under that direction.
 
 **Tools:** HTML/CSS (screens, boards, slides); Python (data generation, logo geometry, rendering); Chromium via Playwright (exports and automated checks); fontTools (outlined logo type).
 

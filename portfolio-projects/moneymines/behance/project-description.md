@@ -18,7 +18,7 @@ The project includes the Strike identity, a token-based design system, 51 connec
 
 Concept disclaimer: MoneyMines is fictional. No bank, UPI, payment gateway or financial API is connected, all data is demonstration data, and no user research or testing was carried out.
 
-Concept & art direction: Purnananda Mishra · AI-assisted design and production
+Concept & art direction: Purnananda Mishra
 
 **Tools used (Behance field):** HTML, CSS, Python, Playwright, fontTools
 
